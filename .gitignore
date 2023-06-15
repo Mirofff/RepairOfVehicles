@@ -67,3 +67,9 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+
+# Binary directory
+bin
+
+# Reports in MS Windows
+*.xlsx
