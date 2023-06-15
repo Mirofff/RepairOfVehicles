@@ -1,0 +1,53 @@
+@startuml Диаграмма вариантов использования
+
+skinparam TitleFontSize 20
+skinparam TitleBorderColor Grey
+
+skinparam Linetype polyline
+
+title 
+Диаграмма вариантов использования по теме "Ремонт транспортных средств"
+end title
+
+left to right direction
+
+:"Физ.Лицо": as phisCustomer
+:"Юр.Лицо": as LgCustomer
+:Заказчик: as customer
+
+phisCustomer --|> customer
+LgCustomer --|> customer
+
+:Менеджер: as manager
+
+
+(Сбор сведений об авто) as getAutoData
+getAutoData ..> (Собрать технические\nхарактеристики авто) : <<include>>
+getAutoData ..> (Собрать юридическую\nинформацию авто) : <<include>>
+getAutoData <.l. (Собрать информацию о комплектации) : <<extend>>
+
+manager -- getAutoData
+customer -- getAutoData
+
+customer --- (Оформление бумаг)
+manager --- (Оформление бумаг)
+
+(Сбор сведений о клиенте) as getCustomerData
+getCustomerData ..> (Получить перс.Данные) : <<include>>
+getCustomerData ..> (Получить способ\nсвязи с клиентом) : <<include>>
+(Получить информацию\nо организации) .l.> getCustomerData : <<extend>>
+
+manager -- getCustomerData
+customer -- getCustomerData
+
+customer -r- (Выбор услуг)
+customer -r- (Выбор комплектующих)
+customer -r- (Оплатить)
+
+manager -l- (Проверить наличие боксов)
+manager -l- (Занести данные о клиенте и о его авто)
+manager -l- (Предоставить информацию\nо оказываемых услугах)
+manager -- (Предоставить информацию\nо доступных расходниках)
+manager -- (Подсчет услуг и\nрасходников на оплату)
+
+@enduml

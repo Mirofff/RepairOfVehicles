@@ -1,0 +1,127 @@
+@startuml Диаграмма классов
+
+skinparam TitleFontSize 20
+skinparam TitleBorderColor Grey
+
+skinparam Linetype polyline
+
+title 
+Диаграмма классов по теме "Ремонт транспортных средств"
+end title
+
+left to right direction
+
+class "Client" as client {
+    +name: string
+    +surname: string
+    +patronymic: string
+    +phoneNumber: bigint
+    +address: string
+    +passport: Passport*
+
+    +addClient(): void
+    +editClient(): void
+    +deleteClient(): void
+}
+
+class "Passport" as passport {
+    +series: int
+    +number: int
+    +dateOfIssue: data
+    +issued: string
+    +placeOfLiving: string
+
+}
+
+client *-- passport
+
+class "Car" as car {
+    +releaseYear: int
+    +miliage: int
+    +color: string
+    +VIN: string
+    +brand: string
+    +model: string
+    +body: string
+    +engine: Engine*
+    +numbers: StateNumber*
+
+    +addCar(): void
+    +editCar(): void
+    +deleteCar(): void
+}
+
+class "Engine" as engine {
+    +volume: string
+    +power: string
+    +fuel: string
+
+    +addEngine(): void
+    +editEngine(): void
+    +deleteEngine(): void
+}
+
+class "StateNumber" as number {
+    +number: string
+    +region: int
+
+    +addNumber(): void
+    +editNumber(): void
+    +deleteNumber(): void
+}
+
+car <|-- engine
+car <|-- number
+
+class "Service" as service {
+    +price: decimal[10, 2]
+    +description: string
+    +count: int
+    +consumables: Consumables*
+
+    +addService(): void
+    +editService(): void
+    +deleteService(): void
+}
+
+class "Consumables" as consumables {
+    +count: int
+    +description: string
+    +price: decimal[10, 2]
+    +measurement: string
+
+    +getFinalPrice(): decimal[10, 2]
+    +addConsumables(): void
+    +editConsumables(): void
+    +deleteConsumables(): void
+}
+
+service <|-- consumables
+
+class "Order" as order {
+    car: Car*
+    client: Client*
+    service: Service*
+
+    +sendToPrint(): void
+    +addOrder(): void
+    +editOrder(): void
+    +deleteOrder(): void
+}
+
+order -- client
+order -- car
+order -- service
+
+@enduml
+
+
+-- 1.CREATE TABLE
+-- 2.INSERT(добавление строки)
+-- 3.DELETE(удаление строки)
+-- 4.UPDATE(изменение строки)
+-- 5.SELECT
+-- 6.Добавление вторичного ключа
+-- 7.Добавление колонки в таблицу
+-- 8.Удаление колонки из таблицы
+-- 9.Очистить таблицу

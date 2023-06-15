@@ -1,0 +1,41 @@
+@startuml Диаграмма вариантов использования
+
+skinparam TitleFontSize 20
+skinparam TitleBorderColor Grey
+
+skinparam Linetype polyline
+
+title 
+Диаграмма вариантов использования по теме "Тарификация преподавателей"
+end title
+
+left to right direction
+
+:Преподаватель: as teacher
+:Секретарь: as secretary
+
+secretary -- (Составить список групп)
+secretary -- (Составить список преподавателей)
+secretary -- (Распределить преподавателей\nпо дисциплинам)
+
+(Расчитать оклад преподавателя) as calculatePayment
+(Подсчитать количество\nотработаных часов\nпреподавателя) as calculateHours
+(Утвердить тарификационную таблицу) as approveTable
+
+secretary -- calculateHours
+calculateHours ..> (Подсчет часов работы) : <<include>>
+calculateHours ..> (Подсчет часов за консультации) : <<include>>
+calculateHours ..> (Подсчет часов за\nпроведение экзаменов) : <<include>>
+calculateHours ..> (Учет работы по\nчетной/нечетной недели) : <<include>>
+
+secretary -- calculatePayment
+calculatePayment <.. (Расчет оплаты за\nдополнительнкую деятельность) : <<extend>>
+
+teacher -- (Предоставить данные по\nотработанным часам)
+(Предоставить данные по\nотработанным часам) <.. (Добавить данные о\nдополнительной работе) : <<extend>>
+teacher -- (Установить время и\nпродолжительность экзаменов)
+
+teacher -- approveTable
+secretary -- approveTable
+
+@enduml
