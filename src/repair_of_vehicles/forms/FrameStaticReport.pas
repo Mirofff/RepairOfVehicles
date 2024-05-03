@@ -11,19 +11,17 @@ uses
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.StdCtrls,
   Vcl.ExtCtrls, Vcl.WinXPickers, Vcl.Buttons, Vcl.DBCtrls, Vcl.DBGrids,
   frxClass,
-  frxDBSet, frxExportBaseDialog, frxExportPDF;
+  frxDBSet, frxExportBaseDialog, frxExportPDF, frxSmartMemo, frCoreClasses;
 
 type
   TFrameStaticReport = class(TFrame)
     DBGrid1: TDBGrid;
     Panel1: TPanel;
-    FDQuery1: TFDQuery;
-    DataSource1: TDataSource;
     Button1: TButton;
     frxReport1: TfrxReport;
     frxPDFExport1: TfrxPDFExport;
     frxDBDataset1: TfrxDBDataset;
-    procedure Button1Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -35,10 +33,5 @@ implementation
 {$R *.dfm}
 
 uses frmRepairOfVehicles;
-
-procedure TFrameStaticReport.Button1Click(Sender: TObject);
-begin
-  frxReport1.ShowReport;
-end;
 
 end.

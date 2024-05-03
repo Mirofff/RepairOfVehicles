@@ -383,7 +383,7 @@ object Form1: TForm1
     FormatOptions.ADOCompatibility = True
     ResourceOptions.AssignedValues = [rvAutoReconnect]
     ResourceOptions.AutoReconnect = True
-    Connected = True
+    Connected = False
     LoginPrompt = False
     Left = 394
     Top = 562

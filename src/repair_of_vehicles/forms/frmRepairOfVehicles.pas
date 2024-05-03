@@ -17,12 +17,6 @@ uses
 
 type
   TMainForm = class(TForm)
-    SplitView1: TSplitView;
-    ReautorizationButton: TSpeedButton;
-    ExitButton: TSpeedButton;
-    HandBookButton: TSpeedButton;
-    ReportButton: TSpeedButton;
-    OperationLogButton: TSpeedButton;
     PageControl1: TPageControl;
     TabSheet2: TTabSheet;
     PageControl2: TPageControl;
@@ -51,24 +45,36 @@ type
     SpeedButton1: TSpeedButton;
     ImageCollection1: TImageCollection;
     VirtualImageList1: TVirtualImageList;
-    FDQuery1: TFDQuery;
-    FDConnection1: TFDConnection;
+
     FrameDyncamicReport1: TFrameDyncamicReport;
     FrameStaticReport1: TFrameStaticReport;
-    HelpButton: TSpeedButton;
     FrameOperationsLog1: TFrameOperationsLog;
-    procedure Button1Click(Sender: TObject);
+    SplitViewDatabaseConnection: TSplitView;
+    SplitViewMenu: TSplitView;
+    ReautorizationButton: TSpeedButton;
+    ExitButton: TSpeedButton;
+    HandBookButton: TSpeedButton;
+    ReportButton: TSpeedButton;
+    OperationLogButton: TSpeedButton;
+    HelpButton: TSpeedButton;
+    GridPanelDatabaseConnection: TGridPanel;
+    Button8: TButton;
+    Panel4: TPanel;
+    GridPanel3: TGridPanel;
+    GridPanel4: TGridPanel;
+    Panel1: TPanel;
+    Label3: TLabel;
+    EditDBHost: TEdit;
+    Panel2: TPanel;
+    Label4: TLabel;
+    EditDBPort: TEdit;
+    FDConnectionMain: TFDConnection;
+    Button2: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure ReautorizationButtonClick(Sender: TObject);
-    procedure HandBookButtonClick(Sender: TObject);
-    procedure ReportButtonClick(Sender: TObject);
-    procedure OperationLogButtonClick(Sender: TObject);
-    procedure ExitButtonClick(Sender: TObject);
-    procedure CreateTheDynamicReportForm;
-    procedure HelpButtonClick(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
-    procedure FrameDyncamicReport1Button1Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -81,146 +87,80 @@ var
 implementation
 
 {$R *.dfm}
-{ =--- Model's form procedures ---= }
-procedure createTheEngineForm(tabShee: TTabSheet); external 'engines.dll';
-procedure resizeTheEngineForm; external 'engines.dll';
+// { =--- Model's form procedures ---= }
+// procedure createTheEngineForm(tabShee: TTabSheet); external 'engines.dll';
+// procedure resizeTheEngineForm; external 'engines.dll';
+//
+// { =--- Model's form procedures ---= }
+// procedure createModelForm(tabShee: TTabSheet); external 'models.dll';
+// procedure resizeModelForm; external 'models.dll';
+//
+// { =--- Brand's form procedures ---= }
+// procedure createBrandsForm(tabShee: TTabSheet); external 'brands.dll';
+// procedure resizeBrandsForm; external 'brands.dll';
+//
+// { =--- Car's form procedures ---= }
+// procedure createCarsForm(tabShee: TTabSheet); external 'cars.dll';
+// procedure resizeCarsForm; external 'cars.dll';
+//
+// { =--- Service's form procedures ---= }
+// procedure createServicesForm(tabShee: TTabSheet); external 'services.dll';
+// procedure resizeServicesForm; external 'services.dll';
+//
+// { =--- Consumable's form procedures ---= }
+// procedure createConsumablesForm(tabShee: TTabSheet); external 'consumables.dll';
+// procedure resizeConsumablesForm; external 'consumables.dll';
+//
+// { =--- Client's form procedures ---= }
+// procedure createClientsForm(tabShee: TTabSheet); external 'clients.dll';
+// procedure resizeClientsForm; external 'clients.dll';
 
-{ =--- Model's form procedures ---= }
-procedure createModelForm(tabShee: TTabSheet); external 'models.dll';
-procedure resizeModelForm; external 'models.dll';
-
-{ =--- Brand's form procedures ---= }
-procedure createBrandsForm(tabShee: TTabSheet); external 'brands.dll';
-procedure resizeBrandsForm; external 'brands.dll';
-
-{ =--- Car's form procedures ---= }
-procedure createCarsForm(tabShee: TTabSheet); external 'cars.dll';
-procedure resizeCarsForm; external 'cars.dll';
-
-{ =--- Service's form procedures ---= }
-procedure createServicesForm(tabShee: TTabSheet); external 'services.dll';
-procedure resizeServicesForm; external 'services.dll';
-
-{ =--- Consumable's form procedures ---= }
-procedure createConsumablesForm(tabShee: TTabSheet); external 'consumables.dll';
-procedure resizeConsumablesForm; external 'consumables.dll';
-
-{ =--- Client's form procedures ---= }
-procedure createClientsForm(tabShee: TTabSheet); external 'clients.dll';
-procedure resizeClientsForm; external 'clients.dll';
-
-procedure TMainForm.Button1Click(Sender: TObject);
+procedure TMainForm.Button2Click(Sender: TObject);
 begin
-
-  FDQuery1.Open('select * from users where login = ' + QuotedStr(EditLogin.Text)
-    + ' and password = ' + QuotedStr(EditPassword.Text));
-  if FDQuery1.FieldByName('status').AsInteger = 1 then
+  with FDConnectionMain do
   begin
-    HandBookButton.Enabled := true;
-    OperationLogButton.Enabled := true;
-    ReportButton.Enabled := true;
-    ReautorizationButton.Enabled := true;
-    PageControl1.ActivePage := TabSheet10;
-    TabSheet4.TabVisible := true;
-    TabSheet8.TabVisible := true;
-  end
-  else if FDQuery1.FieldByName('status').AsInteger = 2 then
-  begin
-    OperationLogButton.Enabled := true;
-    ReportButton.Enabled := true;
-    HandBookButton.Enabled := true;
-    ReautorizationButton.Enabled := true;
-    PageControl1.ActivePage := TabSheet10;
-    TabSheet4.TabVisible := false;
-    TabSheet8.TabVisible := false;
-  end
-  else
-  begin
-    showmessage('Неправильный логин или пароль!');
+    Params.Values['Server'] := EditDBHost.Text;
+    Params.Values['Port'] := EditDBPort.Text;
   end;
-  EditLogin.Text := '';
-  EditPassword.Text := '';
+
+  FDConnectionMain.Connected := true;
+  SplitViewDatabaseConnection.Opened := false;
 end;
 
-procedure TMainForm.ExitButtonClick(Sender: TObject);
+procedure TMainForm.Button8Click(Sender: TObject);
+
 begin
-  MainForm.Close;
+  SplitViewDatabaseConnection.Opened := true;
+
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   { =--- Include forms initialize ---= }
-  CreateTheDynamicReportForm;
+  // CreateTheDynamicReportForm;
 
   { =--- DLL's forms initialize ---= }
-  createTheEngineForm(TabSheet3);
-  createModelForm(TabSheet5);
-  createBrandsForm(TabSheet4);
-  createCarsForm(TabSheet9);
-  createServicesForm(TabSheet8);
-  createConsumablesForm(TabSheet7);
-  createClientsForm(TabSheet6);
+  // createTheEngineForm(TabSheet3);
+  // createModelForm(TabSheet5);
+  // createBrandsForm(TabSheet4);
+  // createCarsForm(TabSheet9);
+  // createServicesForm(TabSheet8);
+  // createConsumablesForm(TabSheet7);
+  // createClientsForm(TabSheet6);
 
   PageControl1.ActivePage := TabSheet1;
+
 end;
 
 procedure TMainForm.FormResize(Sender: TObject);
 begin
-  resizeTheEngineForm;
-  resizeModelForm;
-  resizeBrandsForm;
-  resizeCarsForm;
-  resizeServicesForm;
-  resizeConsumablesForm;
-  resizeClientsForm
-end;
-
-procedure TMainForm.FrameDyncamicReport1Button1Click(Sender: TObject);
-begin
-  FrameDyncamicReport1.Button1Click(Sender);
-
-end;
-
-procedure TMainForm.HandBookButtonClick(Sender: TObject);
-begin
-  PageControl1.ActivePage := TabSheet2;
-end;
-
-procedure TMainForm.HelpButtonClick(Sender: TObject);
-begin
-  ShellExecute(handle, 'open',  '.\Help.pdf', nil, nil, SW_SHOWNORMAL);
-end;
-
-procedure TMainForm.OperationLogButtonClick(Sender: TObject);
-begin
-  PageControl1.ActivePage := TabSheet13;
-end;
-
-procedure TMainForm.ReautorizationButtonClick(Sender: TObject);
-begin
-  PageControl1.ActivePage := TabSheet1;
-  ReautorizationButton.Enabled := false;
-  HandBookButton.Enabled := false;
-  ReportButton.Enabled := false;
-  OperationLogButton.Enabled := false;
-end;
-
-procedure TMainForm.ReportButtonClick(Sender: TObject);
-begin
-  PageControl1.ActivePage := TabSheet10;
-end;
-
-procedure TMainForm.SpeedButton1Click(Sender: TObject);
-begin
-  if SplitView1.Opened then
-  SplitView1.Close
-  else SplitView1.Open;
-
-end;
-
-procedure TMainForm.CreateTheDynamicReportForm;
-begin
-  // show
+  // resizeTheEngineForm;
+  // resizeModelForm;
+  // resizeBrandsForm;
+  // resizeCarsForm;
+  // resizeServicesForm;
+  // resizeConsumablesForm;
+  // resizeClientsForm
 end;
 
 end.
