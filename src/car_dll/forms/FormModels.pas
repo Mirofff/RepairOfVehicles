@@ -17,8 +17,6 @@ uses
 
 type
   TForm1 = class(TForm)
-    FDConnection1: TFDConnection;
-    DataSource1: TDataSource;
     Panel2: TPanel;
     GroupBox1: TGroupBox;
     SearchEdit: TEdit;
@@ -34,7 +32,6 @@ type
     GridPanel1: TGridPanel;
     Button2: TButton;
     Button4: TButton;
-    SearchQuery: TFDQuery;
     GroupBox7: TGroupBox;
     Label2: TLabel;
     GroupBox4: TGroupBox;
@@ -43,7 +40,6 @@ type
     GroupBox5: TGroupBox;
     Edit1: TEdit;
     ComboBox1: TComboBox;
-    FDQuery1: TFDQuery;
     GroupBox8: TGroupBox;
     Edit3: TEdit;
     GroupBox10: TGroupBox;
@@ -57,19 +53,6 @@ type
     GroupBox12: TGroupBox;
     ComboBox5: TComboBox;
     DBGrid1: TDBGrid;
-    SearchQueryid: TFDAutoIncField;
-    SearchQueryvin: TWideStringField;
-    SearchQuerymileage: TIntegerField;
-    SearchQuerycolor: TWideStringField;
-    SearchQueryStateNumber: TWideStringField;
-    SearchQueryequipment: TWideStringField;
-    SearchQuerymodel_id: TLongWordField;
-    SearchQueryengine_id: TLongWordField;
-    SearchQuerymodel: TWideStringField;
-    SearchQuerybrand: TWideStringField;
-    SearchQueryid_1: TLongWordField;
-    SearchQueryname: TWideStringField;
-    SearchQueryid_2: TLongWordField;
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);

@@ -28,8 +28,7 @@ object Form1: TForm1
   ParentBiDiMode = False
   Position = poDefault
   StyleElements = [seFont, seClient]
-  OnCreate = FormCreate
-  TextHeight = 20
+  TextHeight = 15
   object Splitter1: TSplitter
     Left = 289
     Top = 52
@@ -97,7 +96,6 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
-        OnChange = SearchEditChange
       end
     end
     object GroupBox2: TGroupBox
@@ -115,7 +113,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9664' '
-        OnClick = SpeedButton1Click
         ExplicitLeft = 6
         ExplicitTop = 16
       end
@@ -126,7 +123,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = '|'#9664' '
-        OnClick = SpeedButton2Click
         ExplicitLeft = 69
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -138,7 +134,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9654'|'
-        OnClick = SpeedButton3Click
         ExplicitLeft = 139
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -150,7 +145,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9654' '
-        OnClick = SpeedButton4Click
         ExplicitLeft = 221
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -190,9 +184,9 @@ object Form1: TForm1
         object Label2: TLabel
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -201,8 +195,8 @@ object Form1: TForm1
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          ExplicitTop = 20
           ExplicitWidth = 275
+          ExplicitHeight = 25
         end
       end
       object GroupBox4: TGroupBox
@@ -216,9 +210,9 @@ object Form1: TForm1
         object Edit1: TEdit
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -240,9 +234,9 @@ object Form1: TForm1
         TabOrder = 2
         object ComboBox1: TComboBox
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 28
+          Height = 23
           Align = alClient
           TabOrder = 0
         end
@@ -257,9 +251,9 @@ object Form1: TForm1
         TabOrder = 3
         object ComboBox2: TComboBox
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 28
+          Height = 23
           Align = alClient
           TabOrder = 0
           Items.Strings = (
@@ -298,11 +292,10 @@ object Form1: TForm1
         Align = alBottom
         Caption = #1044#1086#1073#1072#1074#1080#1090#1100
         TabOrder = 0
-        OnClick = Button3Click
       end
       object GridPanel1: TGridPanel
         Left = 2
-        Top = 22
+        Top = 17
         Width = 285
         Height = 36
         Align = alTop
@@ -341,7 +334,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
           TabOrder = 0
-          OnClick = Button2Click
         end
         object Button4: TButton
           AlignWithMargins = True
@@ -352,7 +344,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1059#1076#1072#1083#1080#1090#1100
           TabOrder = 1
-          OnClick = Button4Click
         end
       end
       object Button5: TButton
@@ -365,7 +356,6 @@ object Form1: TForm1
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         Enabled = False
         TabOrder = 2
-        OnClick = Button5Click
       end
     end
   end
@@ -377,15 +367,13 @@ object Form1: TForm1
     Height = 617
     Align = alClient
     BorderStyle = bsNone
-    DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -15
+    TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
-    OnCellClick = DBGrid1CellClick
     Columns = <
       item
         Expanded = False
@@ -408,81 +396,5 @@ object Form1: TForm1
         Width = 168
         Visible = True
       end>
-  end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      'Password=Mozg v stakane'
-      'User_Name=root'
-      'CharacterSet=utf8'
-      'Database=course_work'
-      'DriverID=MySQL')
-    FormatOptions.AssignedValues = [fvADOCompatibility]
-    FormatOptions.ADOCompatibility = True
-    ResourceOptions.AssignedValues = [rvAutoReconnect]
-    ResourceOptions.AutoReconnect = True
-    Connected = False
-    LoginPrompt = False
-    Left = 360
-    Top = 464
-  end
-  object DataSource1: TDataSource
-    DataSet = SearchQuery
-    Left = 488
-    Top = 383
-  end
-  object SearchQuery: TFDQuery
-    Active = True
-    Connection = FDConnection1
-    SQL.Strings = (
-      
-        'SELECT * FROM course_work.model join course_work.brand on course' +
-        '_work.model.brand = course_work.brand.id;')
-    Left = 596
-    Top = 474
-    object SearchQueryid: TFDAutoIncField
-      FieldName = 'id'
-    end
-    object SearchQuerymodel: TWideStringField
-      FieldName = 'model'
-      Required = True
-      Size = 35
-    end
-    object SearchQuerybody: TWideStringField
-      FieldName = 'body'
-      Required = True
-      Size = 45
-    end
-    object SearchQuerybrand: TLongWordField
-      FieldName = 'brand'
-      Required = True
-    end
-    object SearchQueryid_1: TLongWordField
-      FieldName = 'id_1'
-      ReadOnly = True
-    end
-    object SearchQuerybrand_1: TWideStringField
-      FieldName = 'brand_1'
-      ReadOnly = True
-      Size = 35
-    end
-  end
-  object FDQuery1: TFDQuery
-    Active = True
-    Connection = FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM course_work.brand')
-    Left = 672
-    Top = 360
-    object FDQuery1id: TFDAutoIncField
-      FieldName = 'id'
-      Origin = 'id'
-      ProviderFlags = [pfInWhere, pfInKey]
-    end
-    object FDQuery1brand: TWideStringField
-      FieldName = 'brand'
-      Origin = 'brand'
-      Required = True
-      Size = 35
-    end
   end
 end

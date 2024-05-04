@@ -29,7 +29,7 @@ object Form1: TForm1
   Position = poDesigned
   StyleElements = [seFont, seClient]
   OnCreate = FormCreate
-  TextHeight = 20
+  TextHeight = 15
   object Splitter1: TSplitter
     Left = 289
     Top = 52
@@ -191,9 +191,9 @@ object Form1: TForm1
         object Label2: TLabel
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -202,8 +202,8 @@ object Form1: TForm1
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          ExplicitTop = 20
           ExplicitWidth = 275
+          ExplicitHeight = 25
         end
       end
       object GroupBox4: TGroupBox
@@ -216,9 +216,9 @@ object Form1: TForm1
         TabOrder = 1
         object ComboBox1: TComboBox
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 28
+          Height = 23
           Align = alClient
           TabOrder = 0
           Items.Strings = (
@@ -465,9 +465,9 @@ object Form1: TForm1
         object Edit1: TEdit
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -490,9 +490,9 @@ object Form1: TForm1
         object Edit3: TEdit
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -515,9 +515,9 @@ object Form1: TForm1
         object Edit4: TEdit
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -539,9 +539,9 @@ object Form1: TForm1
         TabOrder = 5
         object ComboBox3: TComboBox
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 28
+          Height = 23
           Align = alClient
           TabOrder = 0
           Items.Strings = (
@@ -563,9 +563,9 @@ object Form1: TForm1
         TabOrder = 6
         object ComboBox4: TComboBox
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 28
+          Height = 23
           Align = alClient
           TabOrder = 0
         end
@@ -580,9 +580,9 @@ object Form1: TForm1
         TabOrder = 7
         object ComboBox2: TComboBox
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 28
+          Height = 23
           Align = alClient
           TabOrder = 0
           OnChange = ComboBox2Change
@@ -598,9 +598,9 @@ object Form1: TForm1
         TabOrder = 8
         object ComboBox5: TComboBox
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 28
+          Height = 23
           Align = alClient
           TabOrder = 0
         end
@@ -627,7 +627,7 @@ object Form1: TForm1
       end
       object GridPanel1: TGridPanel
         Left = 2
-        Top = 22
+        Top = 17
         Width = 285
         Height = 36
         Align = alTop
@@ -702,12 +702,11 @@ object Form1: TForm1
     Height = 606
     Align = alClient
     BorderStyle = bsNone
-    DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -15
+    TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
     OnCellClick = DBGrid1CellClick
@@ -753,117 +752,5 @@ object Form1: TForm1
         Width = 79
         Visible = True
       end>
-  end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      'Password=Mozg v stakane'
-      'User_Name=root'
-      'CharacterSet=utf8'
-      'Database=course_work'
-      'DriverID=MySQL')
-    FormatOptions.AssignedValues = [fvADOCompatibility]
-    FormatOptions.ADOCompatibility = True
-    ResourceOptions.AssignedValues = [rvAutoReconnect]
-    ResourceOptions.AutoReconnect = True
-    Connected = False
-    LoginPrompt = False
-    Left = 536
-    Top = 360
-  end
-  object DataSource1: TDataSource
-    DataSet = SearchQuery
-    Left = 408
-    Top = 359
-  end
-  object SearchQuery: TFDQuery
-    Active = True
-    Connection = FDConnection1
-    SQL.Strings = (
-      'SELECT '
-      '    c.id,'
-      '    c.vin,'
-      '    c.mileage,'
-      '    c.color,'
-      '    c.StateNumber,'
-      '    c.equipment,'
-      '    c.model_id,'
-      '    c.engine_id,'
-      '    m.model,'
-      '    b.brand,'
-      '    m.id,'
-      '    e.name,'
-      '    e.id'
-      'FROM'
-      '    course_work.car AS c'
-      '        JOIN'
-      '    course_work.model AS m ON c.model_id = m.id'
-      '        JOIN'
-      '    course_work.engine AS e ON c.engine_id = e.id'
-      '        JOIN'
-      '    course_work.brand AS b ON m.brand = b.id;'
-      '')
-    Left = 524
-    Top = 442
-    object SearchQueryid: TFDAutoIncField
-      FieldName = 'id'
-    end
-    object SearchQueryvin: TWideStringField
-      FieldName = 'vin'
-      Required = True
-      Size = 17
-    end
-    object SearchQuerymileage: TIntegerField
-      FieldName = 'mileage'
-    end
-    object SearchQuerycolor: TWideStringField
-      FieldName = 'color'
-      Required = True
-      Size = 45
-    end
-    object SearchQueryStateNumber: TWideStringField
-      FieldName = 'StateNumber'
-      Required = True
-      Size = 8
-    end
-    object SearchQueryequipment: TWideStringField
-      FieldName = 'equipment'
-      Size = 200
-    end
-    object SearchQuerymodel_id: TLongWordField
-      FieldName = 'model_id'
-      Required = True
-    end
-    object SearchQueryengine_id: TLongWordField
-      FieldName = 'engine_id'
-      Required = True
-    end
-    object SearchQuerymodel: TWideStringField
-      FieldName = 'model'
-      ReadOnly = True
-      Size = 35
-    end
-    object SearchQuerybrand: TWideStringField
-      FieldName = 'brand'
-      ReadOnly = True
-      Size = 35
-    end
-    object SearchQueryid_1: TLongWordField
-      FieldName = 'id_1'
-      ReadOnly = True
-    end
-    object SearchQueryname: TWideStringField
-      FieldName = 'name'
-      ReadOnly = True
-      Size = 100
-    end
-    object SearchQueryid_2: TLongWordField
-      FieldName = 'id_2'
-      ReadOnly = True
-    end
-  end
-  object FDQuery1: TFDQuery
-    Connection = FDConnection1
-    Left = 680
-    Top = 352
   end
 end

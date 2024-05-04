@@ -29,7 +29,7 @@ object Form1: TForm1
   Position = poDefault
   StyleElements = [seFont, seClient]
   OnCreate = FormCreate
-  TextHeight = 20
+  TextHeight = 15
   object Splitter1: TSplitter
     Left = 289
     Top = 52
@@ -191,9 +191,9 @@ object Form1: TForm1
         object LabelID: TLabel
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -202,8 +202,8 @@ object Form1: TForm1
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          ExplicitTop = 20
           ExplicitWidth = 275
+          ExplicitHeight = 25
         end
       end
       object GroupBox4: TGroupBox
@@ -217,9 +217,9 @@ object Form1: TForm1
         object EditBrand: TEdit
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -253,7 +253,7 @@ object Form1: TForm1
       end
       object GridPanel1: TGridPanel
         Left = 2
-        Top = 22
+        Top = 17
         Width = 285
         Height = 36
         Align = alTop
@@ -328,54 +328,12 @@ object Form1: TForm1
     Height = 617
     Align = alClient
     BorderStyle = bsNone
-    DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -15
+    TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
-  end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      'Password=Mozg v stakane'
-      'User_Name=root'
-      'CharacterSet=utf8'
-      'Database=course_work'
-      'DriverID=MySQL')
-    FormatOptions.AssignedValues = [fvADOCompatibility]
-    FormatOptions.ADOCompatibility = True
-    ResourceOptions.AssignedValues = [rvAutoReconnect]
-    ResourceOptions.AutoReconnect = True
-    Connected = False
-    LoginPrompt = False
-    Left = 536
-    Top = 272
-  end
-  object DataSource1: TDataSource
-    DataSet = SearchQuery
-    Left = 532
-    Top = 455
-  end
-  object SearchQuery: TFDQuery
-    Active = True
-    Connection = FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM course_work.brand order by course_work.brand.id;')
-    Left = 528
-    Top = 360
-    object SearchQueryID: TFDAutoIncField
-      FieldName = 'ID'
-      Origin = 'ID'
-      ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
-    end
-    object SearchQueryBrand: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'Brand'
-      Origin = 'Brand'
-      Size = 35
-    end
   end
 end

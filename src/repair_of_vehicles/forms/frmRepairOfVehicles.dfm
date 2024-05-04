@@ -1,9 +1,9 @@
 object MainForm: TMainForm
-  Left = 0
-  Top = 0
+  Left = 909
+  Top = 31
   Caption = #1056#1077#1084#1086#1085#1090' '#1090#1088#1072#1085#1089#1087#1086#1088#1090#1085#1099#1093' '#1089#1088#1077#1076#1089#1090#1074
   ClientHeight = 557
-  ClientWidth = 972
+  ClientWidth = 964
   Color = clBtnFace
   CustomTitleBar.CaptionAlignment = taCenter
   CustomTitleBar.Control = TitleBarPanel1
@@ -28,28 +28,29 @@ object MainForm: TMainForm
   Font.Style = []
   GlassFrame.Enabled = True
   GlassFrame.Top = 31
+  Position = poDesigned
   StyleElements = [seFont, seClient]
   OnCreate = FormCreate
   OnResize = FormResize
   TextHeight = 15
-  object PageControl1: TPageControl
+  object PageControlMain: TPageControl
     AlignWithMargins = True
     Left = 48
     Top = 30
-    Width = 924
+    Width = 916
     Height = 527
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
     Margins.Bottom = 0
-    ActivePage = TabSheet1
+    ActivePage = TabSheetHandbooks
     Align = alClient
     Constraints.MinHeight = 400
     Constraints.MinWidth = 400
     DoubleBuffered = False
     ParentDoubleBuffered = False
     TabOrder = 0
-    object TabSheet2: TTabSheet
+    object TabSheetHandbooks: TTabSheet
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -60,13 +61,13 @@ object MainForm: TMainForm
       object PageControl2: TPageControl
         Left = 0
         Top = 0
-        Width = 916
+        Width = 908
         Height = 517
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 0
         Margins.Bottom = 0
-        ActivePage = TabSheet5
+        ActivePage = TabSheet3
         Align = alClient
         HotTrack = True
         MultiLine = True
@@ -104,13 +105,13 @@ object MainForm: TMainForm
         end
       end
     end
-    object TabSheet1: TTabSheet
+    object TabSheetAuth: TTabSheet
       Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
       TabVisible = False
       object GridPanel1: TGridPanel
         Left = 0
         Top = 0
-        Width = 916
+        Width = 908
         Height = 517
         Align = alClient
         BevelOuter = bvNone
@@ -150,11 +151,8 @@ object MainForm: TMainForm
           end>
         ShowCaption = False
         TabOrder = 0
-        ExplicitLeft = 287
-        ExplicitTop = -3
-        ExplicitWidth = 635
         object Panel5: TPanel
-          Left = 258
+          Left = 254
           Top = 158
           Width = 400
           Height = 200
@@ -274,11 +272,12 @@ object MainForm: TMainForm
             Align = alBottom
             Caption = #1040#1074#1090#1086#1088#1080#1079#1080#1088#1086#1074#1072#1090#1100#1089#1103
             TabOrder = 1
+            OnClick = Button1Click
           end
         end
         object Button8: TButton
           AlignWithMargins = True
-          Left = 308
+          Left = 304
           Top = 489
           Width = 300
           Height = 25
@@ -288,9 +287,6 @@ object MainForm: TMainForm
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100' '#1087#1086#1076#1082#1083#1102#1095#1077#1085#1080#1077
           TabOrder = 1
           OnClick = Button8Click
-          ExplicitLeft = 3
-          ExplicitTop = 425
-          ExplicitWidth = 394
         end
       end
       object SplitViewDatabaseConnection: TSplitView
@@ -335,12 +331,10 @@ object MainForm: TMainForm
               Value = 33.333333300000000000
             end
             item
-              Value = 33.333333399999990000
+              Value = 33.333333400000000000
             end>
           ShowCaption = False
           TabOrder = 0
-          ExplicitLeft = -1
-          ExplicitWidth = 280
           object Panel4: TPanel
             Left = -120
             Top = 172
@@ -354,7 +348,6 @@ object MainForm: TMainForm
             ShowCaption = False
             TabOrder = 0
             StyleElements = [seFont, seClient]
-            ExplicitLeft = 20
             object GridPanel3: TGridPanel
               Left = 0
               Top = 0
@@ -380,7 +373,6 @@ object MainForm: TMainForm
                 end>
               ShowCaption = False
               TabOrder = 0
-              ExplicitHeight = 142
               object GridPanel4: TGridPanel
                 Left = 0
                 Top = 0
@@ -412,7 +404,6 @@ object MainForm: TMainForm
                   end>
                 ShowCaption = False
                 TabOrder = 0
-                ExplicitHeight = 142
                 object Panel1: TPanel
                   Left = 1
                   Top = 1
@@ -423,7 +414,6 @@ object MainForm: TMainForm
                   ShowCaption = False
                   TabOrder = 0
                   StyleElements = [seFont, seClient]
-                  ExplicitHeight = 140
                   object Label3: TLabel
                     Left = 1
                     Top = 1
@@ -454,7 +444,6 @@ object MainForm: TMainForm
                   ShowCaption = False
                   TabOrder = 1
                   StyleElements = [seFont, seClient]
-                  ExplicitHeight = 140
                   object Label4: TLabel
                     Left = 1
                     Top = 1
@@ -486,22 +475,19 @@ object MainForm: TMainForm
               Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
               TabOrder = 1
               OnClick = Button2Click
-              ExplicitLeft = 48
-              ExplicitTop = 116
-              ExplicitWidth = 75
             end
           end
         end
       end
     end
-    object TabSheet10: TTabSheet
+    object TabSheetReports: TTabSheet
       Caption = #1054#1090#1095#1077#1090#1099
       ImageIndex = 2
       TabVisible = False
       object PageControl3: TPageControl
         Left = 0
         Top = 0
-        Width = 916
+        Width = 908
         Height = 517
         ActivePage = TabSheet12
         Align = alClient
@@ -511,23 +497,23 @@ object MainForm: TMainForm
           inline FrameDyncamicReport1: TFrameDyncamicReport
             Left = 0
             Top = 0
-            Width = 908
+            Width = 900
             Height = 487
             Align = alClient
             TabOrder = 0
-            ExplicitWidth = 908
+            ExplicitWidth = 900
             ExplicitHeight = 487
             inherited GroupBox1: TGroupBox
-              Width = 908
-              ExplicitWidth = 908
+              Width = 900
+              ExplicitWidth = 900
               inherited DatePicker1: TDatePicker
-                Width = 904
-                ExplicitWidth = 904
+                Width = 896
+                ExplicitWidth = 896
               end
             end
             inherited GridPanel1: TGridPanel
               Top = 452
-              Width = 908
+              Width = 900
               ControlCollection = <
                 item
                   Column = 0
@@ -541,20 +527,18 @@ object MainForm: TMainForm
                 end>
               StyleElements = [seFont, seClient, seBorder]
               ExplicitTop = 452
-              ExplicitWidth = 908
+              ExplicitWidth = 900
               inherited Label1: TLabel
-                Height = 35
                 StyleElements = [seFont, seClient, seBorder]
               end
               inherited Button1: TButton
-                Left = 761
-                ExplicitLeft = 761
+                ExplicitLeft = 753
               end
             end
             inherited StringGrid1: TStringGrid
-              Width = 908
+              Width = 900
               Height = 387
-              ExplicitWidth = 908
+              ExplicitWidth = 900
               ExplicitHeight = 387
             end
             inherited frxReport1: TfrxReport
@@ -578,26 +562,26 @@ object MainForm: TMainForm
           inline FrameStaticReport1: TFrameStaticReport
             Left = 0
             Top = 0
-            Width = 908
+            Width = 900
             Height = 487
             Align = alClient
             TabOrder = 0
-            ExplicitWidth = 908
+            ExplicitWidth = 900
             ExplicitHeight = 487
             inherited DBGrid1: TDBGrid
-              Width = 908
+              Width = 900
               Height = 421
             end
             inherited Panel1: TPanel
-              Width = 908
+              Width = 900
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 908
+              ExplicitWidth = 900
             end
             inherited Button1: TButton
               Top = 462
-              Width = 908
+              Width = 900
               ExplicitTop = 462
-              ExplicitWidth = 908
+              ExplicitWidth = 900
             end
             inherited frxReport1: TfrxReport
               Datasets = <
@@ -620,14 +604,14 @@ object MainForm: TMainForm
         end
       end
     end
-    object TabSheet13: TTabSheet
+    object TabSheetOperationsLog: TTabSheet
       Caption = #1046#1091#1088#1085#1072#1083' '#1086#1087#1077#1088#1072#1094#1080#1081
       ImageIndex = 3
       TabVisible = False
       inline FrameOperationsLog1: TFrameOperationsLog
         Left = 0
         Top = 0
-        Width = 916
+        Width = 908
         Height = 517
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -637,7 +621,7 @@ object MainForm: TMainForm
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 916
+        ExplicitWidth = 908
         ExplicitHeight = 517
         inherited Panel1: TPanel
           Height = 465
@@ -702,25 +686,25 @@ object MainForm: TMainForm
           end
         end
         inherited Panel2: TPanel
-          Width = 916
+          Width = 908
           StyleElements = [seFont, seClient, seBorder]
-          ExplicitWidth = 916
+          ExplicitWidth = 908
           inherited GroupBox7: TGroupBox
-            Width = 629
-            ExplicitWidth = 629
+            Width = 621
+            ExplicitWidth = 621
             inherited Edit2: TEdit
-              Width = 625
+              Width = 617
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 625
+              ExplicitWidth = 617
             end
           end
           inherited GroupBox8: TGroupBox
-            Left = 629
-            ExplicitLeft = 629
+            Left = 621
+            ExplicitLeft = 621
           end
         end
         inherited GridPanel3: TGridPanel
-          Width = 595
+          Width = 587
           Height = 465
           ControlCollection = <
             item
@@ -754,64 +738,66 @@ object MainForm: TMainForm
               Row = 2
             end>
           StyleElements = [seFont, seClient, seBorder]
-          ExplicitWidth = 595
+          ExplicitWidth = 587
           ExplicitHeight = 465
           inherited ListBox1: TListBox
-            Width = 296
+            Width = 292
             Height = 206
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitWidth = 296
+            ExplicitWidth = 292
             ExplicitHeight = 206
           end
           inherited ListBox3: TListBox
-            Left = 297
-            Width = 297
+            Left = 293
+            Width = 293
             Height = 206
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitLeft = 297
-            ExplicitWidth = 297
+            ExplicitLeft = 293
+            ExplicitWidth = 293
             ExplicitHeight = 206
           end
           inherited ListBox2: TListBox
             Top = 207
-            Width = 296
+            Width = 292
             Height = 207
             StyleElements = [seFont, seClient, seBorder]
             ExplicitTop = 207
-            ExplicitWidth = 296
+            ExplicitWidth = 292
             ExplicitHeight = 207
           end
           inherited ListBox4: TListBox
-            Left = 297
+            Left = 293
             Top = 207
-            Width = 297
+            Width = 293
             Height = 207
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitLeft = 297
+            ExplicitLeft = 293
             ExplicitTop = 207
-            ExplicitWidth = 297
+            ExplicitWidth = 293
             ExplicitHeight = 207
           end
           inherited GroupBox6: TGroupBox
             Top = 414
-            Width = 296
+            Width = 292
             ExplicitTop = 414
-            ExplicitWidth = 296
+            ExplicitWidth = 292
             inherited NumberBox2: TNumberBox
+              Width = 288
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 292
+              ExplicitWidth = 288
             end
           end
           inherited GroupBox10: TGroupBox
-            Left = 297
+            Left = 293
             Top = 414
-            Width = 297
-            ExplicitLeft = 297
+            Width = 293
+            ExplicitLeft = 293
             ExplicitTop = 414
-            ExplicitWidth = 297
+            ExplicitWidth = 293
             inherited NumberBox1: TNumberBox
+              Width = 289
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 293
+              ExplicitWidth = 289
             end
           end
         end
@@ -820,6 +806,8 @@ object MainForm: TMainForm
           Top = 372
         end
         inherited frxReport2: TfrxReport
+          Left = 545
+          Top = 412
           Datasets = <
             item
               DataSet = FrameOperationsLog1.frxDBDataset1
@@ -836,11 +824,39 @@ object MainForm: TMainForm
           Variables = <>
           Style = <>
           inherited Page1: TfrxReportPage
+            inherited ReportTitle1: TfrxReportTitle
+              inherited Memo1: TfrxMemoView
+                Width = 718.110717773437500000
+                Height = 56.692951202392580000
+              end
+              inherited Memo6: TfrxMemoView
+                Left = 718.110717773437500000
+              end
+              inherited Memo5: TfrxMemoView
+                Left = 718.110717773437500000
+              end
+            end
+            inherited MasterData3: TfrxMasterData
+              inherited Memo8: TfrxMemoView
+                Width = 718.110717773437500000
+                Height = 60.472480773925780000
+              end
+            end
             inherited MasterData4: TfrxMasterData
               inherited TableObject1: TfrxTableObject
+                inherited TableRow1: TfrxTableRow
+                  inherited TableCell3: TfrxTableCell
+                    inherited Memo2: TfrxMemoView
+                      Width = 430.637390136718800000
+                      Height = 96.782386779785160000
+                    end
+                  end
+                end
                 inherited TableRow3: TfrxTableRow
                   inherited TableCell11: TfrxTableCell
                     inherited Memo4: TfrxMemoView
+                      Width = 718.110717773437500000
+                      Height = 96.782386779785160000
                       Formats = <
                         item
                         end
@@ -869,6 +885,12 @@ object MainForm: TMainForm
                 end
               end
             end
+            inherited MasterData5: TfrxMasterData
+              inherited Memo7: TfrxMemoView
+                Width = 718.110717773437500000
+                Height = 49.133888244628910000
+              end
+            end
           end
         end
         inherited frxDBDataset2: TfrxDBDataset
@@ -885,7 +907,7 @@ object MainForm: TMainForm
   object TitleBarPanel1: TTitleBarPanel
     Left = 0
     Top = 0
-    Width = 972
+    Width = 964
     Height = 30
     Margins.Left = 0
     Margins.Top = 0
@@ -899,9 +921,8 @@ object MainForm: TMainForm
         Width = 46
         Visible = True
       end>
-    ExplicitLeft = -5
     DesignSize = (
-      972
+      964
       30)
     object SpeedButton1: TSpeedButton
       Left = 0
@@ -910,6 +931,9 @@ object MainForm: TMainForm
       Height = 30
       Align = alLeft
       Caption = '|||'
+      Flat = True
+      Layout = blGlyphTop
+      OnClick = SpeedButton1Click
       ExplicitHeight = 37
     end
   end
@@ -930,47 +954,26 @@ object MainForm: TMainForm
     Placement = svpLeft
     TabOrder = 2
     UseAnimation = False
-    ExplicitLeft = 208
-    ExplicitTop = 8
-    ExplicitHeight = 517
-    object ReautorizationButton: TSpeedButton
-      AlignWithMargins = True
-      Left = 3
-      Top = 3
-      Width = 42
-      Height = 40
-      Align = alTop
-      Caption = #1056#1077#1072#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
-      ImageIndex = 0
-      ImageName = 'person_48x48'
-      Images = VirtualImageList1
-      Enabled = False
-      Flat = True
-      Margin = 0
-      ExplicitLeft = 4
-      ExplicitWidth = 194
-    end
-    object ExitButton: TSpeedButton
+    object SpeedButtonMenuLogout: TSpeedButton
       AlignWithMargins = True
       Left = 3
       Top = 484
       Width = 42
       Height = 40
       Align = alBottom
-      Caption = #1042#1099#1093#1086#1076
-      ImageIndex = 2
-      ImageName = 'exit_40x40'
+      Caption = #1056#1077#1072#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
+      ImageIndex = 0
+      ImageName = 'person_48x48'
       Images = VirtualImageList1
       Flat = True
       Margin = 0
-      ExplicitLeft = 0
-      ExplicitTop = 376
-      ExplicitWidth = 200
+      OnClick = SpeedButtonMenuLogoutClick
+      ExplicitTop = 489
     end
-    object HandBookButton: TSpeedButton
+    object SpeedButtonMenuHandbooks: TSpeedButton
       AlignWithMargins = True
       Left = 3
-      Top = 49
+      Top = 3
       Width = 42
       Height = 40
       Align = alTop
@@ -981,14 +984,15 @@ object MainForm: TMainForm
       Enabled = False
       Flat = True
       Margin = 0
+      OnClick = SpeedButtonMenuHandbooksClick
       ExplicitLeft = 2
       ExplicitTop = 46
       ExplicitWidth = 200
     end
-    object ReportButton: TSpeedButton
+    object SpeedButtonMenuReports: TSpeedButton
       AlignWithMargins = True
       Left = 3
-      Top = 95
+      Top = 49
       Width = 42
       Height = 40
       Align = alTop
@@ -999,14 +1003,15 @@ object MainForm: TMainForm
       Enabled = False
       Flat = True
       Margin = 0
+      OnClick = SpeedButtonMenuReportsClick
       ExplicitLeft = 8
       ExplicitTop = 96
       ExplicitWidth = 200
     end
-    object OperationLogButton: TSpeedButton
+    object SpeedButtonMenuOperationsLogs: TSpeedButton
       AlignWithMargins = True
       Left = 3
-      Top = 141
+      Top = 95
       Width = 42
       Height = 40
       Align = alTop
@@ -1017,10 +1022,12 @@ object MainForm: TMainForm
       Enabled = False
       Flat = True
       Margin = 0
+      OnClick = SpeedButtonMenuOperationsLogsClick
       ExplicitLeft = 4
+      ExplicitTop = 141
       ExplicitWidth = 194
     end
-    object HelpButton: TSpeedButton
+    object SpeedButtonMenuHelp: TSpeedButton
       AlignWithMargins = True
       Left = 3
       Top = 438
@@ -1034,8 +1041,7 @@ object MainForm: TMainForm
       Flat = True
       Margin = 0
       ExplicitLeft = 0
-      ExplicitTop = 376
-      ExplicitWidth = 200
+      ExplicitTop = 484
     end
   end
   object ImageCollection1: TImageCollection
@@ -1296,7 +1302,88 @@ object MainForm: TMainForm
       'DriverID=MySQL')
     Connected = True
     LoginPrompt = False
-    Left = 160
-    Top = 48
+    Left = 120
+    Top = 128
+  end
+  object FDTable1: TFDTable
+    Active = True
+    IndexFieldNames = 'uuid'
+    Connection = FDConnectionMain
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = '`car-workshop`.stuff'
+    Left = 788
+    Top = 268
+    object FDTable1workshop_uuid: TStringField
+      FieldName = 'workshop_uuid'
+      Origin = 'workshop_uuid'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object FDTable1role: TStringField
+      FieldName = 'role'
+      Origin = 'role'
+      Required = True
+      FixedChar = True
+      Size = 8
+    end
+    object FDTable1first_name: TStringField
+      FieldName = 'first_name'
+      Origin = 'first_name'
+      Required = True
+      Size = 45
+    end
+    object FDTable1second_name: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'second_name'
+      Origin = 'second_name'
+      Size = 45
+    end
+    object FDTable1last_name: TStringField
+      FieldName = 'last_name'
+      Origin = 'last_name'
+      Required = True
+      Size = 45
+    end
+    object FDTable1is_active: TBooleanField
+      AutoGenerateValue = arDefault
+      FieldName = 'is_active'
+      Origin = 'is_active'
+    end
+    object FDTable1email: TStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Required = True
+      Size = 255
+    end
+    object FDTable1password: TStringField
+      FieldName = 'password'
+      Origin = '`password`'
+      Required = True
+      Size = 255
+    end
+    object FDTable1remember_token: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'remember_token'
+      Origin = 'remember_token'
+      Size = 100
+    end
+    object FDTable1created_at: TSQLTimeStampField
+      AutoGenerateValue = arDefault
+      FieldName = 'created_at'
+      Origin = 'created_at'
+    end
+    object FDTable1updated_at: TSQLTimeStampField
+      AutoGenerateValue = arDefault
+      FieldName = 'updated_at'
+      Origin = 'updated_at'
+    end
+    object FDTable1uuid: TStringField
+      FieldName = 'uuid'
+      Origin = 'uuid'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
   end
 end

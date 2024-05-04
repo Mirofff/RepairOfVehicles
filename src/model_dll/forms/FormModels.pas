@@ -16,8 +16,6 @@ uses
 
 type
   TForm1 = class(TForm)
-    FDConnection1: TFDConnection;
-    DataSource1: TDataSource;
     Panel2: TPanel;
     GroupBox1: TGroupBox;
     SearchEdit: TEdit;
@@ -34,15 +32,12 @@ type
     Button2: TButton;
     Button4: TButton;
     DBGrid1: TDBGrid;
-    SearchQuery: TFDQuery;
     GroupBox7: TGroupBox;
     LabelID: TLabel;
     GroupBox4: TGroupBox;
     EditBrand: TEdit;
     Button5: TButton;
     Splitter1: TSplitter;
-    SearchQueryID: TFDAutoIncField;
-    SearchQueryBrand: TWideStringField;
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
