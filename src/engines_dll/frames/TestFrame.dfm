@@ -1,46 +1,20 @@
-object Form1: TForm1
+object Frame1: TFrame1
   Left = 0
   Top = 0
-  Anchors = [akLeft, akTop, akRight, akBottom]
-  BiDiMode = bdLeftToRight
-  BorderStyle = bsNone
-  Caption = #1044#1074#1080#1075#1072#1090#1077#1083#1080
-  ClientHeight = 624
-  ClientWidth = 919
-  Color = clBtnFace
-  CustomTitleBar.CaptionAlignment = taCenter
-  CustomTitleBar.ShowIcon = False
-  CustomTitleBar.SystemColors = False
-  CustomTitleBar.SystemButtons = False
-  CustomTitleBar.BackgroundColor = clWhite
-  CustomTitleBar.ForegroundColor = 65793
-  CustomTitleBar.InactiveBackgroundColor = clWhite
-  CustomTitleBar.InactiveForegroundColor = 10066329
-  CustomTitleBar.ButtonForegroundColor = 65793
-  CustomTitleBar.ButtonBackgroundColor = clWhite
-  CustomTitleBar.ButtonHoverForegroundColor = 65793
-  CustomTitleBar.ButtonHoverBackgroundColor = 16053492
-  CustomTitleBar.ButtonPressedForegroundColor = 65793
-  CustomTitleBar.ButtonPressedBackgroundColor = 15395562
-  CustomTitleBar.ButtonInactiveForegroundColor = 10066329
-  CustomTitleBar.ButtonInactiveBackgroundColor = clWhite
-  ParentFont = True
-  ParentBiDiMode = False
-  Position = poDesigned
-  StyleElements = [seFont, seClient]
-  TextHeight = 15
+  Width = 640
+  Height = 480
+  TabOrder = 0
   object Splitter1: TSplitter
     Left = 289
     Top = 52
-    Height = 572
-    ExplicitLeft = 352
-    ExplicitTop = 456
-    ExplicitHeight = 100
+    Height = 428
+    ExplicitTop = -26
+    ExplicitHeight = 506
   end
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 919
+    Width = 640
     Height = 52
     ParentCustomHint = False
     Align = alTop
@@ -64,19 +38,23 @@ object Form1: TForm1
     ShowCaption = False
     ShowHint = False
     TabOrder = 0
+    ExplicitLeft = -266
+    ExplicitWidth = 906
     object GroupBox1: TGroupBox
       Left = 0
       Top = 0
-      Width = 632
+      Width = 353
       Height = 52
       Align = alClient
-      Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1092#1072#1084#1080#1083#1080#1080
+      Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1076#1074#1080#1075#1072#1090#1077#1083#1102
       TabOrder = 0
+      ExplicitWidth = 619
       object SearchEdit: TEdit
-        Left = 2
-        Top = 17
-        Width = 628
-        Height = 33
+        AlignWithMargins = True
+        Left = 5
+        Top = 20
+        Width = 343
+        Height = 27
         ParentCustomHint = False
         Align = alClient
         AutoSize = False
@@ -95,16 +73,18 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
+        ExplicitWidth = 609
       end
     end
     object GroupBox2: TGroupBox
-      Left = 632
+      Left = 353
       Top = 0
       Width = 287
       Height = 52
       Align = alRight
       Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103
       TabOrder = 1
+      ExplicitLeft = 619
       object SpeedButton1: TSpeedButton
         Left = 5
         Top = 17
@@ -155,38 +135,72 @@ object Form1: TForm1
     Left = 0
     Top = 52
     Width = 289
-    Height = 572
+    Height = 428
     Align = alLeft
     BevelOuter = bvNone
     Caption = 'Panel5'
     ParentColor = True
     ShowCaption = False
     TabOrder = 1
+    ExplicitTop = -26
+    ExplicitHeight = 506
     object Panel1: TPanel
       Left = 0
       Top = 0
       Width = 289
-      Height = 445
+      Height = 301
       Align = alClient
       BevelOuter = bvNone
       Caption = 'Panel1'
       ParentColor = True
       ShowCaption = False
       TabOrder = 0
-      object GroupBox7: TGroupBox
+      ExplicitHeight = 379
+      object GroupBox6: TGroupBox
         Left = 0
-        Top = 0
+        Top = 144
         Width = 289
-        Height = 55
+        Height = 48
         Align = alTop
-        Caption = '#'
+        Caption = #1058#1080#1087' '#1090#1086#1087#1083#1080#1074#1072
         TabOrder = 0
-        object LabelID: TLabel
+        object FuelComboBox: TComboBox
           AlignWithMargins = True
           Left = 5
           Top = 20
           Width = 279
-          Height = 30
+          Height = 25
+          Align = alClient
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          Items.Strings = (
+            #1041#1077#1085#1079#1080#1085
+            #1044#1080#1079#1077#1083#1100#1085#1086#1077
+            #1041#1080#1086#1076#1080#1079#1077#1083#1100#1085#1086#1077
+            #1055#1088#1086#1087#1072#1085
+            #1069#1083#1077#1082#1090#1088#1080#1095#1077#1089#1090#1074#1086
+            #1044#1088#1091#1075#1086#1077)
+        end
+      end
+      object GroupBox7: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 289
+        Height = 48
+        Align = alTop
+        Caption = '#'
+        TabOrder = 1
+        object Label2: TLabel
+          AlignWithMargins = True
+          Left = 5
+          Top = 20
+          Width = 279
+          Height = 23
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -195,24 +209,24 @@ object Form1: TForm1
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          ExplicitLeft = 4
-          ExplicitTop = 24
+          ExplicitWidth = 275
           ExplicitHeight = 25
         end
       end
       object GroupBox5: TGroupBox
         Left = 0
-        Top = 55
+        Top = 96
         Width = 289
-        Height = 55
+        Height = 48
         Align = alTop
-        Caption = #1048#1084#1103
-        TabOrder = 1
-        object EditName: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
+        Caption = #1054#1073#1098#1077#1084
+        TabOrder = 2
+        object VolumeEdit: TEdit
+          AlignWithMargins = True
+          Left = 5
+          Top = 20
+          Width = 279
+          Height = 23
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -226,137 +240,18 @@ object Form1: TForm1
       end
       object GroupBox4: TGroupBox
         Left = 0
-        Top = 110
+        Top = 48
         Width = 289
-        Height = 55
+        Height = 48
         Align = alTop
-        Caption = #1060#1072#1084#1080#1083#1080#1103
-        TabOrder = 2
-        object EditSurname: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox6: TGroupBox
-        Left = 0
-        Top = 165
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1054#1090#1095#1077#1089#1090#1074#1086
+        Caption = #1052#1086#1097#1085#1086#1089#1090#1100
         TabOrder = 3
-        object EditPatronymic: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox8: TGroupBox
-        Left = 0
-        Top = 220
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1053#1086#1084#1077#1088' '#1090#1077#1083#1077#1092#1086#1085#1072
-        TabOrder = 4
-        object EditPhone: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox9: TGroupBox
-        Left = 0
-        Top = 275
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1040#1076#1088#1077#1089
-        TabOrder = 5
-        object EditAddress: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox10: TGroupBox
-        Left = 0
-        Top = 330
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1057#1077#1088#1080#1103' '#1087#1072#1089#1087#1086#1088#1090#1072
-        TabOrder = 6
-        object EditSeries: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox11: TGroupBox
-        Left = 0
-        Top = 385
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1053#1086#1084#1077#1088' '#1087#1072#1089#1087#1086#1088#1090#1072
-        TabOrder = 7
-        object EditNumber: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
+        object PowerEdit: TEdit
+          AlignWithMargins = True
+          Left = 5
+          Top = 20
+          Width = 279
+          Height = 23
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -371,12 +266,13 @@ object Form1: TForm1
     end
     object GroupBox3: TGroupBox
       Left = 0
-      Top = 445
+      Top = 301
       Width = 289
       Height = 127
       Align = alBottom
       Caption = #1052#1086#1076#1080#1092#1080#1082#1072#1094#1080#1103
       TabOrder = 1
+      ExplicitTop = 379
       object Button3: TButton
         AlignWithMargins = True
         Left = 5
@@ -457,8 +353,8 @@ object Form1: TForm1
     AlignWithMargins = True
     Left = 295
     Top = 55
-    Width = 621
-    Height = 566
+    Width = 342
+    Height = 422
     Align = alClient
     BorderStyle = bsNone
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]

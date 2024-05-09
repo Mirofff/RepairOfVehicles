@@ -25,7 +25,6 @@ object FrameDyncamicReport: TFrameDyncamicReport
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 850
     object DatePicker1: TDatePicker
       Left = 2
       Top = 19
@@ -40,8 +39,6 @@ object FrameDyncamicReport: TFrameDyncamicReport
       Font.Name = 'Segoe UI'
       Font.Style = []
       TabOrder = 0
-      OnChange = DatePicker1Change
-      ExplicitWidth = 846
     end
   end
   object GridPanel1: TGridPanel
@@ -77,8 +74,6 @@ object FrameDyncamicReport: TFrameDyncamicReport
       end>
     ShowCaption = False
     TabOrder = 1
-    ExplicitTop = 445
-    ExplicitWidth = 850
     object Label1: TLabel
       Left = 0
       Top = 0
@@ -104,8 +99,6 @@ object FrameDyncamicReport: TFrameDyncamicReport
       Align = alClient
       Caption = #1069#1082#1089#1087#1086#1088#1090
       TabOrder = 0
-      OnClick = Button1Click
-      ExplicitLeft = 703
     end
   end
   object StringGrid1: TStringGrid
@@ -125,91 +118,13 @@ object FrameDyncamicReport: TFrameDyncamicReport
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSizing, goColSizing, goRowMoving, goColMoving, goFixedRowDefAlign]
     ParentColor = True
     TabOrder = 2
-    ExplicitWidth = 850
-    ExplicitHeight = 380
-  end
-  object FDQuery1: TFDQuery
-    Connection = MainForm.FDConnection1
-    SQL.Strings = (
-      'use course_work;'
-      'SELECT '
-      '    DateExecution,'
-      '    DateRegistration,'
-      '    services,'
-      '    c.statenumber,'
-      '    cl.surname'
-      'FROM'
-      '    course_work.order AS o'
-      '        JOIN'
-      '    car AS c ON o.car = c.id'
-      '        JOIN'
-      '    client AS cl ON o.client = cl.id;')
-    Left = 272
-    Top = 192
-    object FDQuery1DateExecution: TDateField
-      AutoGenerateValue = arDefault
-      FieldName = 'DateExecution'
-      Origin = 'DateExecution'
-    end
-    object FDQuery1DateRegistration: TDateField
-      AutoGenerateValue = arDefault
-      FieldName = 'DateRegistration'
-      Origin = 'DateRegistration'
-    end
-    object FDQuery1services: TWideMemoField
-      AutoGenerateValue = arDefault
-      FieldName = 'services'
-      Origin = 'Services'
-      BlobType = ftWideMemo
-    end
-    object FDQuery1statenumber: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'statenumber'
-      Origin = 'StateNumber'
-      ProviderFlags = []
-      ReadOnly = True
-      Size = 8
-    end
-    object FDQuery1surname: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'surname'
-      Origin = 'Surname'
-      ProviderFlags = []
-      ReadOnly = True
-      Size = 45
-    end
-  end
-  object FDQuery2: TFDQuery
-    Connection = MainForm.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM course_work.service;')
-    Left = 144
-    Top = 192
-    object FDQuery2ID: TFDAutoIncField
-      FieldName = 'ID'
-      Origin = 'ID'
-      ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
-    end
-    object FDQuery2Description: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'Description'
-      Origin = 'Description'
-      Size = 100
-    end
-    object FDQuery2Price: TLargeintField
-      AutoGenerateValue = arDefault
-      FieldName = 'Price'
-      Origin = 'Price'
-    end
   end
   object DataSource1: TDataSource
-    DataSet = FDQuery1
     Left = 256
     Top = 304
   end
   object frxReport1: TfrxReport
-    Version = '2023.1.3'
+    Version = '2024.2.2'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
@@ -260,6 +175,8 @@ object FrameDyncamicReport: TFrameDyncamicReport
           AllowVectorExport = True
           Width = 627.401980000000000000
           Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Frame.Typ = []
           Memo.UTF8W = (
             #1054#1073#1097#1077#1077' '#1082#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1079#1072#1082#1072#1079#1086#1074' '#1087#1086' '#1084#1072#1088#1082#1072#1084' '#1072#1074#1090#1086':')
@@ -269,6 +186,8 @@ object FrameDyncamicReport: TFrameDyncamicReport
           Top = 22.677180000000000000
           Width = 132.283550000000000000
           Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -285,6 +204,8 @@ object FrameDyncamicReport: TFrameDyncamicReport
           Top = 22.677180000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -301,6 +222,8 @@ object FrameDyncamicReport: TFrameDyncamicReport
           Top = 22.677180000000000000
           Width = 132.283550000000000000
           Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -317,6 +240,8 @@ object FrameDyncamicReport: TFrameDyncamicReport
           Top = 22.677180000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -333,6 +258,8 @@ object FrameDyncamicReport: TFrameDyncamicReport
           Top = 22.677180000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -349,6 +276,8 @@ object FrameDyncamicReport: TFrameDyncamicReport
           Top = 22.677180000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -436,7 +365,6 @@ object FrameDyncamicReport: TFrameDyncamicReport
   object frxDBDataset1: TfrxDBDataset
     UserName = 'frxDBDataset1'
     CloseDataSource = False
-    DataSet = FDQuery1
     BCDToCurrency = False
     DataSetOptions = []
     Left = 368

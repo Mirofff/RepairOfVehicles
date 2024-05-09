@@ -3,5 +3,5 @@ DRIVER=MySQL ODBC 8.0 Unicode Driver
 UID=root
 COLUMN_SIZE_S32=1
 PORT=3306
-DATABASE=mydb
-SERVER=localhost
+DATABASE=car-workshop
+SERVER=172.20.0.2

@@ -5,8 +5,8 @@ object Form1: TForm1
   BiDiMode = bdLeftToRight
   BorderStyle = bsNone
   Caption = #1044#1074#1080#1075#1072#1090#1077#1083#1080
-  ClientHeight = 617
-  ClientWidth = 888
+  ClientHeight = 528
+  ClientWidth = 902
   Color = clBtnFace
   CustomTitleBar.CaptionAlignment = taCenter
   CustomTitleBar.ShowIcon = False
@@ -28,12 +28,11 @@ object Form1: TForm1
   ParentBiDiMode = False
   Position = poDefault
   StyleElements = [seFont, seClient]
-  OnCreate = FormCreate
-  TextHeight = 20
+  TextHeight = 15
   object Splitter1: TSplitter
     Left = 289
     Top = 52
-    Height = 565
+    Height = 476
     ExplicitLeft = 352
     ExplicitTop = 456
     ExplicitHeight = 100
@@ -41,7 +40,7 @@ object Form1: TForm1
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 888
+    Width = 902
     Height = 52
     ParentCustomHint = False
     Align = alTop
@@ -65,19 +64,21 @@ object Form1: TForm1
     ShowCaption = False
     ShowHint = False
     TabOrder = 0
+    ExplicitWidth = 888
     object GroupBox1: TGroupBox
       Left = 0
       Top = 0
-      Width = 601
+      Width = 615
       Height = 52
       Align = alClient
       Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1076#1074#1080#1075#1072#1090#1077#1083#1102
       TabOrder = 0
+      ExplicitWidth = 601
       object SearchEdit: TEdit
         AlignWithMargins = True
         Left = 5
         Top = 20
-        Width = 591
+        Width = 605
         Height = 27
         ParentCustomHint = False
         Align = alClient
@@ -97,17 +98,18 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
-        OnChange = SearchEditChange
+        ExplicitWidth = 591
       end
     end
     object GroupBox2: TGroupBox
-      Left = 601
+      Left = 615
       Top = 0
       Width = 287
       Height = 52
       Align = alRight
       Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103
       TabOrder = 1
+      ExplicitLeft = 601
       object SpeedButton1: TSpeedButton
         Left = 5
         Top = 17
@@ -115,7 +117,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9664' '
-        OnClick = SpeedButton1Click
         ExplicitLeft = 1
         ExplicitTop = 23
         ExplicitHeight = 22
@@ -127,7 +128,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = '|'#9664' '
-        OnClick = SpeedButton2Click
         ExplicitLeft = 69
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -139,7 +139,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9654'|'
-        OnClick = SpeedButton3Click
         ExplicitLeft = 139
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -151,7 +150,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9654' '
-        OnClick = SpeedButton4Click
         ExplicitLeft = 221
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -162,24 +160,26 @@ object Form1: TForm1
     Left = 0
     Top = 52
     Width = 289
-    Height = 565
+    Height = 476
     Align = alLeft
     BevelOuter = bvNone
     Caption = 'Panel5'
     ParentColor = True
     ShowCaption = False
     TabOrder = 1
+    ExplicitHeight = 565
     object Panel1: TPanel
       Left = 0
       Top = 0
       Width = 289
-      Height = 438
+      Height = 349
       Align = alClient
       BevelOuter = bvNone
       Caption = 'Panel1'
       ParentColor = True
       ShowCaption = False
       TabOrder = 0
+      ExplicitHeight = 438
       object GroupBox6: TGroupBox
         Left = 0
         Top = 144
@@ -191,7 +191,7 @@ object Form1: TForm1
         object FuelComboBox: TComboBox
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
           Height = 25
           Align = alClient
@@ -222,9 +222,9 @@ object Form1: TForm1
         object Label2: TLabel
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 18
+          Height = 23
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -233,7 +233,6 @@ object Form1: TForm1
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          ExplicitTop = 20
           ExplicitWidth = 275
           ExplicitHeight = 25
         end
@@ -249,9 +248,9 @@ object Form1: TForm1
         object VolumeEdit: TEdit
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 18
+          Height = 23
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -274,9 +273,9 @@ object Form1: TForm1
         object PowerEdit: TEdit
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 18
+          Height = 23
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -291,12 +290,13 @@ object Form1: TForm1
     end
     object GroupBox3: TGroupBox
       Left = 0
-      Top = 438
+      Top = 349
       Width = 289
       Height = 127
       Align = alBottom
       Caption = #1052#1086#1076#1080#1092#1080#1082#1072#1094#1080#1103
       TabOrder = 1
+      ExplicitTop = 438
       object Button3: TButton
         AlignWithMargins = True
         Left = 5
@@ -306,11 +306,10 @@ object Form1: TForm1
         Align = alBottom
         Caption = #1044#1086#1073#1072#1074#1080#1090#1100
         TabOrder = 0
-        OnClick = Button3Click
       end
       object GridPanel1: TGridPanel
         Left = 2
-        Top = 22
+        Top = 17
         Width = 285
         Height = 36
         Align = alTop
@@ -349,7 +348,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
           TabOrder = 0
-          OnClick = Button2Click
         end
         object Button4: TButton
           AlignWithMargins = True
@@ -360,7 +358,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1059#1076#1072#1083#1080#1090#1100
           TabOrder = 1
-          OnClick = Button4Click
         end
       end
       object Button5: TButton
@@ -373,7 +370,6 @@ object Form1: TForm1
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         Enabled = False
         TabOrder = 2
-        OnClick = Button5Click
       end
     end
   end
@@ -381,67 +377,16 @@ object Form1: TForm1
     AlignWithMargins = True
     Left = 295
     Top = 55
-    Width = 590
-    Height = 559
+    Width = 604
+    Height = 470
     Align = alClient
     BorderStyle = bsNone
-    DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -15
+    TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
-  end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      'Password=Mozg v stakane'
-      'User_Name=root'
-      'CharacterSet=utf8'
-      'Database=course_work'
-      'DriverID=MySQL')
-    FormatOptions.AssignedValues = [fvADOCompatibility]
-    FormatOptions.ADOCompatibility = True
-    ResourceOptions.AssignedValues = [rvAutoReconnect]
-    ResourceOptions.AutoReconnect = True
-    Connected = True
-    LoginPrompt = False
-    Left = 536
-    Top = 272
-  end
-  object DataSource1: TDataSource
-    DataSet = SearchQuery
-    Left = 548
-    Top = 423
-  end
-  object SearchQuery: TFDQuery
-    Active = True
-    Connection = FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM course_work.engine where Power like '#39'%'#39';')
-    Left = 528
-    Top = 360
-    object SearchQueryid: TFDAutoIncField
-      FieldName = 'id'
-    end
-    object SearchQuerypower: TLongWordField
-      FieldName = 'power'
-      Required = True
-    end
-    object SearchQueryvolume: TSingleField
-      FieldName = 'volume'
-      Required = True
-    end
-    object SearchQueryfuel: TWideStringField
-      FieldName = 'fuel'
-      Required = True
-      Size = 45
-    end
-    object SearchQueryname: TWideStringField
-      FieldName = 'name'
-      Required = True
-      Size = 100
-    end
   end
 end

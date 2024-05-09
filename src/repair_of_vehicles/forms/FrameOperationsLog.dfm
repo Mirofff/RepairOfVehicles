@@ -171,7 +171,6 @@ object FrameOperationsLog: TFrameOperationsLog
           Height = 42
           Align = alClient
           Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          OnClick = SpeedButton5Click
           ExplicitLeft = 96
           ExplicitTop = 16
           ExplicitWidth = 23
@@ -184,7 +183,6 @@ object FrameOperationsLog: TFrameOperationsLog
           Height = 42
           Align = alClient
           Caption = #1059#1076#1072#1083#1080#1090#1100
-          OnClick = SpeedButton6Click
           ExplicitLeft = 170
           ExplicitTop = -5
           ExplicitWidth = 172
@@ -196,7 +194,6 @@ object FrameOperationsLog: TFrameOperationsLog
           Height = 42
           Align = alClient
           Caption = #1054#1090#1095#1077#1090
-          OnClick = SpeedButton8Click
           ExplicitLeft = 96
           ExplicitTop = 16
           ExplicitWidth = 23
@@ -263,7 +260,6 @@ object FrameOperationsLog: TFrameOperationsLog
           Height = 40
           Align = alClient
           Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
-          OnClick = SpeedButton9Click
           ExplicitLeft = 96
           ExplicitTop = 16
           ExplicitWidth = 23
@@ -276,7 +272,6 @@ object FrameOperationsLog: TFrameOperationsLog
           Height = 40
           Align = alClient
           Caption = #1054#1090#1084#1077#1085#1080#1090#1100
-          OnClick = SpeedButton10Click
           ExplicitLeft = 173
           ExplicitTop = -2
           ExplicitWidth = 172
@@ -326,7 +321,6 @@ object FrameOperationsLog: TFrameOperationsLog
         Height = 33
         Align = alClient
         TabOrder = 0
-        OnChange = Edit2Change
         ExplicitHeight = 23
       end
     end
@@ -345,7 +339,6 @@ object FrameOperationsLog: TFrameOperationsLog
         Height = 33
         Align = alLeft
         Caption = '<'
-        OnClick = SpeedButton1Click
       end
       object SpeedButton2: TSpeedButton
         Left = 72
@@ -354,7 +347,6 @@ object FrameOperationsLog: TFrameOperationsLog
         Height = 33
         Align = alLeft
         Caption = '|<'
-        OnClick = SpeedButton2Click
       end
       object SpeedButton3: TSpeedButton
         Left = 142
@@ -363,7 +355,6 @@ object FrameOperationsLog: TFrameOperationsLog
         Height = 33
         Align = alLeft
         Caption = '>|'
-        OnClick = SpeedButton3Click
       end
       object SpeedButton4: TSpeedButton
         Left = 212
@@ -372,7 +363,6 @@ object FrameOperationsLog: TFrameOperationsLog
         Height = 33
         Align = alLeft
         Caption = '>'
-        OnClick = SpeedButton4Click
         ExplicitLeft = 214
         ExplicitTop = 16
       end
@@ -435,10 +425,6 @@ object FrameOperationsLog: TFrameOperationsLog
         Value = 50.000000000000000000
       end>
     TabOrder = 2
-    ExplicitLeft = 6
-    ExplicitTop = 130
-    ExplicitWidth = 185
-    ExplicitHeight = 123
     object ListBox1: TListBox
       Left = 1
       Top = 1
@@ -447,9 +433,6 @@ object FrameOperationsLog: TFrameOperationsLog
       Align = alClient
       ItemHeight = 15
       TabOrder = 0
-      OnDblClick = ListBox1DblClick
-      ExplicitWidth = 92
-      ExplicitHeight = 97
     end
     object ListBox3: TListBox
       Left = 241
@@ -459,10 +442,6 @@ object FrameOperationsLog: TFrameOperationsLog
       Align = alClient
       ItemHeight = 15
       TabOrder = 1
-      OnDblClick = ListBox3DblClick
-      ExplicitLeft = 93
-      ExplicitWidth = 91
-      ExplicitHeight = 97
     end
     object ListBox2: TListBox
       Left = 1
@@ -472,10 +451,6 @@ object FrameOperationsLog: TFrameOperationsLog
       Align = alClient
       ItemHeight = 15
       TabOrder = 2
-      OnDblClick = ListBox2DblClick
-      ExplicitTop = 37
-      ExplicitWidth = 92
-      ExplicitHeight = 35
     end
     object ListBox4: TListBox
       Left = 241
@@ -485,11 +460,6 @@ object FrameOperationsLog: TFrameOperationsLog
       Align = alClient
       ItemHeight = 15
       TabOrder = 3
-      OnDblClick = ListBox4DblClick
-      ExplicitLeft = 93
-      ExplicitTop = 37
-      ExplicitWidth = 91
-      ExplicitHeight = 35
     end
     object GroupBox6: TGroupBox
       Left = 1
@@ -506,7 +476,7 @@ object FrameOperationsLog: TFrameOperationsLog
         Height = 31
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 88
+        ExplicitWidth = 236
         ExplicitHeight = 23
       end
     end
@@ -525,55 +495,21 @@ object FrameOperationsLog: TFrameOperationsLog
         Height = 31
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 87
+        ExplicitWidth = 235
         ExplicitHeight = 23
       end
     end
   end
-  object FDQuery2: TFDQuery
-    Connection = MainForm.FDConnection1
-    SQL.Strings = (
-      'select * from course_work.client;')
-    Left = 736
-    Top = 272
-  end
-  object DataSource1: TDataSource
-    DataSet = FDQuery3
-    Left = 664
-    Top = 480
-  end
-  object FDQuery1: TFDQuery
-    Connection = MainForm.FDConnection1
-    SQL.Strings = (
-      'use course_work; SELECT '
-      '    *'
-      'FROM'
-      '    course_work.order AS o'
-      '        JOIN'
-      '    course_work.car AS c ON o.car = c.id'
-      '        JOIN'
-      '    course_work.client AS cl ON o.client = cl.id'
-      '        JOIN'
-      '    course_work.engine AS e ON c.Engine_ID = e.id'
-      '        JOIN'
-      '    course_work.model AS m ON c.model_id = m.id'
-      '        JOIN'
-      '    course_work.brand AS b ON m.Brand = b.id;'
-      '')
-    Left = 417
-    Top = 476
-  end
   object frxDBDataset1: TfrxDBDataset
     UserName = 'orderDataSet'
     CloseDataSource = False
-    DataSet = FDQuery1
     BCDToCurrency = False
     DataSetOptions = []
     Left = 673
     Top = 372
   end
   object frxReport2: TfrxReport
-    Version = '2023.1.3'
+    Version = '2024.2.2'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
@@ -634,6 +570,8 @@ object FrameOperationsLog: TFrameOperationsLog
           AllowVectorExport = True
           Width = 718.110700000000000000
           Height = 56.692950000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
           Font.Height = -23
@@ -652,6 +590,8 @@ object FrameOperationsLog: TFrameOperationsLog
           Left = 718.110700000000000000
           Top = -18.897650000000000000
           Height = 1046.929810000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Frame.Typ = []
           Memo.UTF8W = (
             #1042#1080#1076#1099' '#1088#1072#1089#1093#1086#1076#1085#1099#1093' '#1084#1072#1090#1077#1088#1080#1072#1083#1086#1074' '#1087#1086' '#1079#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076#1091':')
@@ -662,6 +602,8 @@ object FrameOperationsLog: TFrameOperationsLog
           Left = 718.110700000000000000
           Top = -18.897650000000000000
           Height = 1046.929810000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Frame.Typ = []
           Memo.UTF8W = (
             #1042#1080#1076#1099' '#1088#1072#1089#1093#1086#1076#1085#1099#1093' '#1084#1072#1090#1077#1088#1080#1072#1083#1086#1074' '#1087#1086' '#1079#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076#1091':')
@@ -685,6 +627,8 @@ object FrameOperationsLog: TFrameOperationsLog
           AllowVectorExport = True
           Width = 309.921460000000000000
           Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           DataField = 'Description'
           DataSet = frxDBDataset2
           DataSetName = 'servicesDataSet'
@@ -704,6 +648,8 @@ object FrameOperationsLog: TFrameOperationsLog
           Left = 309.921460000000000000
           Width = 241.889920000000000000
           Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           DataField = 'Price'
           DataSet = frxDBDataset2
           DataSetName = 'servicesDataSet'
@@ -723,6 +669,8 @@ object FrameOperationsLog: TFrameOperationsLog
           Left = 551.811380000000000000
           Width = 166.299320000000000000
           Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           DataField = 'count'
           DataSet = frxDBDataset2
           DataSetName = 'servicesDataSet'
@@ -755,6 +703,8 @@ object FrameOperationsLog: TFrameOperationsLog
           AllowVectorExport = True
           Width = 309.921460000000000000
           Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           DataField = 'Description'
           DataSet = frxDBDataset3
           DataSetName = 'consumablesDataSet'
@@ -774,6 +724,8 @@ object FrameOperationsLog: TFrameOperationsLog
           Left = 309.921460000000000000
           Width = 241.889920000000000000
           Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           DataField = 'Price'
           DataSet = frxDBDataset3
           DataSetName = 'consumablesDataSet'
@@ -793,6 +745,8 @@ object FrameOperationsLog: TFrameOperationsLog
           Left = 551.811380000000000000
           Width = 166.299320000000000000
           Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           DataField = 'count'
           DataSet = frxDBDataset3
           DataSetName = 'consumablesDataSet'
@@ -823,6 +777,8 @@ object FrameOperationsLog: TFrameOperationsLog
           AllowVectorExport = True
           Width = 718.110700000000000000
           Height = 60.472480000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -873,6 +829,8 @@ object FrameOperationsLog: TFrameOperationsLog
             object TableCell1: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Height = -13
@@ -889,11 +847,15 @@ object FrameOperationsLog: TFrameOperationsLog
             object TableCell2: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
             object TableCell3: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
               ColSpan = 3
               object Memo2: TfrxMemoView
@@ -901,6 +863,8 @@ object FrameOperationsLog: TFrameOperationsLog
                 AllowVectorExport = True
                 Width = 430.637394432000000000
                 Height = 96.782388433238300000
+                ContentScaleOptions.Constraints.MaxIterationValue = 0
+                ContentScaleOptions.Constraints.MinIterationValue = 0
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
                 Font.Height = -13
@@ -916,11 +880,15 @@ object FrameOperationsLog: TFrameOperationsLog
             object TableCell4: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
             object TableCell5: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
           end
@@ -929,6 +897,8 @@ object FrameOperationsLog: TFrameOperationsLog
             object TableCell6: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
               Memo.UTF8W = (
                 
@@ -939,21 +909,29 @@ object FrameOperationsLog: TFrameOperationsLog
             object TableCell7: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
             object TableCell8: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
             object TableCell9: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
             object TableCell10: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
           end
@@ -962,6 +940,8 @@ object FrameOperationsLog: TFrameOperationsLog
             object TableCell11: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
               ColSpan = 5
               object Memo4: TfrxMemoView
@@ -969,6 +949,8 @@ object FrameOperationsLog: TFrameOperationsLog
                 AllowVectorExport = True
                 Width = 718.110700000000000000
                 Height = 96.782388433238300000
+                ContentScaleOptions.Constraints.MaxIterationValue = 0
+                ContentScaleOptions.Constraints.MinIterationValue = 0
                 Frame.Typ = []
                 Memo.UTF8W = (
                   
@@ -1008,21 +990,29 @@ object FrameOperationsLog: TFrameOperationsLog
             object TableCell12: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
             object TableCell13: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
             object TableCell14: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
             object TableCell15: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
+              ContentScaleOptions.Constraints.MaxIterationValue = 0
+              ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
           end
@@ -1044,6 +1034,8 @@ object FrameOperationsLog: TFrameOperationsLog
           AllowVectorExport = True
           Width = 718.110700000000000000
           Height = 49.133890000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -1057,64 +1049,9 @@ object FrameOperationsLog: TFrameOperationsLog
       end
     end
   end
-  object FDQuery3: TFDQuery
-    Connection = MainForm.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM course_work.service;')
-    Left = 417
-    Top = 268
-    object FDQuery3id: TFDAutoIncField
-      FieldName = 'id'
-      ReadOnly = True
-    end
-    object FDQuery3description: TWideStringField
-      FieldName = 'description'
-      Required = True
-      Size = 100
-    end
-    object FDQuery3price: TLongWordField
-      FieldName = 'price'
-      Required = True
-    end
-    object FDQuery3count: TIntegerField
-      FieldName = 'count'
-      Required = True
-    end
-  end
-  object FDQuery4: TFDQuery
-    Active = True
-    Connection = MainForm.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM course_work.consumables;')
-    Left = 417
-    Top = 172
-    object FDQuery4id: TFDAutoIncField
-      FieldName = 'id'
-      Origin = 'id'
-      ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
-    end
-    object FDQuery4description: TWideStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'description'
-      Origin = 'description'
-      Size = 100
-    end
-    object FDQuery4price: TLongWordField
-      FieldName = 'price'
-      Origin = 'price'
-      Required = True
-    end
-    object FDQuery4count: TIntegerField
-      AutoGenerateValue = arDefault
-      FieldName = 'count'
-      Origin = 'count'
-    end
-  end
   object frxDBDataset2: TfrxDBDataset
     UserName = 'servicesDataSet'
     CloseDataSource = False
-    DataSet = FDQuery3
     BCDToCurrency = False
     DataSetOptions = []
     Left = 785
@@ -1123,7 +1060,6 @@ object FrameOperationsLog: TFrameOperationsLog
   object frxDBDataset3: TfrxDBDataset
     UserName = 'consumablesDataSet'
     CloseDataSource = False
-    DataSet = FDQuery4
     BCDToCurrency = False
     DataSetOptions = []
     Left = 801

@@ -28,8 +28,7 @@ object Form1: TForm1
   ParentBiDiMode = False
   Position = poDesigned
   StyleElements = [seFont, seClient]
-  OnCreate = FormCreate
-  TextHeight = 20
+  TextHeight = 15
   object Splitter1: TSplitter
     Left = 289
     Top = 52
@@ -95,7 +94,6 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
-        OnChange = SearchEditChange
         ExplicitHeight = 25
       end
     end
@@ -114,7 +112,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9664' '
-        OnClick = SpeedButton1Click
         ExplicitLeft = 1
         ExplicitTop = 23
         ExplicitHeight = 22
@@ -126,7 +123,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = '|'#9664' '
-        OnClick = SpeedButton2Click
         ExplicitLeft = 69
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -138,7 +134,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9654'|'
-        OnClick = SpeedButton3Click
         ExplicitLeft = 139
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -150,7 +145,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9654' '
-        OnClick = SpeedButton4Click
         ExplicitLeft = 221
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -190,9 +184,9 @@ object Form1: TForm1
         object Label2: TLabel
           AlignWithMargins = True
           Left = 5
-          Top = 25
+          Top = 20
           Width = 279
-          Height = 25
+          Height = 30
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -201,8 +195,8 @@ object Form1: TForm1
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          ExplicitTop = 20
           ExplicitWidth = 275
+          ExplicitHeight = 25
         end
       end
       object GroupBox5: TGroupBox
@@ -215,9 +209,9 @@ object Form1: TForm1
         TabOrder = 1
         object Edit1: TEdit
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 31
+          Height = 36
           Align = alClient
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
@@ -239,13 +233,13 @@ object Form1: TForm1
         TabOrder = 2
         object NumberBox1: TNumberBox
           Left = 2
-          Top = 22
+          Top = 17
           Width = 285
-          Height = 31
+          Height = 36
           AcceptExpressions = True
           Align = alClient
           TabOrder = 0
-          ExplicitHeight = 28
+          ExplicitHeight = 23
         end
       end
     end
@@ -266,11 +260,10 @@ object Form1: TForm1
         Align = alBottom
         Caption = #1044#1086#1073#1072#1074#1080#1090#1100
         TabOrder = 0
-        OnClick = Button3Click
       end
       object GridPanel1: TGridPanel
         Left = 2
-        Top = 22
+        Top = 17
         Width = 285
         Height = 36
         Align = alTop
@@ -309,7 +302,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
           TabOrder = 0
-          OnClick = Button2Click
         end
         object Button4: TButton
           AlignWithMargins = True
@@ -320,7 +312,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1059#1076#1072#1083#1080#1090#1100
           TabOrder = 1
-          OnClick = Button4Click
         end
       end
       object Button5: TButton
@@ -333,7 +324,6 @@ object Form1: TForm1
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         Enabled = False
         TabOrder = 2
-        OnClick = Button5Click
       end
     end
   end
@@ -345,15 +335,13 @@ object Form1: TForm1
     Height = 666
     Align = alClient
     BorderStyle = bsNone
-    DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -15
+    TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
-    OnCellClick = DBGrid1CellClick
     Columns = <
       item
         Expanded = False
@@ -371,48 +359,5 @@ object Form1: TForm1
         FieldName = 'price'
         Visible = True
       end>
-  end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      'Password=Mozg v stakane'
-      'User_Name=root'
-      'CharacterSet=utf8'
-      'Database=course_work'
-      'DriverID=MySQL')
-    FormatOptions.AssignedValues = [fvADOCompatibility]
-    FormatOptions.ADOCompatibility = True
-    ResourceOptions.AssignedValues = [rvAutoReconnect]
-    ResourceOptions.AutoReconnect = True
-    Connected = True
-    LoginPrompt = False
-    Left = 394
-    Top = 562
-  end
-  object DataSource1: TDataSource
-    DataSet = SearchQuery
-    Left = 648
-    Top = 535
-  end
-  object SearchQuery: TFDQuery
-    Active = True
-    Connection = FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM course_work.consumables;')
-    Left = 516
-    Top = 554
-    object SearchQueryid: TFDAutoIncField
-      FieldName = 'id'
-    end
-    object SearchQuerydescription: TWideStringField
-      FieldName = 'description'
-      Size = 100
-    end
-    object SearchQueryprice: TLongWordField
-      FieldName = 'price'
-      Required = True
-    end
-    object SearchQuerycount: TIntegerField
-      FieldName = 'count'
-    end
   end
 end
