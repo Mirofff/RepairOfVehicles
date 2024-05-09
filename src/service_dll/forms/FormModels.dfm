@@ -28,7 +28,6 @@ object Form1: TForm1
   ParentBiDiMode = False
   Position = poDesigned
   StyleElements = [seFont, seClient]
-  OnCreate = FormCreate
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 289
@@ -65,7 +64,6 @@ object Form1: TForm1
     ShowCaption = False
     ShowHint = False
     TabOrder = 0
-    ExplicitWidth = 1094
     object GroupBox1: TGroupBox
       Left = 0
       Top = 0
@@ -74,7 +72,6 @@ object Form1: TForm1
       Align = alClient
       Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1086#1087#1080#1089#1072#1085#1080#1102
       TabOrder = 0
-      ExplicitWidth = 807
       object SearchEdit: TEdit
         Left = 2
         Top = 17
@@ -98,8 +95,6 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
-        OnChange = SearchEditChange
-        ExplicitWidth = 803
       end
     end
     object GroupBox2: TGroupBox
@@ -110,7 +105,6 @@ object Form1: TForm1
       Align = alRight
       Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103
       TabOrder = 1
-      ExplicitLeft = 807
       object SpeedButton1: TSpeedButton
         Left = 5
         Top = 17
@@ -118,7 +112,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9664' '
-        OnClick = SpeedButton1Click
         ExplicitLeft = 1
         ExplicitTop = 23
         ExplicitHeight = 22
@@ -130,7 +123,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = '|'#9664' '
-        OnClick = SpeedButton2Click
         ExplicitLeft = 69
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -142,7 +134,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9654'|'
-        OnClick = SpeedButton3Click
         ExplicitLeft = 139
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -154,7 +145,6 @@ object Form1: TForm1
         Height = 33
         Align = alRight
         Caption = #9654' '
-        OnClick = SpeedButton4Click
         ExplicitLeft = 221
         ExplicitTop = 16
         ExplicitHeight = 31
@@ -172,7 +162,6 @@ object Form1: TForm1
     ParentColor = True
     ShowCaption = False
     TabOrder = 1
-    ExplicitHeight = 672
     object Panel1: TPanel
       Left = 0
       Top = 0
@@ -184,7 +173,6 @@ object Form1: TForm1
       ParentColor = True
       ShowCaption = False
       TabOrder = 0
-      ExplicitHeight = 545
       object GroupBox7: TGroupBox
         Left = 0
         Top = 0
@@ -263,7 +251,6 @@ object Form1: TForm1
       Align = alBottom
       Caption = #1052#1086#1076#1080#1092#1080#1082#1072#1094#1080#1103
       TabOrder = 1
-      ExplicitTop = 545
       object Button3: TButton
         AlignWithMargins = True
         Left = 5
@@ -273,7 +260,6 @@ object Form1: TForm1
         Align = alBottom
         Caption = #1044#1086#1073#1072#1074#1080#1090#1100
         TabOrder = 0
-        OnClick = Button3Click
       end
       object GridPanel1: TGridPanel
         Left = 2
@@ -316,7 +302,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
           TabOrder = 0
-          OnClick = Button2Click
         end
         object Button4: TButton
           AlignWithMargins = True
@@ -327,7 +312,6 @@ object Form1: TForm1
           Align = alClient
           Caption = #1059#1076#1072#1083#1080#1090#1100
           TabOrder = 1
-          OnClick = Button4Click
         end
       end
       object Button5: TButton
@@ -340,7 +324,6 @@ object Form1: TForm1
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         Enabled = False
         TabOrder = 2
-        OnClick = Button5Click
       end
     end
   end
@@ -359,7 +342,6 @@ object Form1: TForm1
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
-    OnCellClick = DBGrid1CellClick
     Columns = <
       item
         Expanded = False
