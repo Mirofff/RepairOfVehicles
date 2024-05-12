@@ -1,8 +1,8 @@
-object MainForm: TMainForm
-  Left = 909
-  Top = 31
+﻿object MainForm: TMainForm
+  Left = 440
+  Top = 282
   Caption = #1056#1077#1084#1086#1085#1090' '#1090#1088#1072#1085#1089#1087#1086#1088#1090#1085#1099#1093' '#1089#1088#1077#1076#1089#1090#1074
-  ClientHeight = 557
+  ClientHeight = 552
   ClientWidth = 964
   Color = clBtnFace
   CustomTitleBar.CaptionAlignment = taCenter
@@ -39,12 +39,12 @@ object MainForm: TMainForm
     Left = 48
     Top = 30
     Width = 916
-    Height = 527
+    Height = 522
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
     Margins.Bottom = 0
-    ActivePage = TabSheetOperationsLog
+    ActivePage = TabSheetAuth
     Align = alClient
     Constraints.MinHeight = 400
     Constraints.MinWidth = 400
@@ -63,7 +63,7 @@ object MainForm: TMainForm
         Left = 0
         Top = 0
         Width = 908
-        Height = 517
+        Height = 512
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 0
@@ -112,7 +112,7 @@ object MainForm: TMainForm
         Left = 0
         Top = 0
         Width = 908
-        Height = 517
+        Height = 512
         Align = alClient
         BevelOuter = bvNone
         Caption = 'GridPanel1'
@@ -153,7 +153,7 @@ object MainForm: TMainForm
         TabOrder = 0
         object Panel5: TPanel
           Left = 254
-          Top = 158
+          Top = 156
           Width = 400
           Height = 200
           Align = alClient
@@ -278,7 +278,7 @@ object MainForm: TMainForm
         object Button8: TButton
           AlignWithMargins = True
           Left = 304
-          Top = 489
+          Top = 484
           Width = 300
           Height = 25
           Margins.Left = 50
@@ -293,7 +293,7 @@ object MainForm: TMainForm
         Left = 0
         Top = 0
         Width = 0
-        Height = 517
+        Height = 512
         Opened = False
         OpenedWidth = 280
         Placement = svpLeft
@@ -302,7 +302,7 @@ object MainForm: TMainForm
           Left = 0
           Top = 0
           Width = 0
-          Height = 517
+          Height = 512
           Align = alClient
           BevelOuter = bvNone
           Caption = 'GridPanel1'
@@ -337,9 +337,9 @@ object MainForm: TMainForm
           TabOrder = 0
           object Panel4: TPanel
             Left = -120
-            Top = 172
+            Top = 171
             Width = 240
-            Height = 173
+            Height = 170
             Align = alClient
             Anchors = []
             BevelEdges = []
@@ -352,7 +352,7 @@ object MainForm: TMainForm
               Left = 0
               Top = 0
               Width = 240
-              Height = 148
+              Height = 145
               Align = alClient
               BevelEdges = []
               BevelOuter = bvNone
@@ -377,7 +377,7 @@ object MainForm: TMainForm
                 Left = 0
                 Top = 0
                 Width = 240
-                Height = 148
+                Height = 145
                 Align = alClient
                 Caption = 'GridPanel4'
                 ColumnCollection = <
@@ -408,7 +408,7 @@ object MainForm: TMainForm
                   Left = 1
                   Top = 1
                   Width = 119
-                  Height = 146
+                  Height = 143
                   Align = alClient
                   Caption = 'v'
                   ShowCaption = False
@@ -438,7 +438,7 @@ object MainForm: TMainForm
                   Left = 120
                   Top = 1
                   Width = 119
-                  Height = 146
+                  Height = 143
                   Align = alClient
                   Caption = 'Panel1'
                   ShowCaption = False
@@ -468,7 +468,7 @@ object MainForm: TMainForm
             end
             object Button2: TButton
               Left = 0
-              Top = 148
+              Top = 145
               Width = 240
               Height = 25
               Align = alBottom
@@ -488,73 +488,266 @@ object MainForm: TMainForm
         Left = 0
         Top = 0
         Width = 908
-        Height = 517
-        ActivePage = TabSheet12
+        Height = 512
+        ActivePage = TabSheet11
         Align = alClient
         TabOrder = 0
         object TabSheet11: TTabSheet
           Caption = #1044#1080#1085#1072#1084#1080#1095#1077#1089#1082#1080#1081' '#1086#1090#1095#1077#1090
-          inline FrameDyncamicReport1: TFrameDyncamicReport
+          object GridPanel5: TGridPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 60
+            Width = 894
+            Height = 393
+            Align = alClient
+            BevelOuter = bvNone
+            Caption = 'GridPanel5'
+            ColumnCollection = <
+              item
+                Value = 100.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = Panel14
+                Row = 0
+              end
+              item
+                Column = 0
+                Control = Panel15
+                Row = 1
+              end>
+            RowCollection = <
+              item
+                Value = 50.000000000000000000
+              end
+              item
+                Value = 50.000000000000000000
+              end>
+            ShowCaption = False
+            TabOrder = 0
+            object Panel14: TPanel
+              AlignWithMargins = True
+              Left = 3
+              Top = 3
+              Width = 888
+              Height = 190
+              Align = alClient
+              BevelOuter = bvNone
+              Caption = 'Panel14'
+              ShowCaption = False
+              TabOrder = 0
+              object LabelUsedServicesReportFullPrice: TLabel
+                Left = 0
+                Top = 175
+                Width = 888
+                Height = 15
+                Align = alBottom
+                Caption = 'LabelUsedServicesReportFullPrice'
+                ExplicitWidth = 176
+              end
+              object DBGrid1: TDBGrid
+                Left = 0
+                Top = 0
+                Width = 888
+                Height = 175
+                Align = alClient
+                DataSource = DataSourceReportUsedServices
+                TabOrder = 0
+                TitleFont.Charset = DEFAULT_CHARSET
+                TitleFont.Color = clWindowText
+                TitleFont.Height = -12
+                TitleFont.Name = 'Segoe UI'
+                TitleFont.Style = []
+                Columns = <
+                  item
+                    Expanded = False
+                    FieldName = 'statement_info'
+                    Title.Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1079#1072#1082#1072#1079' '#1085#1072#1088#1103#1076#1077
+                    Width = 386
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
+                    Width = 183
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = #1062#1077#1085#1072
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+                    Visible = True
+                  end>
+              end
+            end
+            object Panel15: TPanel
+              AlignWithMargins = True
+              Left = 3
+              Top = 199
+              Width = 888
+              Height = 191
+              Align = alClient
+              BevelOuter = bvNone
+              Caption = 'Panel15'
+              ShowCaption = False
+              TabOrder = 1
+              object LabelUsedConsumablesReportFullPrice: TLabel
+                Left = 0
+                Top = 176
+                Width = 888
+                Height = 15
+                Align = alBottom
+                Caption = 'Label5'
+                ExplicitWidth = 34
+              end
+              object DBGrid2: TDBGrid
+                Left = 0
+                Top = 0
+                Width = 888
+                Height = 176
+                Align = alClient
+                DataSource = DataSourceReportUsedConsumables
+                TabOrder = 0
+                TitleFont.Charset = DEFAULT_CHARSET
+                TitleFont.Color = clWindowText
+                TitleFont.Height = -12
+                TitleFont.Name = 'Segoe UI'
+                TitleFont.Style = []
+                Columns = <
+                  item
+                    Expanded = False
+                    FieldName = 'statement_info'
+                    Title.Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1079#1072#1082#1072#1079' '#1085#1072#1088#1103#1076#1077
+                    Width = 379
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = #1056#1072#1089#1093#1086#1076#1085#1080#1082
+                    Width = 200
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = #1062#1077#1085#1072
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+                    Visible = True
+                  end>
+              end
+            end
+          end
+          object Button3: TButton
+            AlignWithMargins = True
+            Left = 3
+            Top = 459
+            Width = 894
+            Height = 20
+            Align = alBottom
+            Caption = #1057#1086#1079#1076#1072#1090#1100' '#1086#1090#1095#1077#1090
+            TabOrder = 1
+            OnClick = Button3Click
+          end
+          object GridPanel6: TGridPanel
             Left = 0
             Top = 0
             Width = 900
-            Height = 487
-            Align = alClient
-            TabOrder = 0
-            ExplicitWidth = 900
-            ExplicitHeight = 487
-            inherited GroupBox1: TGroupBox
-              Width = 900
-              ExplicitWidth = 900
-              inherited DatePicker1: TDatePicker
-                Width = 896
-                ExplicitWidth = 896
+            Height = 57
+            Align = alTop
+            BevelOuter = bvNone
+            Caption = 'GridPanel6'
+            ColumnCollection = <
+              item
+                Value = 50.000000000000000000
+              end
+              item
+                Value = 50.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = GroupBox4
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = GroupBox6
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end>
+            ShowCaption = False
+            TabOrder = 2
+            object GroupBox4: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 450
+              Height = 57
+              Align = alClient
+              Caption = #1044#1072#1090#1072' '#1085#1072#1095#1072#1083#1072' '#1074#1099#1073#1086#1088#1082#1080
+              TabOrder = 0
+              object DatePickerDynamicReportStart: TDatePicker
+                Left = 2
+                Top = 17
+                Width = 446
+                Height = 38
+                Align = alClient
+                Date = 36526.000000000000000000
+                DateFormat = 'dd/mm/yyyy'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -16
+                Font.Name = 'Segoe UI'
+                Font.Style = []
+                TabOrder = 0
+                OnChange = DatePickerDynamicReportStartChange
               end
             end
-            inherited GridPanel1: TGridPanel
-              Top = 452
-              Width = 900
-              ControlCollection = <
-                item
-                  Column = 0
-                  Control = FrameDyncamicReport1.Label1
-                  Row = 0
-                end
-                item
-                  Column = 1
-                  Control = FrameDyncamicReport1.Button1
-                  Row = 0
-                end>
-              StyleElements = [seFont, seClient, seBorder]
-              ExplicitTop = 452
-              ExplicitWidth = 900
-              inherited Label1: TLabel
-                Height = 35
-                StyleElements = [seFont, seClient, seBorder]
+            object GroupBox6: TGroupBox
+              Left = 450
+              Top = 0
+              Width = 450
+              Height = 57
+              Align = alClient
+              Caption = #1044#1072#1090#1072' '#1079#1072#1074#1077#1088#1096#1077#1085#1080#1103' '#1074#1099#1073#1086#1088#1082#1080
+              TabOrder = 1
+              object DatePickerDynamicReportEnd: TDatePicker
+                Left = 2
+                Top = 17
+                Width = 446
+                Height = 38
+                Align = alClient
+                Date = 73051.000000000000000000
+                DateFormat = 'dd/mm/yyyy'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -16
+                Font.Name = 'Segoe UI'
+                Font.Style = []
+                TabOrder = 0
+                OnChange = DatePickerDynamicReportEndChange
               end
-              inherited Button1: TButton
-                Left = 753
-                ExplicitLeft = 753
-              end
-            end
-            inherited StringGrid1: TStringGrid
-              Width = 900
-              Height = 387
-              ExplicitWidth = 900
-              ExplicitHeight = 387
-            end
-            inherited frxReport1: TfrxReport
-              Datasets = <
-                item
-                  DataSet = FrameDyncamicReport1.frxDBDataset1
-                  DataSetName = 'frxDBDataset1'
-                end>
-              Variables = <>
-              Style = <>
-            end
-            inherited frxDBDataset1: TfrxDBDataset
-              Left = 368
-              Top = 312
             end
           end
         end
@@ -565,42 +758,30 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 900
-            Height = 487
+            Height = 482
             Align = alClient
             TabOrder = 0
             ExplicitWidth = 900
-            ExplicitHeight = 487
-            inherited DBGrid1: TDBGrid
-              Width = 900
-              Height = 421
+            ExplicitHeight = 482
+            inherited Button1: TButton
+              Top = 459
+              Width = 894
+              ExplicitLeft = 3
+              ExplicitTop = 459
+              ExplicitWidth = 894
             end
             inherited Panel1: TPanel
               Width = 900
+              Height = 456
               StyleElements = [seFont, seClient, seBorder]
+              ExplicitLeft = 0
+              ExplicitTop = 0
               ExplicitWidth = 900
-            end
-            inherited Button1: TButton
-              Top = 462
-              Width = 900
-              ExplicitTop = 462
-              ExplicitWidth = 900
-            end
-            inherited frxReport1: TfrxReport
-              Datasets = <
-                item
-                  DataSet = FrameStaticReport1.frxDBDataset1
-                  DataSetName = 'frxDBDataset1'
-                end
-                item
-                  DataSet = FrameDyncamicReport.frxDBDataset1
-                  DataSetName = 'frxDBDataset1'
-                end>
-              Variables = <>
-              Style = <>
-            end
-            inherited frxDBDataset1: TfrxDBDataset
-              Left = 264
-              Top = 368
+              ExplicitHeight = 456
+              inherited Label1: TLabel
+                Width = 898
+                StyleElements = [seFont, seClient, seBorder]
+              end
             end
           end
         end
@@ -610,433 +791,21 @@ object MainForm: TMainForm
       Caption = #1046#1091#1088#1085#1072#1083' '#1086#1087#1077#1088#1072#1094#1080#1081
       ImageIndex = 3
       TabVisible = False
-      object Panel3: TPanel
+      object Splitter2: TSplitter
         Left = 0
-        Top = 52
+        Top = 129
         Width = 908
-        Height = 465
-        Align = alClient
-        BevelOuter = bvNone
-        Caption = 'Panel1'
-        ShowCaption = False
-        TabOrder = 0
-        object Splitter1: TSplitter
-          Left = 289
-          Top = 0
-          Height = 465
-          ExplicitLeft = 8
-        end
-        object Panel7: TPanel
-          Left = 0
-          Top = 0
-          Width = 289
-          Height = 465
-          Align = alLeft
-          Caption = 'Panel7'
-          ShowCaption = False
-          TabOrder = 0
-          object GroupBox1: TGroupBox
-            Left = 1
-            Top = 298
-            Width = 287
-            Height = 105
-            Align = alBottom
-            Caption = #1052#1086#1076#1080#1092#1080#1082#1072#1094#1080#1103
-            TabOrder = 0
-            object Label5: TLabel
-              Left = 3
-              Top = 21
-              Width = 5
-              Height = 28
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -20
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-            end
-            object GridPanel5: TGridPanel
-              Left = 2
-              Top = 17
-              Width = 283
-              Height = 86
-              Align = alClient
-              Caption = 'GridPanel1'
-              ColumnCollection = <
-                item
-                  Value = 50.000000000000000000
-                end
-                item
-                  Value = 50.000000000000000000
-                end>
-              ControlCollection = <
-                item
-                  Column = 0
-                  Control = SpeedButton5
-                  Row = 0
-                end
-                item
-                  Column = 1
-                  Control = SpeedButton6
-                  Row = 0
-                end
-                item
-                  Column = 1
-                  Control = SpeedButton8
-                  Row = 1
-                end>
-              RowCollection = <
-                item
-                  Value = 50.000000000000000000
-                end
-                item
-                  Value = 50.000000000000000000
-                end>
-              ShowCaption = False
-              TabOrder = 0
-              object SpeedButton5: TSpeedButton
-                Left = 1
-                Top = 1
-                Width = 140
-                Height = 42
-                Align = alClient
-                Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-                ExplicitLeft = 96
-                ExplicitTop = 16
-                ExplicitWidth = 23
-                ExplicitHeight = 22
-              end
-              object SpeedButton6: TSpeedButton
-                Left = 141
-                Top = 1
-                Width = 141
-                Height = 42
-                Align = alClient
-                Caption = #1059#1076#1072#1083#1080#1090#1100
-                ExplicitLeft = 170
-                ExplicitTop = -5
-                ExplicitWidth = 172
-              end
-              object SpeedButton8: TSpeedButton
-                Left = 141
-                Top = 43
-                Width = 141
-                Height = 42
-                Align = alClient
-                Caption = #1054#1090#1095#1077#1090
-                ExplicitLeft = 96
-                ExplicitTop = 16
-                ExplicitWidth = 23
-                ExplicitHeight = 22
-              end
-            end
-          end
-          object GroupBox2: TGroupBox
-            Left = 1
-            Top = 151
-            Width = 287
-            Height = 60
-            Align = alTop
-            Caption = #1044#1072#1090#1072' '#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1080
-            TabOrder = 1
-            object DatePicker1: TDatePicker
-              Left = 2
-              Top = 17
-              Width = 283
-              Height = 41
-              Align = alClient
-              Date = 45011.000000000000000000
-              DateFormat = 'dd/mm/yyyy'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -20
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              TabOrder = 0
-            end
-          end
-          object GroupBox3: TGroupBox
-            Left = 1
-            Top = 91
-            Width = 287
-            Height = 60
-            Align = alTop
-            Caption = #1044#1072#1090#1072' '#1080#1089#1087#1086#1083#1085#1077#1085#1080#1103
-            TabOrder = 2
-            object DatePicker2: TDatePicker
-              Left = 2
-              Top = 17
-              Width = 283
-              Height = 41
-              Align = alClient
-              Date = 45011.000000000000000000
-              DateFormat = 'dd/mm/yyyy'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -20
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              TabOrder = 0
-            end
-          end
-          object GroupBox4: TGroupBox
-            Left = 1
-            Top = 46
-            Width = 287
-            Height = 45
-            Align = alTop
-            Caption = #1040#1074#1090#1086#1084#1086#1073#1080#1083#1100
-            TabOrder = 3
-            object DBComboBox2: TDBComboBox
-              Left = 2
-              Top = 17
-              Width = 283
-              Height = 23
-              Align = alClient
-              DataField = 'registration_plate'
-              ImeMode = imHanguel
-              TabOrder = 0
-              OnChange = DBComboBox2Change
-            end
-          end
-          object GroupBox5: TGroupBox
-            Left = 1
-            Top = 1
-            Width = 287
-            Height = 45
-            Align = alTop
-            Caption = #1050#1083#1080#1077#1085#1090
-            TabOrder = 4
-            object DBComboBox1: TDBComboBox
-              Left = 2
-              Top = 17
-              Width = 283
-              Height = 23
-              Align = alClient
-              TabOrder = 0
-            end
-          end
-          object GroupBox9: TGroupBox
-            Left = 1
-            Top = 403
-            Width = 287
-            Height = 61
-            Align = alBottom
-            Caption = #1044#1086#1073#1072#1074#1083#1077#1085#1080#1077
-            TabOrder = 5
-            Visible = False
-            object Label6: TLabel
-              Left = 3
-              Top = 21
-              Width = 5
-              Height = 28
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -20
-              Font.Name = 'Segoe UI'
-              Font.Style = []
-              ParentFont = False
-            end
-            object GridPanel6: TGridPanel
-              Left = 2
-              Top = 17
-              Width = 283
-              Height = 42
-              Align = alClient
-              Caption = 'GridPanel1'
-              ColumnCollection = <
-                item
-                  Value = 50.000000000000000000
-                end
-                item
-                  Value = 50.000000000000000000
-                end>
-              ControlCollection = <
-                item
-                  Column = 0
-                  Control = SpeedButton9
-                  Row = 0
-                end
-                item
-                  Column = 1
-                  Control = SpeedButton10
-                  Row = 0
-                end>
-              RowCollection = <
-                item
-                  Value = 100.000000000000000000
-                end>
-              ShowCaption = False
-              TabOrder = 0
-              object SpeedButton9: TSpeedButton
-                Left = 1
-                Top = 1
-                Width = 140
-                Height = 40
-                Align = alClient
-                Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
-                ExplicitLeft = 96
-                ExplicitTop = 16
-                ExplicitWidth = 23
-                ExplicitHeight = 22
-              end
-              object SpeedButton10: TSpeedButton
-                Left = 141
-                Top = 1
-                Width = 141
-                Height = 40
-                Align = alClient
-                Caption = #1054#1090#1084#1077#1085#1080#1090#1100
-                ExplicitLeft = 173
-                ExplicitTop = -2
-                ExplicitWidth = 172
-              end
-            end
-          end
-        end
-        object GridPanel7: TGridPanel
-          Left = 292
-          Top = 0
-          Width = 616
-          Height = 465
-          Align = alClient
-          Caption = 'GridPanel3'
-          ColumnCollection = <
-            item
-              Value = 50.000000000000000000
-            end
-            item
-              Value = 50.000000000000000000
-            end>
-          ControlCollection = <
-            item
-              Column = 0
-              Control = ListBox1
-              Row = 0
-            end
-            item
-              Column = 1
-              Control = ListBox3
-              Row = 0
-            end
-            item
-              Column = 0
-              Control = ListBox2
-              Row = 1
-            end
-            item
-              Column = 1
-              Control = ListBox4
-              Row = 1
-            end
-            item
-              Column = 0
-              Control = GroupBox6
-              Row = 2
-            end
-            item
-              Column = 1
-              Control = GroupBox10
-              Row = 2
-            end>
-          RowCollection = <
-            item
-              Value = 50.000000000000000000
-            end
-            item
-              Value = 50.000000000000000000
-            end
-            item
-              SizeStyle = ssAbsolute
-              Value = 50.000000000000000000
-            end
-            item
-              SizeStyle = ssAuto
-            end>
-          TabOrder = 1
-          object ListBox1: TListBox
-            Left = 1
-            Top = 1
-            Width = 307
-            Height = 206
-            Align = alClient
-            BevelInner = bvNone
-            ItemHeight = 15
-            TabOrder = 0
-          end
-          object ListBox3: TListBox
-            Left = 308
-            Top = 1
-            Width = 307
-            Height = 206
-            Align = alClient
-            BevelInner = bvNone
-            ItemHeight = 15
-            TabOrder = 1
-          end
-          object ListBox2: TListBox
-            Left = 1
-            Top = 207
-            Width = 307
-            Height = 207
-            Align = alClient
-            BevelInner = bvNone
-            ItemHeight = 15
-            TabOrder = 2
-          end
-          object ListBox4: TListBox
-            Left = 308
-            Top = 207
-            Width = 307
-            Height = 207
-            Align = alClient
-            BevelInner = bvNone
-            ItemHeight = 15
-            TabOrder = 3
-          end
-          object GroupBox6: TGroupBox
-            Left = 1
-            Top = 414
-            Width = 307
-            Height = 50
-            Align = alClient
-            Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
-            TabOrder = 4
-            object NumberBox2: TNumberBox
-              Left = 2
-              Top = 17
-              Width = 303
-              Height = 31
-              Align = alClient
-              TabOrder = 0
-              ExplicitHeight = 23
-            end
-          end
-          object GroupBox10: TGroupBox
-            Left = 308
-            Top = 414
-            Width = 307
-            Height = 50
-            Align = alClient
-            Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086
-            TabOrder = 5
-            object NumberBox1: TNumberBox
-              Left = 2
-              Top = 17
-              Width = 303
-              Height = 31
-              Align = alClient
-              TabOrder = 0
-              ExplicitHeight = 23
-            end
-          end
-        end
+        Height = 3
+        Cursor = crVSplit
+        Align = alTop
+        ExplicitLeft = -16
+        ExplicitTop = 124
       end
       object Panel6: TPanel
         Left = 0
         Top = 0
         Width = 908
-        Height = 52
+        Height = 129
         ParentCustomHint = False
         Align = alTop
         BevelOuter = bvNone
@@ -1058,66 +827,558 @@ object MainForm: TMainForm
         ParentShowHint = False
         ShowCaption = False
         ShowHint = False
-        TabOrder = 1
-        object GroupBox7: TGroupBox
+        TabOrder = 0
+        object DBGrid3: TDBGrid
+          Left = 0
+          Top = 41
+          Width = 908
+          Height = 88
+          Align = alClient
+          DataSource = DataModuleDB.DataSourceStatements
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -12
+          TitleFont.Name = 'Segoe UI'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'pickup_time'
+              Title.Caption = #1042#1088#1077#1084#1103' '#1079#1072#1087#1080#1089#1080
+              Width = 126
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'status'
+              Title.Caption = #1057#1090#1072#1090#1091#1089
+              Width = 187
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'client_name'
+              Title.Caption = #1050#1083#1080#1077#1085#1090
+              Width = 264
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'vehicle_print'
+              Title.Caption = #1058#1088#1072#1085#1089#1087#1086#1088#1090
+              Width = 286
+              Visible = True
+            end>
+        end
+        object Panel8: TPanel
           Left = 0
           Top = 0
-          Width = 621
-          Height = 52
-          Align = alClient
-          Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1084#1086#1076#1077#1083#1080
-          TabOrder = 0
-          object Edit2: TEdit
-            Left = 2
-            Top = 17
-            Width = 617
-            Height = 33
+          Width = 908
+          Height = 41
+          Align = alTop
+          BevelEdges = []
+          BevelOuter = bvNone
+          Caption = 'Panel8'
+          ShowCaption = False
+          TabOrder = 1
+          object GroupBox7: TGroupBox
+            Left = 0
+            Top = 0
+            Width = 621
+            Height = 41
             Align = alClient
+            Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1079#1072#1103#1074#1082#1077
             TabOrder = 0
-            ExplicitHeight = 23
+            object Edit2: TEdit
+              Left = 2
+              Top = 17
+              Width = 617
+              Height = 22
+              Align = alClient
+              TabOrder = 0
+              ExplicitHeight = 23
+            end
+          end
+          object GroupBox8: TGroupBox
+            Left = 621
+            Top = 0
+            Width = 287
+            Height = 41
+            Align = alRight
+            Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103
+            TabOrder = 1
+            object SpeedButtonStatementPriv: TSpeedButton
+              Left = 2
+              Top = 17
+              Width = 70
+              Height = 22
+              Align = alLeft
+              Caption = '<'
+              OnClick = SpeedButtonStatementPrivClick
+              ExplicitHeight = 33
+            end
+            object SpeedButtonStatementFirst: TSpeedButton
+              Left = 72
+              Top = 17
+              Width = 70
+              Height = 22
+              Align = alLeft
+              Caption = '|<'
+              OnClick = SpeedButtonStatementFirstClick
+              ExplicitHeight = 33
+            end
+            object SpeedButtonStatementLast: TSpeedButton
+              Left = 142
+              Top = 17
+              Width = 70
+              Height = 22
+              Align = alLeft
+              Caption = '>|'
+              OnClick = SpeedButtonStatementLastClick
+              ExplicitHeight = 33
+            end
+            object SpeedButtonStatementNext: TSpeedButton
+              Left = 212
+              Top = 17
+              Width = 70
+              Height = 22
+              Align = alLeft
+              Caption = '>'
+              OnClick = SpeedButtonStatementNextClick
+              ExplicitLeft = 214
+              ExplicitTop = 16
+            end
           end
         end
-        object GroupBox8: TGroupBox
-          Left = 621
+      end
+      object Panel3: TPanel
+        Left = 0
+        Top = 132
+        Width = 908
+        Height = 380
+        Align = alClient
+        BevelOuter = bvNone
+        Caption = 'Panel1'
+        ShowCaption = False
+        TabOrder = 1
+        object Splitter1: TSplitter
+          Left = 233
           Top = 0
-          Width = 287
-          Height = 52
-          Align = alRight
-          Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103
+          Height = 380
+          ExplicitLeft = 8
+          ExplicitHeight = 465
+        end
+        object Panel7: TPanel
+          Left = 0
+          Top = 0
+          Width = 233
+          Height = 380
+          Align = alLeft
+          Caption = 'Panel7'
+          ShowCaption = False
+          TabOrder = 0
+          object GroupBox2: TGroupBox
+            Left = 1
+            Top = 135
+            Width = 231
+            Height = 44
+            Align = alTop
+            Caption = #1044#1072#1090#1072' '#1088#1077#1075#1080#1089#1090#1088#1072#1094#1080#1080
+            TabOrder = 0
+            object DatePickerStatementRegistrationDate: TDatePicker
+              Left = 2
+              Top = 17
+              Width = 227
+              Height = 25
+              Align = alClient
+              Date = 45423.000000000000000000
+              DateFormat = 'dd/mm/yyyy'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -16
+              Font.Name = 'Segoe UI'
+              Font.Style = []
+              TabOrder = 0
+            end
+          end
+          object GroupBox3: TGroupBox
+            Left = 1
+            Top = 91
+            Width = 231
+            Height = 44
+            Align = alTop
+            Caption = #1044#1072#1090#1072' '#1080#1089#1087#1086#1083#1085#1077#1085#1080#1103
+            TabOrder = 1
+            object DatePickerStatementExecutionDate: TDatePicker
+              Left = 2
+              Top = 17
+              Width = 227
+              Height = 25
+              Align = alClient
+              Date = 45423.000000000000000000
+              DateFormat = 'dd/mm/yyyy'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -16
+              Font.Name = 'Segoe UI'
+              Font.Style = []
+              TabOrder = 0
+            end
+          end
+          object GroupBox5: TGroupBox
+            Left = 1
+            Top = 46
+            Width = 231
+            Height = 45
+            Align = alTop
+            Caption = #1058#1088#1072#1085#1089#1087#1086#1088#1090
+            TabOrder = 2
+            object DBEdit2: TDBEdit
+              AlignWithMargins = True
+              Left = 5
+              Top = 20
+              Width = 221
+              Height = 20
+              Align = alClient
+              DataField = 'vehicle_print'
+              DataSource = DataModuleDB.DataSourceVehicles
+              Enabled = False
+              TabOrder = 0
+              ExplicitHeight = 23
+            end
+          end
+          object GroupBox1: TGroupBox
+            Left = 1
+            Top = 1
+            Width = 231
+            Height = 45
+            Align = alTop
+            Caption = '# '#1047#1072#1082#1072#1079' '#1085#1072#1088#1103#1076#1072
+            TabOrder = 3
+            object DBEdit1: TDBEdit
+              AlignWithMargins = True
+              Left = 5
+              Top = 20
+              Width = 221
+              Height = 20
+              Align = alClient
+              DataField = 'uuid'
+              DataSource = DataModuleDB.DataSourceStatements
+              Enabled = False
+              TabOrder = 0
+              ExplicitHeight = 23
+            end
+          end
+          object Button7: TButton
+            AlignWithMargins = True
+            Left = 4
+            Top = 356
+            Width = 225
+            Height = 20
+            Align = alBottom
+            Caption = #1055#1077#1095#1072#1090#1100
+            TabOrder = 4
+            OnClick = Button7Click
+          end
+          object ButtonStatementSave: TButton
+            AlignWithMargins = True
+            Left = 4
+            Top = 330
+            Width = 225
+            Height = 20
+            Align = alBottom
+            Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+            TabOrder = 5
+            OnClick = ButtonStatementSaveClick
+          end
+        end
+        object Panel9: TPanel
+          Left = 236
+          Top = 0
+          Width = 672
+          Height = 380
+          Align = alClient
+          BevelOuter = bvNone
+          Caption = 'Panel9'
+          ShowCaption = False
           TabOrder = 1
-          object SpeedButton2: TSpeedButton
-            Left = 2
-            Top = 17
-            Width = 70
-            Height = 33
-            Align = alLeft
-            Caption = '<'
-          end
-          object SpeedButton3: TSpeedButton
-            Left = 72
-            Top = 17
-            Width = 70
-            Height = 33
-            Align = alLeft
-            Caption = '|<'
-          end
-          object SpeedButton4: TSpeedButton
-            Left = 142
-            Top = 17
-            Width = 70
-            Height = 33
-            Align = alLeft
-            Caption = '>|'
-          end
-          object SpeedButton7: TSpeedButton
-            Left = 212
-            Top = 17
-            Width = 70
-            Height = 33
-            Align = alLeft
-            Caption = '>'
-            ExplicitLeft = 214
-            ExplicitTop = 16
+          object GridPanel7: TGridPanel
+            Left = 0
+            Top = 0
+            Width = 672
+            Height = 380
+            Align = alClient
+            BevelOuter = bvNone
+            Caption = 'GridPanel3'
+            ColumnCollection = <
+              item
+                Value = 54.545454545454550000
+              end
+              item
+                Value = 45.454545454545450000
+              end>
+            ControlCollection = <
+              item
+                Column = 1
+                Control = Panel10
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = Panel11
+                Row = 1
+              end
+              item
+                Column = 0
+                Control = Panel12
+                Row = 1
+              end
+              item
+                Column = 0
+                Control = Panel13
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 50.000000000000000000
+              end
+              item
+                Value = 50.000000000000000000
+              end>
+            ShowCaption = False
+            TabOrder = 0
+            object Panel10: TPanel
+              AlignWithMargins = True
+              Left = 370
+              Top = 3
+              Width = 299
+              Height = 184
+              Align = alClient
+              AutoSize = True
+              BevelEdges = []
+              BevelOuter = bvNone
+              Caption = 'Panel10'
+              ShowCaption = False
+              TabOrder = 0
+              object DBGridConsumables: TDBGrid
+                Left = 0
+                Top = 0
+                Width = 299
+                Height = 164
+                Align = alClient
+                DataSource = DataModuleDB.DataSourceConsumables
+                TabOrder = 0
+                TitleFont.Charset = DEFAULT_CHARSET
+                TitleFont.Color = clWindowText
+                TitleFont.Height = -12
+                TitleFont.Name = 'Segoe UI'
+                TitleFont.Style = []
+                OnDblClick = DBGridConsumablesDblClick
+                Columns = <
+                  item
+                    Expanded = False
+                    FieldName = 'name'
+                    Title.Caption = #1056#1072#1089#1093#1086#1076#1085#1080#1082
+                    Width = 196
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'price'
+                    Title.Caption = #1062#1077#1085#1072
+                    Visible = True
+                  end>
+              end
+              object ButtonConsumablesAdd: TButton
+                Left = 0
+                Top = 164
+                Width = 299
+                Height = 20
+                Align = alBottom
+                Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+                TabOrder = 1
+                OnClick = ButtonConsumablesAddClick
+              end
+            end
+            object Panel11: TPanel
+              AlignWithMargins = True
+              Left = 370
+              Top = 193
+              Width = 299
+              Height = 184
+              Align = alClient
+              AutoSize = True
+              BevelOuter = bvNone
+              Caption = 'Panel11'
+              ShowCaption = False
+              TabOrder = 1
+              object DBGridServices: TDBGrid
+                Left = 0
+                Top = 0
+                Width = 299
+                Height = 164
+                Align = alClient
+                DataSource = DataModuleDB.DataSourceServices
+                TabOrder = 0
+                TitleFont.Charset = DEFAULT_CHARSET
+                TitleFont.Color = clWindowText
+                TitleFont.Height = -12
+                TitleFont.Name = 'Segoe UI'
+                TitleFont.Style = []
+                OnDblClick = DBGridServicesDblClick
+                Columns = <
+                  item
+                    Expanded = False
+                    FieldName = 'name'
+                    Title.Caption = #1054#1087#1077#1088#1072#1094#1080#1103
+                    Width = 196
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'price'
+                    Title.Caption = #1062#1077#1085#1072
+                    Visible = True
+                  end>
+              end
+              object ButtonServicesAdd: TButton
+                Left = 0
+                Top = 164
+                Width = 299
+                Height = 20
+                Align = alBottom
+                Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+                TabOrder = 1
+                OnClick = ButtonServicesAddClick
+              end
+            end
+            object Panel12: TPanel
+              AlignWithMargins = True
+              Left = 3
+              Top = 193
+              Width = 361
+              Height = 184
+              Align = alClient
+              AutoSize = True
+              BevelOuter = bvNone
+              Caption = 'Panel12'
+              ShowCaption = False
+              TabOrder = 2
+              object DBGridUsedServices: TDBGrid
+                Left = 0
+                Top = 0
+                Width = 361
+                Height = 164
+                Align = alClient
+                DataSource = DataModuleDB.DataSourceUsedServices
+                TabOrder = 0
+                TitleFont.Charset = DEFAULT_CHARSET
+                TitleFont.Color = clWindowText
+                TitleFont.Height = -12
+                TitleFont.Name = 'Segoe UI'
+                TitleFont.Style = []
+                Columns = <
+                  item
+                    Expanded = False
+                    FieldName = 'services_name'
+                    Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'service_price'
+                    Title.Caption = #1062#1077#1085#1072
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'quantity'
+                    Title.Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086
+                    Width = 72
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'full_price'
+                    Title.Caption = #1055#1086#1083#1085#1072#1103' '#1094#1077#1085#1072
+                    Visible = True
+                  end>
+              end
+              object ButtonServicesDelete: TButton
+                Left = 0
+                Top = 164
+                Width = 361
+                Height = 20
+                Align = alBottom
+                Caption = #1059#1076#1072#1083#1080#1090#1100
+                TabOrder = 1
+                OnClick = ButtonServicesDeleteClick
+              end
+            end
+            object Panel13: TPanel
+              AlignWithMargins = True
+              Left = 3
+              Top = 3
+              Width = 361
+              Height = 184
+              Align = alClient
+              AutoSize = True
+              BevelOuter = bvNone
+              Caption = 'Panel13'
+              ShowCaption = False
+              TabOrder = 3
+              object DBGridUsedConsumables: TDBGrid
+                Left = 0
+                Top = 0
+                Width = 361
+                Height = 164
+                Align = alClient
+                DataSource = DataModuleDB.DataSourceUsedConsumables
+                TabOrder = 0
+                TitleFont.Charset = DEFAULT_CHARSET
+                TitleFont.Color = clWindowText
+                TitleFont.Height = -12
+                TitleFont.Name = 'Segoe UI'
+                TitleFont.Style = []
+                Columns = <
+                  item
+                    Expanded = False
+                    FieldName = 'consumable_name'
+                    Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'consumable_price'
+                    Title.Caption = #1062#1077#1085#1072
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'quantity'
+                    Title.Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086
+                    Width = 71
+                    Visible = True
+                  end
+                  item
+                    Expanded = False
+                    FieldName = 'full_price'
+                    Title.Caption = #1055#1086#1083#1085#1072#1103' '#1094#1077#1085#1072
+                    Visible = True
+                  end>
+              end
+              object ButtonConsumablesDelete: TButton
+                Left = 0
+                Top = 164
+                Width = 361
+                Height = 20
+                Align = alBottom
+                Caption = #1059#1076#1072#1083#1080#1090#1100
+                TabOrder = 1
+                OnClick = ButtonConsumablesDeleteClick
+              end
+            end
           end
         end
       end
@@ -1160,7 +1421,7 @@ object MainForm: TMainForm
     Left = 0
     Top = 30
     Width = 48
-    Height = 527
+    Height = 522
     AnimationDelay = 1
     AnimationStep = 3
     BevelEdges = []
@@ -1176,7 +1437,7 @@ object MainForm: TMainForm
     object SpeedButtonMenuLogout: TSpeedButton
       AlignWithMargins = True
       Left = 3
-      Top = 484
+      Top = 479
       Width = 42
       Height = 40
       Align = alBottom
@@ -1249,7 +1510,7 @@ object MainForm: TMainForm
     object SpeedButtonMenuHelp: TSpeedButton
       AlignWithMargins = True
       Left = 3
-      Top = 438
+      Top = 433
       Width = 42
       Height = 40
       Align = alBottom
@@ -1471,8 +1732,8 @@ object MainForm: TMainForm
               270000000049454E44AE426082}
           end>
       end>
-    Left = 114
-    Top = 482
+    Left = 10
+    Top = 402
   end
   object VirtualImageList1: TVirtualImageList
     Images = <
@@ -1509,7 +1770,573 @@ object MainForm: TMainForm
     ImageCollection = ImageCollection1
     Width = 40
     Height = 40
-    Left = 115
-    Top = 414
+    Left = 11
+    Top = 342
+  end
+  object DataSourceReportUsedServices: TDataSource
+    DataSet = DataModuleDB.FDQueryReportUsedServices
+    OnDataChange = DataSourceReportUsedServicesDataChange
+    Left = 392
+    Top = 198
+  end
+  object DataSourceReportUsedConsumables: TDataSource
+    DataSet = DataModuleDB.FDQueryReportUsedConsumables
+    OnDataChange = DataSourceReportUsedConsumablesDataChange
+    Left = 392
+    Top = 256
+  end
+  object frxReportDynamicReport: TfrxReport
+    Version = '2024.2.2'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45424.844183576400000000
+    ReportOptions.LastChange = 45424.885137881900000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 392
+    Top = 374
+    Datasets = <
+      item
+        DataSet = frxDBDatasetReportUsedConsumables
+        DataSetName = 'DatasetReportUsedConsumables'
+      end
+      item
+        DataSet = frxDBDatasetReportUsedServices
+        DataSetName = 'DatasetReportUsedServices'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+      end
+      object GroupHeader1: TfrxGroupHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 56.692951790000000000
+        Top = 185.196970000000000000
+        Width = 718.110700000000000000
+        Condition = 'DatasetReportUsedConsumables."statement_uuid"'
+        object Memo1: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Top = 37.795296610000000000
+          Width = 483.779841540000000000
+          Height = 18.897651670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1056#1072#1089#1093#1086#1076#1085#1080#1082)
+        end
+        object DatasetReportUsedConsumablesstatement_info: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Top = 0.000000120000000006
+          Width = 718.110700000000000000
+          Height = 37.795300000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            
+              '[DatasetReportUsedConsumables."statement_info"] '#1086#1090' [DatasetRepor' +
+              'tUsedConsumables."statement_execution_date"]'
+            #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076': [DatasetReportUsedConsumables."statement_uuid"]')
+          Formats = <
+            item
+            end
+            item
+            end>
+        end
+        object Memo14: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 483.779841540000000000
+          Top = 34.015773500000000000
+          Width = 86.929183960000000000
+          Height = 22.677174040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086)
+        end
+        object Memo15: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 570.709025500000000000
+          Top = 34.015770120000000000
+          Width = 75.590591430000000000
+          Height = 22.677181670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1062#1077#1085#1072)
+        end
+        object Memo16: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 646.299616930000000000
+          Top = 34.015770120000000000
+          Width = 71.811074160000000000
+          Height = 22.677178290000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1054#1073#1097#1072#1103' '#1094#1077#1085#1072)
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 264.567100000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDBDatasetReportUsedConsumables
+        DataSetName = 'DatasetReportUsedConsumables'
+        RowCount = 0
+        object DatasetReportUsedConsumablesРасходник: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Width = 483.779840000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = #1056#1072#1089#1093#1086#1076#1085#1080#1082
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedConsumables."'#1056#1072#1089#1093#1086#1076#1085#1080#1082'"]')
+        end
+        object DatasetReportUsedConsumablesКоличествоопераций: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 483.779840000000000000
+          Width = 86.929190000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedConsumables."'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081'"]')
+        end
+        object DatasetReportUsedConsumablesЦена: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 570.709030000000000000
+          Width = 75.590600000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = #1062#1077#1085#1072
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedConsumables."'#1062#1077#1085#1072'"]')
+        end
+        object DatasetReportUsedConsumablesОбщаяцена: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 646.299630000000000000
+          Width = 71.811070000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedConsumables."'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'"]')
+        end
+      end
+      object GroupHeader2: TfrxGroupHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 64.252015060000000000
+        Top = 430.866420000000000000
+        Width = 718.110700000000000000
+        Condition = 'DatasetReportUsedServices."statement_uuid"'
+        object DatasetReportUsedServicesstatement_info: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Width = 718.110700000000000000
+          Height = 41.574830000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            
+              '[DatasetReportUsedServices."statement_info"] '#1086#1090' [DatasetReportUs' +
+              'edServices."statement_execution_date"]'
+            #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076': [DatasetReportUsedServices."statement_uuid"]')
+          Formats = <
+            item
+            end
+            item
+            end>
+        end
+        object Memo7: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Top = 41.574830000000000000
+          Width = 483.779841540000000000
+          Height = 18.897651670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1054#1087#1077#1088#1072#1094#1080#1103)
+        end
+        object Memo8: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 483.779841540000000000
+          Top = 41.574836770000000000
+          Width = 86.929183960000000000
+          Height = 22.677174040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086)
+        end
+        object Memo9: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 570.709025500000000000
+          Top = 41.574833390000000000
+          Width = 75.590591430000000000
+          Height = 22.677181670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1062#1077#1085#1072)
+        end
+        object Memo10: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 646.299616930000000000
+          Top = 41.574833390000000000
+          Width = 71.811074160000000000
+          Height = 22.677178290000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1054#1073#1097#1072#1103' '#1094#1077#1085#1072)
+        end
+      end
+      object MasterData2: TfrxMasterData
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 517.795610000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDBDatasetReportUsedServices
+        DataSetName = 'DatasetReportUsedServices'
+        RowCount = 0
+        object DatasetReportUsedServicesОперация: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Width = 483.779840000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = #1054#1087#1077#1088#1072#1094#1080#1103
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedServices."'#1054#1087#1077#1088#1072#1094#1080#1103'"]')
+        end
+        object DatasetReportUsedServicesКоличествоопераций: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 483.779840000000000000
+          Width = 79.370130000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedServices."'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081'"]')
+        end
+        object DatasetReportUsedServicesЦена: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 566.929500000000000000
+          Width = 79.370130000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = #1062#1077#1085#1072
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedServices."'#1062#1077#1085#1072'"]')
+        end
+        object DatasetReportUsedServicesОбщаяцена: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 646.299630000000000000
+          Width = 71.811070000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedServices."'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'"]')
+        end
+      end
+      object GroupFooter1: TfrxGroupFooter
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 309.921460000000000000
+        Width = 718.110700000000000000
+        object Memo5: TfrxMemoView
+          Align = baRight
+          AllowVectorExport = True
+          Left = 483.779856573437500000
+          Width = 234.330861200000000000
+          Height = 18.897644040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            
+              #1060#1080#1085#1072#1083#1100#1085#1072#1103' '#1094#1077#1085#1072': [SUM(<DatasetReportUsedConsumables."'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'">' +
+              ')]')
+        end
+      end
+      object GroupFooter2: TfrxGroupFooter
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 563.149970000000000000
+        Width = 718.110700000000000000
+        object Memo11: TfrxMemoView
+          Align = baRight
+          AllowVectorExport = True
+          Left = 483.779856573437500000
+          Top = 3.779530000000000000
+          Width = 234.330861200000000000
+          Height = 18.897644040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1060#1080#1085#1072#1083#1100#1085#1072#1103' '#1094#1077#1085#1072': [SUM(<DatasetReportUsedServices."'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'">)]')
+        end
+      end
+      object Header1: TfrxHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 52.913436070000000000
+        Top = 355.275820000000000000
+        Width = 718.110700000000000000
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Top = 30.236240000000000000
+          Width = 718.110717770000000000
+          Height = 22.677196070000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            
+              #1042#1099#1087#1086#1083#1085#1077#1085#1085#1099#1077' '#1091#1089#1083#1091#1075#1080', '#1086#1073#1097#1072#1103' '#1089#1091#1084#1084#1072' - [DatasetReportUsedServices."fu' +
+              'llSum"]:')
+        end
+      end
+      object Header2: TfrxHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 60.472480000000000000
+        Top = 102.047310000000000000
+        Width = 718.110700000000000000
+        object Memo13: TfrxMemoView
+          AllowVectorExport = True
+          Top = 34.015770000000000000
+          Width = 718.110717770000000000
+          Height = 22.677196070000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            
+              #1055#1088#1080#1086#1073#1088#1077#1090#1077#1085#1085#1099#1077' '#1088#1072#1089#1093#1086#1076#1085#1099#1077' '#1084#1072#1090#1077#1088#1080#1072#1083#1099', '#1086#1073#1097#1072#1103' '#1089#1091#1084#1084#1072' - [DatasetReportU' +
+              'sedConsumables."fullSum"]:')
+        end
+      end
+    end
+  end
+  object frxDBDatasetReportUsedConsumables: TfrxDBDataset
+    UserName = 'DatasetReportUsedConsumables'
+    CloseDataSource = False
+    DataSet = DataModuleDB.FDQueryReportUsedConsumables
+    BCDToCurrency = True
+    DataSetOptions = []
+    Left = 624
+    Top = 390
+    FieldDefs = <
+      item
+        FieldName = 'statement_info'
+        FieldType = fftString
+        Size = 250
+      end
+      item
+        FieldName = #1056#1072#1089#1093#1086#1076#1085#1080#1082
+        FieldType = fftString
+        Size = 255
+      end
+      item
+        FieldName = 'statement_uuid'
+        FieldType = fftString
+        Size = 36
+      end
+      item
+        FieldName = #1062#1077#1085#1072
+      end
+      item
+        FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+      end
+      item
+        FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+      end
+      item
+        FieldName = 'statement_execution_date'
+        FieldType = fftDateTime
+      end
+      item
+        FieldName = 'fullSum'
+      end>
+  end
+  object frxDBDatasetReportUsedServices: TfrxDBDataset
+    UserName = 'DatasetReportUsedServices'
+    CloseDataSource = False
+    DataSet = DataModuleDB.FDQueryReportUsedServices
+    BCDToCurrency = True
+    DataSetOptions = []
+    Left = 624
+    Top = 334
+    FieldDefs = <
+      item
+        FieldName = 'statement_info'
+        FieldType = fftString
+        Size = 250
+      end
+      item
+        FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
+        FieldType = fftString
+        Size = 255
+      end
+      item
+        FieldName = #1062#1077#1085#1072
+      end
+      item
+        FieldName = 'statement_uuid'
+        FieldType = fftString
+        Size = 36
+      end
+      item
+        FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+      end
+      item
+        FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+      end
+      item
+        FieldName = 'statement_execution_date'
+        FieldType = fftDateTime
+      end
+      item
+        FieldName = 'fullSum'
+      end>
+  end
+  object frxUserDataSet1: TfrxUserDataSet
+    UserName = 'frxUserDataSet1'
+    Left = 440
+    Top = 462
   end
 end

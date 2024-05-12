@@ -13,7 +13,7 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ValEdit, Vcl.TitleBarCtrls,
   FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Phys,
   FireDAC.VCLUI.Wait, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, Data.Win.ADODB,
-  Vcl.DBCtrls, Vcl.Mask, DateUtils;
+  Vcl.DBCtrls, Vcl.Mask, DateUtils, Vcl.WinXPickers;
 
 type
   TForm1 = class(TForm)
@@ -39,7 +39,6 @@ type
     Splitter1: TSplitter;
     GroupBox5: TGroupBox;
     GroupBox6: TGroupBox;
-    DateTimePicker1: TDateTimePicker;
     GroupBox8: TGroupBox;
     DBEditModelId: TDBEdit;
     DataSourceModels: TDataSource;
@@ -58,6 +57,7 @@ type
     DBComboBox1: TDBComboBox;
     DBEdit1: TDBEdit;
     FDTableModelsyear: TDateField;
+    DatePicker1: TDatePicker;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
@@ -85,7 +85,7 @@ implementation
 procedure TForm1.Button2Click(Sender: TObject);
 begin
   FDTableModels.Edit;
-  FDTableModelsyear.AsDateTime := DateTimePicker1.DateTime;
+  FDTableModelsyear.AsDateTime := DatePicker1.Date;
   FDTableModels.Post;
 end;
 
@@ -107,7 +107,7 @@ end;
 
 procedure TForm1.Button5Click(Sender: TObject);
 begin
-  FDTableModelsyear.AsDateTime := DateTimePicker1.DateTime;
+  FDTableModelsyear.AsDateTime := DatePicker1.Date;
   FDTableModels.Post;
   Button5.Enabled := false;
 end;
@@ -127,25 +127,25 @@ end;
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin
   FDTableModels.Prior;
-  DateTimePicker1.DateTime := FDTableModelsyear.AsDateTime;
+  DatePicker1.Date := FDTableModelsyear.AsDateTime;
 end;
 
 procedure TForm1.SpeedButton2Click(Sender: TObject);
 begin
   FDTableModels.First;
-  DateTimePicker1.DateTime := FDTableModelsyear.AsDateTime;
+  DatePicker1.Date := FDTableModelsyear.AsDateTime;
 end;
 
 procedure TForm1.SpeedButton3Click(Sender: TObject);
 begin
   FDTableModels.Last;
-  DateTimePicker1.DateTime := FDTableModelsyear.AsDateTime;
+  DatePicker1.Date := FDTableModelsyear.AsDateTime;
 end;
 
 procedure TForm1.SpeedButton4Click(Sender: TObject);
 begin
   FDTableModels.Next;
-  DateTimePicker1.DateTime := FDTableModelsyear.AsDateTime;
+  DatePicker1.Date := FDTableModelsyear.AsDateTime;
 end;
 
 end.

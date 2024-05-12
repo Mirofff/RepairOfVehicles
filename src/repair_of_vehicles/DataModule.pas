@@ -11,10 +11,8 @@ uses
   FireDAC.Comp.Client, frxClass, frCoreClasses, frxDBSet, FireDAC.Comp.DataSet;
 
 type
-  TDataModule1 = class(TDataModule)
+  TDataModuleDB = class(TDataModule)
     FDTableServices: TFDTable;
-    FDTableServicesuuid: TStringField;
-    FDTableServicesname: TStringField;
     FDTableServicesprice: TFloatField;
     frxDBDatasetConsumables: TfrxDBDataset;
     frxDBDatasetServices: TfrxDBDataset;
@@ -22,98 +20,135 @@ type
     frxReportStatement: TfrxReport;
     frxDBDatasetStatements: TfrxDBDataset;
     FDTableVehicles: TFDTable;
-    FDTableVehiclesuuid: TStringField;
-    FDTableVehiclesregistration_plate: TStringField;
     FDTableVehiclescreated_at: TDateTimeField;
     FDTableVehiclesupdated_at: TDateTimeField;
     FDTableVehiclesmodel_id: TIntegerField;
-    FDTableVehiclesworkshop_uuid: TStringField;
-    FDTableVehiclesclient_uuid: TStringField;
     FDTableVehiclesis_active: TBooleanField;
-    FDTableVehiclesvin: TStringField;
-    FDTableVehiclesengine: TStringField;
-    FDTableVehiclestech_passport: TMemoField;
     FDTableVehiclesmileage: TIntegerField;
-    FDTableVehiclescolor: TStringField;
     FDTableVehiclesmark_id: TIntegerField;
     FDTableVehiclesmodel: TStringField;
     FDTableVehiclesmark: TStringField;
     DataSource1: TDataSource;
-    FDTable1: TFDTable;
-    FDTable1workshop_uuid: TStringField;
-    FDTable1role: TStringField;
-    FDTable1first_name: TStringField;
-    FDTable1second_name: TStringField;
-    FDTable1last_name: TStringField;
-    FDTable1is_active: TBooleanField;
-    FDTable1email: TStringField;
-    FDTable1password: TStringField;
-    FDTable1remember_token: TStringField;
-    FDTable1created_at: TSQLTimeStampField;
-    FDTable1updated_at: TSQLTimeStampField;
-    FDTable1uuid: TStringField;
-    FDTable2: TFDTable;
-    FDTable2uuid: TStringField;
-    FDTable2registration_plate: TStringField;
-    FDTable2created_at: TDateTimeField;
-    FDTable2updated_at: TDateTimeField;
-    FDTable2model_id: TLargeintField;
-    FDTable2workshop_uuid: TStringField;
-    FDTable2client_uuid: TStringField;
-    FDTable2is_active: TBooleanField;
-    FDTable2vin: TStringField;
-    FDTable2engine: TStringField;
-    FDTable2tech_passport: TMemoField;
-    FDTable2mileage: TIntegerField;
-    FDTable2color: TStringField;
+    FDTableStuff: TFDTable;
     FDTableMarks: TFDTable;
     FDTableModels: TFDTable;
     FDTableConsumables: TFDTable;
-    FDTableConsumablesuuid: TStringField;
-    FDTableConsumablesname: TStringField;
     FDTableConsumablesprice: TFloatField;
     FDTableUsedServices: TFDTable;
-    FDTableUsedServicesuuid: TStringField;
-    FDTableUsedServicescreated_at: TDateTimeField;
-    FDTableUsedServicesupdated_at: TDateTimeField;
-    FDTableUsedServicesstatement_uuid: TStringField;
-    FDTableUsedServicesservice_uuid: TStringField;
-    FDTableUsedServicesquantity: TIntegerField;
     FDTableUsedServicesservices_name: TStringField;
     FDTableUsedServicesservice_price: TCurrencyField;
     FDTableUsedConsumables: TFDTable;
-    FDTableUsedConsumablesuuid: TStringField;
-    FDTableUsedConsumablescreated_at: TDateTimeField;
-    FDTableUsedConsumablesupdated_at: TDateTimeField;
-    FDTableUsedConsumablesstatement_uuid: TStringField;
-    FDTableUsedConsumablesconsumable_uuid: TStringField;
-    FDTableUsedConsumablesquantity: TIntegerField;
     FDTableUsedConsumablesconsumable_name: TStringField;
     FDTableUsedConsumablesconsumable_price: TCurrencyField;
     FDTableStatements: TFDTable;
-    FDTableStatementsuuid: TStringField;
-    FDTableStatementscreated_at: TDateTimeField;
-    FDTableStatementsupdated_at: TDateTimeField;
-    FDTableStatementsstatus: TStringField;
-    FDTableStatementsrequest_uuid: TStringField;
-    FDTableStatementsclient_uuid: TStringField;
-    FDTableStatementsvehicle_uuid: TStringField;
-    FDTableStatementsis_active: TBooleanField;
     FDTableStatementsclient_first_name: TStringField;
     FDTableStatementsclient_last_name: TStringField;
     FDTableStatementsclient_second_name: TStringField;
     FDConnectionMain: TFDConnection;
     FDTableClients: TFDTable;
-    FDTableClientsuuid: TStringField;
-    FDTableClientsfirst_name: TStringField;
-    FDTableClientssecond_name: TStringField;
-    FDTableClientslast_name: TStringField;
+    DataSourceServices: TDataSource;
+    DataSourceConsumables: TDataSource;
+    FDTableConsumablesuuid: TWideStringField;
+    FDTableConsumablesname: TWideStringField;
+    FDTableServicesuuid: TWideStringField;
+    FDTableServicesname: TWideStringField;
+    FDTableVehiclesuuid: TWideStringField;
+    FDTableVehiclesregistration_plate: TWideStringField;
+    FDTableVehiclesworkshop_uuid: TWideStringField;
+    FDTableVehiclesvin: TWideStringField;
+    FDTableVehiclesengine: TWideStringField;
+    FDTableVehiclestech_passport: TWideMemoField;
+    FDTableVehiclescolor: TWideStringField;
+    FDTableUsedServicesuuid: TWideStringField;
+    FDTableUsedServicesstatement_uuid: TWideStringField;
+    FDTableUsedServicesservice_uuid: TWideStringField;
+    FDTableUsedServicesquantity: TIntegerField;
+    FDTableUsedConsumablesuuid: TWideStringField;
+    FDTableUsedConsumablesstatement_uuid: TWideStringField;
+    FDTableUsedConsumablesconsumable_uuid: TWideStringField;
+    FDTableUsedConsumablesquantity: TIntegerField;
+    FDTableClientsuuid: TWideStringField;
+    FDTableClientsfirst_name: TWideStringField;
+    FDTableClientssecond_name: TWideStringField;
+    FDTableClientslast_name: TWideStringField;
     FDTableClientsis_active: TBooleanField;
-    FDTableClientsemail: TStringField;
-    FDTableClientspassword: TStringField;
-    FDTableClientsremember_token: TStringField;
+    FDTableClientsemail: TWideStringField;
+    FDTableClientspassword: TWideStringField;
+    FDTableClientsremember_token: TWideStringField;
     FDTableClientscreated_at: TSQLTimeStampField;
     FDTableClientsupdated_at: TSQLTimeStampField;
+    FDTableModelsid: TFDAutoIncField;
+    FDTableModelsname: TWideStringField;
+    FDTableModelstype: TWideStringField;
+    FDTableModelsyear: TDateField;
+    FDTableModelsmark_id: TIntegerField;
+    FDTableMarksid: TFDAutoIncField;
+    FDTableMarksname: TWideStringField;
+    DataSourceUsedConsumables: TDataSource;
+    DataSourceUsedServices: TDataSource;
+    FDTableUsedConsumablesconsumable_print: TStringField;
+    FDTableVehiclesvehicle_print: TStringField;
+    DataSourceVehicles: TDataSource;
+    DataSourceClients: TDataSource;
+    DataSourceStatements: TDataSource;
+    FDTableUsedServicesfull_price: TCurrencyField;
+    FDTableUsedConsumablesfull_price: TCurrencyField;
+    FDTableUsedConsumablescreated_at: TSQLTimeStampField;
+    FDTableUsedConsumablesupdated_at: TSQLTimeStampField;
+    FDTableUsedServicescreated_at: TSQLTimeStampField;
+    FDTableUsedServicesupdated_at: TSQLTimeStampField;
+    FDTableStatementsuuid: TWideStringField;
+    FDTableStatementscreated_at: TDateTimeField;
+    FDTableStatementsupdated_at: TDateTimeField;
+    FDTableStatementsstatus: TWideStringField;
+    FDTableStatementscomment: TWideStringField;
+    FDTableStatementsclient_uuid: TWideStringField;
+    FDTableStatementsvehicle_uuid: TWideStringField;
+    FDTableStatementsis_active: TBooleanField;
+    FDTableStatementsregistration_date: TDateField;
+    FDTableStatementsexecution_date: TDateField;
+    FDTableStatementspickup_time: TDateTimeField;
+    FDTableStatementsclient_name: TStringField;
+    FDTableStatementsvehicle_registration_plate: TStringField;
+    FDTableStatementsvehicle_print: TStringField;
+    FDTableStatementsvehicle_mark: TStringField;
+    FDTableStatementsvehicle_model: TStringField;
+    FDTableStuffworkshop_uuid: TWideStringField;
+    FDTableStuffrole: TWideStringField;
+    FDTableStufffirst_name: TWideStringField;
+    FDTableStuffsecond_name: TWideStringField;
+    FDTableStufflast_name: TWideStringField;
+    FDTableStuffis_active: TBooleanField;
+    FDTableStuffemail: TWideStringField;
+    FDTableStuffpassword: TWideStringField;
+    FDTableStuffremember_token: TWideStringField;
+    FDTableStuffcreated_at: TSQLTimeStampField;
+    FDTableStuffupdated_at: TSQLTimeStampField;
+    FDTableStuffuuid: TWideStringField;
+    FDQueryReportUsedServices: TFDQuery;
+    FDQueryReportUsedServicesfullSum: TAggregateField;
+    FDQueryReportUsedConsumables: TFDQuery;
+    FDQueryReportUsedConsumablesfullSum: TAggregateField;
+    FDQueryReportUsedServicesstatement_info: TWideStringField;
+    FDQueryReportUsedServicesОперация: TWideStringField;
+    FDQueryReportUsedServicesЦена: TFloatField;
+    FDQueryReportUsedServicesstatement_uuid: TWideStringField;
+    FDQueryReportUsedServicesОбщаяцена: TFloatField;
+    FDQueryReportUsedServicesКоличествоопераций: TLargeintField;
+    FDQueryReportUsedConsumablesstatement_info: TWideStringField;
+    FDQueryReportUsedConsumablesРасходник: TWideStringField;
+    FDQueryReportUsedConsumablesstatement_uuid: TWideStringField;
+    FDQueryReportUsedConsumablesЦена: TFloatField;
+    FDQueryReportUsedConsumablesОбщаяцена: TFloatField;
+    FDQueryReportUsedConsumablesКоличествоопераций: TLargeintField;
+    FDQueryReportUsedServicesstatement_execution_date: TDateField;
+    FDQueryReportUsedConsumablesstatement_execution_date: TDateField;
+    procedure FDTableVehiclesCalcFields(DataSet: TDataSet);
+    procedure FDTableUsedServicesCalcFields(DataSet: TDataSet);
+    procedure FDTableUsedConsumablesCalcFields(DataSet: TDataSet);
+    procedure FDTableStatementsAfterGetRecord(DataSet: TFDDataSet);
+    procedure FDTableStatementsCalcFields(DataSet: TDataSet);
+    procedure FDTableStatementsAfterScroll(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -121,12 +156,76 @@ type
   end;
 
 var
-  DataModule1: TDataModule1;
+  DataModuleDB: TDataModuleDB;
 
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
+uses frmRepairOfVehicles;
 {$R *.dfm}
+
+procedure TDataModuleDB.FDTableStatementsAfterGetRecord(DataSet: TFDDataSet);
+begin
+
+  // FDTable.Filtered := false;
+  // FDTableVehicles.Filter := 'uuid = ' +
+  // QuotedStr(FDTableStatements_uuid.AsString);
+  // FDTableVehicles.Filtered := true;
+end;
+
+procedure TDataModuleDB.FDTableStatementsAfterScroll(DataSet: TDataSet);
+begin
+  FDTableVehicles.Filtered := false;
+  FDTableVehicles.Filter := 'uuid = ' +
+    QuotedStr(FDTableStatementsvehicle_uuid.AsString);
+  FDTableVehicles.Filtered := true;
+
+  FDTableUsedConsumables.Filtered := false;
+  FDTableUsedConsumables.Filter := 'statement_uuid = ' +
+    QuotedStr(FDTableStatementsuuid.AsString);
+  FDTableUsedConsumables.Filtered := true;
+
+  FDTableUsedServices.Filtered := false;
+  FDTableUsedServices.Filter := 'statement_uuid = ' +
+    QuotedStr(FDTableStatementsuuid.AsString);
+  FDTableUsedServices.Filtered := true;
+end;
+
+procedure TDataModuleDB.FDTableStatementsCalcFields(DataSet: TDataSet);
+begin
+  FDTableStatementsclient_name.AsWideString :=
+    format('%s %s %s', [FDTableStatementsclient_last_name.AsWideString,
+    FDTableStatementsclient_first_name.AsWideString,
+    FDTableStatementsclient_second_name.AsWideString]);
+
+  FDTableStatementsvehicle_print.AsWideString :=
+    format('%s %s %s', [FDTableStatementsvehicle_mark.AsWideString,
+    FDTableStatementsvehicle_model.AsWideString,
+    FDTableStatementsvehicle_registration_plate.AsWideString]);
+end;
+
+procedure TDataModuleDB.FDTableUsedConsumablesCalcFields(DataSet: TDataSet);
+begin
+  FDTableUsedConsumablesfull_price.AsCurrency :=
+    FDTableUsedConsumablesconsumable_price.AsCurrency *
+    FDTableUsedConsumablesquantity.AsCurrency;
+end;
+
+procedure TDataModuleDB.FDTableUsedServicesCalcFields(DataSet: TDataSet);
+begin
+  FDTableUsedServicesfull_price.AsCurrency :=
+    FDTableUsedServicesservice_price.AsCurrency *
+    FDTableUsedServicesquantity.AsCurrency;
+
+end;
+
+procedure TDataModuleDB.FDTableVehiclesCalcFields(DataSet: TDataSet);
+begin
+  FDTableVehiclesvehicle_print.AsString := FDTableVehiclesmark.AsString + ' ' +
+    FDTableVehiclesmodel.AsString + ' ' +
+    FDTableVehiclesregistration_plate.AsString;
+  FDTableVehiclesvehicle_print.AsString;
+end;
 
 end.

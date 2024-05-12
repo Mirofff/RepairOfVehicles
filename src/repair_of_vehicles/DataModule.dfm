@@ -1,54 +1,57 @@
-object DataModule1: TDataModule1
-  Height = 611
-  Width = 883
+﻿object DataModuleDB: TDataModuleDB
+  Height = 669
+  Width = 1022
   object FDTableServices: TFDTable
     Active = True
     IndexFieldNames = 'uuid'
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.services'
-    Left = 520
-    Top = 320
-    object FDTableServicesuuid: TStringField
+    Left = 288
+    Top = 24
+    object FDTableServicesprice: TFloatField
+      DisplayWidth = 10
+      FieldName = 'price'
+      Origin = 'price'
+      Required = True
+      currency = True
+    end
+    object FDTableServicesuuid: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'uuid'
       Origin = 'uuid'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       FixedChar = True
       Size = 36
     end
-    object FDTableServicesname: TStringField
+    object FDTableServicesname: TWideStringField
       FieldName = 'name'
       Origin = '`name`'
       Required = True
       Size = 255
-    end
-    object FDTableServicesprice: TFloatField
-      FieldName = 'price'
-      Origin = 'price'
-      Required = True
     end
   end
   object frxDBDatasetConsumables: TfrxDBDataset
     UserName = 'consumablesDataSet'
     CloseDataSource = False
     DataSet = FDTableUsedConsumables
-    BCDToCurrency = False
+    BCDToCurrency = True
     DataSetOptions = []
-    Left = 608
-    Top = 404
+    Left = 648
+    Top = 460
     FieldDefs = <
+      item
+        FieldName = 'consumable_name'
+        FieldType = fftString
+        Size = 20
+      end
+      item
+        FieldName = 'consumable_price'
+      end
       item
         FieldName = 'uuid'
         FieldType = fftString
         Size = 36
-      end
-      item
-        FieldName = 'created_at'
-        FieldType = fftDateTime
-      end
-      item
-        FieldName = 'updated_at'
-        FieldType = fftDateTime
       end
       item
         FieldName = 'statement_uuid'
@@ -64,35 +67,41 @@ object DataModule1: TDataModule1
         FieldName = 'quantity'
       end
       item
-        FieldName = 'consumable_name'
+        FieldName = 'consumable_print'
         FieldType = fftString
         Size = 20
       end
       item
-        FieldName = 'consumable_price'
+        FieldName = 'full_price'
+      end
+      item
+        FieldName = 'created_at'
+      end
+      item
+        FieldName = 'updated_at'
       end>
   end
   object frxDBDatasetServices: TfrxDBDataset
     UserName = 'servicesDataSet'
     CloseDataSource = False
     DataSet = FDTableUsedServices
-    BCDToCurrency = False
+    BCDToCurrency = True
     DataSetOptions = []
-    Left = 608
-    Top = 412
+    Left = 792
+    Top = 532
     FieldDefs = <
+      item
+        FieldName = 'services_name'
+        FieldType = fftString
+        Size = 20
+      end
+      item
+        FieldName = 'service_price'
+      end
       item
         FieldName = 'uuid'
         FieldType = fftString
         Size = 36
-      end
-      item
-        FieldName = 'created_at'
-        FieldType = fftDateTime
-      end
-      item
-        FieldName = 'updated_at'
-        FieldType = fftDateTime
       end
       item
         FieldName = 'statement_uuid'
@@ -108,12 +117,13 @@ object DataModule1: TDataModule1
         FieldName = 'quantity'
       end
       item
-        FieldName = 'services_name'
-        FieldType = fftString
-        Size = 20
+        FieldName = 'full_price'
       end
       item
-        FieldName = 'service_price'
+        FieldName = 'created_at'
+      end
+      item
+        FieldName = 'updated_at'
       end>
   end
   object frxDBDatasetVehicles: TfrxDBDataset
@@ -122,19 +132,9 @@ object DataModule1: TDataModule1
     DataSet = FDTableVehicles
     BCDToCurrency = False
     DataSetOptions = []
-    Left = 608
-    Top = 448
+    Left = 648
+    Top = 536
     FieldDefs = <
-      item
-        FieldName = 'uuid'
-        FieldType = fftString
-        Size = 36
-      end
-      item
-        FieldName = 'registration_plate'
-        FieldType = fftString
-        Size = 20
-      end
       item
         FieldName = 'created_at'
         FieldType = fftDateTime
@@ -147,40 +147,11 @@ object DataModule1: TDataModule1
         FieldName = 'model_id'
       end
       item
-        FieldName = 'workshop_uuid'
-        FieldType = fftString
-        Size = 36
-      end
-      item
-        FieldName = 'client_uuid'
-        FieldType = fftString
-        Size = 36
-      end
-      item
         FieldName = 'is_active'
         FieldType = fftBoolean
       end
       item
-        FieldName = 'vin'
-        FieldType = fftString
-        Size = 255
-      end
-      item
-        FieldName = 'engine'
-        FieldType = fftString
-        Size = 255
-      end
-      item
-        FieldName = 'tech_passport'
-        FieldType = fftString
-      end
-      item
         FieldName = 'mileage'
-      end
-      item
-        FieldName = 'color'
-        FieldType = fftString
-        Size = 255
       end
       item
         FieldName = 'mark_id'
@@ -194,6 +165,44 @@ object DataModule1: TDataModule1
         FieldName = 'mark'
         FieldType = fftString
         Size = 20
+      end
+      item
+        FieldName = 'uuid'
+        FieldType = fftString
+        Size = 36
+      end
+      item
+        FieldName = 'registration_plate'
+        FieldType = fftString
+        Size = 20
+      end
+      item
+        FieldName = 'workshop_uuid'
+        FieldType = fftString
+        Size = 36
+      end
+      item
+        FieldName = 'vin'
+        FieldType = fftString
+        Size = 255
+      end
+      item
+        FieldName = 'engine'
+        FieldType = fftString
+        Size = 255
+      end
+      item
+        FieldName = 'tech_passport'
+      end
+      item
+        FieldName = 'color'
+        FieldType = fftString
+        Size = 255
+      end
+      item
+        FieldName = 'vehicle_print'
+        FieldType = fftString
+        Size = 20
       end>
   end
   object frxReportStatement: TfrxReport
@@ -205,31 +214,31 @@ object DataModule1: TDataModule1
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45022.457724629600000000
-    ReportOptions.LastChange = 45421.813624722220000000
+    ReportOptions.LastChange = 45421.813624722200000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       
         'begin                                                           ' +
         '                                                   '
       'end.          ')
-    Left = 608
-    Top = 448
+    Left = 720
+    Top = 408
     Datasets = <
       item
-        DataSet = frxDBDatasetStatements
-        DataSetName = 'statementsDataSet'
+        DataSet = frxDBDatasetConsumables
+        DataSetName = 'consumablesDataSet'
       end
       item
         DataSet = frxDBDatasetServices
         DataSetName = 'servicesDataSet'
       end
       item
-        DataSet = frxDBDatasetConsumables
-        DataSetName = 'consumablesDataSet'
-      end
-      item
         DataSet = frxDBDatasetVehicles
         DataSetName = 'vehiclesDataSet'
+      end
+      item
+        DataSet = frxDBDatasetStatements
+        DataSetName = 'statementsDataSet'
       end>
     Variables = <>
     Style = <>
@@ -266,14 +275,14 @@ object DataModule1: TDataModule1
           ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
-          Font.Height = -23
+          Font.Height = -16
           Font.Name = 'Calibri'
           Font.Style = []
           Frame.Typ = []
           Memo.UTF8W = (
             
-              #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076'  - '#8470'[statementsDataSet."uuid"] '#1086#1090' [statementsDataSet' +
-              '."updated_at"]')
+              #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076'  - '#8470' [statementsDataSet."uuid"] '#1086#1090' [statementsDataSe' +
+              't."updated_at"]')
           ParentFont = False
           Formats = <
             item
@@ -314,13 +323,14 @@ object DataModule1: TDataModule1
         FillGap.Right = 0
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 185.196970000000000000
+        Top = 207.874150000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDatasetServices
         DataSetName = 'servicesDataSet'
         RowCount = 0
         object servicesDataSetDescription: TfrxMemoView
           IndexTag = 1
+          Align = baLeft
           AllowVectorExport = True
           Width = 279.685220000000000000
           Height = 22.677180000000000000
@@ -340,9 +350,10 @@ object DataModule1: TDataModule1
         end
         object servicesDataSetPrice: TfrxMemoView
           IndexTag = 1
+          Align = baLeft
           AllowVectorExport = True
-          Left = 309.921460000000000000
-          Width = 241.889920000000000000
+          Left = 279.685220000000000000
+          Width = 151.181200000000000000
           Height = 22.677180000000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
@@ -360,10 +371,11 @@ object DataModule1: TDataModule1
         end
         object servicesDataSetcount: TfrxMemoView
           IndexTag = 1
+          Align = baLeft
           AllowVectorExport = True
-          Left = 551.811380000000000000
-          Width = 166.299320000000000000
-          Height = 22.677180000000000000
+          Left = 430.866420000000000000
+          Width = 75.590617770000000000
+          Height = 22.677179340000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
           DataSet = frxDBDatasetServices
@@ -378,6 +390,27 @@ object DataModule1: TDataModule1
             '[servicesDataSet."quantity"]')
           ParentFont = False
         end
+        object Memo9: TfrxMemoView
+          IndexTag = 1
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 506.457037770000000000
+          Width = 211.653697770000000000
+          Height = 22.677179340000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetServices
+          DataSetName = 'servicesDataSet'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[servicesDataSet."full_price"] '#1088'.')
+          ParentFont = False
+        end
       end
       object MasterData2: TfrxMasterData
         FillType = ftBrush
@@ -387,15 +420,16 @@ object DataModule1: TDataModule1
         FillGap.Right = 0
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 313.700990000000000000
+        Top = 370.393940000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDatasetConsumables
         DataSetName = 'consumablesDataSet'
         RowCount = 0
         object consumablesDataSetDescription: TfrxMemoView
           IndexTag = 1
+          Align = baLeft
           AllowVectorExport = True
-          Width = 309.921460000000000000
+          Width = 279.685220000000000000
           Height = 22.677180000000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
@@ -413,9 +447,10 @@ object DataModule1: TDataModule1
         end
         object consumablesDataSetPrice: TfrxMemoView
           IndexTag = 1
+          Align = baLeft
           AllowVectorExport = True
           Left = 279.685220000000000000
-          Width = 272.126160000000000000
+          Width = 151.181200000000000000
           Height = 22.677180000000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
@@ -433,9 +468,10 @@ object DataModule1: TDataModule1
         end
         object consumablesDataSetcount: TfrxMemoView
           IndexTag = 1
+          Align = baLeft
           AllowVectorExport = True
-          Left = 551.811380000000000000
-          Width = 166.299320000000000000
+          Left = 430.866420000000000000
+          Width = 75.590600000000000000
           Height = 22.677180000000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
@@ -451,25 +487,17 @@ object DataModule1: TDataModule1
             '[consumablesDataSet."quantity"]')
           ParentFont = False
         end
-      end
-      object MasterData3: TfrxMasterData
-        FillType = ftBrush
-        FillGap.Top = 0
-        FillGap.Left = 0
-        FillGap.Bottom = 0
-        FillGap.Right = 0
-        Frame.Typ = []
-        Height = 60.472480000000000000
-        Top = 230.551330000000000000
-        Width = 718.110700000000000000
-        RowCount = 1
-        object Memo8: TfrxMemoView
-          Align = baClient
+        object Memo10: TfrxMemoView
+          IndexTag = 1
+          Align = baLeft
           AllowVectorExport = True
-          Width = 718.110717773437500000
-          Height = 60.472480773925780000
+          Left = 506.457020000000000000
+          Width = 211.653697770000000000
+          Height = 22.677179340000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetServices
+          DataSetName = 'servicesDataSet'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -477,7 +505,7 @@ object DataModule1: TDataModule1
           Font.Style = []
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           Memo.UTF8W = (
-            #1042#1080#1076#1099' '#1088#1072#1089#1093#1086#1076#1085#1099#1093' '#1084#1072#1090#1077#1088#1080#1072#1083#1086#1074' '#1087#1086' '#1079#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076#1091':')
+            '[consumablesDataSet."full_price"] '#1088'.')
           ParentFont = False
         end
       end
@@ -488,35 +516,35 @@ object DataModule1: TDataModule1
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 306.141930000000000000
-        Top = 359.055350000000000000
+        Height = 226.771800000000000000
+        Top = 461.102660000000000000
         Width = 718.110700000000000000
         RowCount = 1
         object TableObject1: TfrxTableObject
           Align = baClient
           AllowVectorExport = True
           object TableColumn1: TfrxTableColumn
-            Width = 143.545798144000000000
+            Width = 146.145801698688000000
             MaxWidth = 75.590600000000000000
           end
           object TableColumn2: TfrxTableColumn
-            Width = 143.927507424000000000
+            Width = 133.527510978688000000
             MaxWidth = 75.590600000000000000
           end
           object TableColumn3: TfrxTableColumn
-            Width = 143.545798144000000000
+            Width = 146.145801698688000000
             MaxWidth = 75.590600000000000000
           end
           object TableColumn4: TfrxTableColumn
-            Width = 143.545798144000000000
+            Width = 146.145801698688000000
             MaxWidth = 75.590600000000000000
           end
           object TableColumn5: TfrxTableColumn
-            Width = 143.545798144000000000
+            Width = 146.145801698688000000
             MaxWidth = 75.590600000000000000
           end
           object TableRow1: TfrxTableRow
-            Height = 96.782388433238300000
+            Height = 52.325680036428500000
             object TableCell1: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
@@ -556,29 +584,6 @@ object DataModule1: TDataModule1
               ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
               ColSpan = 3
-              object Memo2: TfrxMemoView
-                Align = baClient
-                AllowVectorExport = True
-                Width = 430.637390136718800000
-                Height = 96.782386779785160000
-                ContentScaleOptions.Constraints.MaxIterationValue = 0
-                ContentScaleOptions.Constraints.MinIterationValue = 0
-                AutoWidth = True
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Height = -13
-                Font.Name = 'Arial'
-                Font.Style = []
-                Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-                Memo.UTF8W = (
-                  '')
-                ParentFont = False
-                Formats = <
-                  item
-                  end
-                  item
-                  end>
-              end
             end
             object TableCell4: TfrxTableCell
               AllowVectorExport = True
@@ -596,7 +601,7 @@ object DataModule1: TDataModule1
             end
           end
           object TableRow2: TfrxTableRow
-            Height = 112.577153133523000000
+            Height = 57.120444736713200000
             object TableCell6: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
@@ -647,7 +652,7 @@ object DataModule1: TDataModule1
             end
           end
           object TableRow3: TfrxTableRow
-            Height = 96.782388433238300000
+            Height = 117.325680036429000000
             object TableCell11: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
@@ -659,7 +664,7 @@ object DataModule1: TDataModule1
                 Align = baClient
                 AllowVectorExport = True
                 Width = 718.110717773437500000
-                Height = 96.782386779785160000
+                Height = 117.325683593750000000
                 ContentScaleOptions.Constraints.MaxIterationValue = 0
                 ContentScaleOptions.Constraints.MinIterationValue = 0
                 Frame.Typ = []
@@ -727,22 +732,173 @@ object DataModule1: TDataModule1
           end
         end
       end
-      object MasterData5: TfrxMasterData
+      object GroupFooter1: TfrxGroupFooter
         FillType = ftBrush
         FillGap.Top = 0
         FillGap.Left = 0
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 26.456710000000000000
+        Height = 22.677180000000000000
+        Top = 415.748300000000000000
+        Width = 718.110700000000000000
+        object Memo21: TfrxMemoView
+          Align = baRight
+          AllowVectorExport = True
+          Left = 396.850632233437500000
+          Width = 109.606387770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1060#1080#1085#1072#1083#1100#1085#1072#1103' '#1094#1077#1085#1072':')
+          ParentFont = False
+        end
+        object Memo22: TfrxMemoView
+          Align = baRight
+          AllowVectorExport = True
+          Left = 506.457020003437500000
+          Width = 211.653697770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            
+              '[SUM(<consumablesDataSet."consumable_price"> * <consumablesDataS' +
+              'et."quantity">)] '#1088'.')
+          ParentFont = False
+        end
+      end
+      object GroupHeader1: TfrxGroupHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 49.133890000000000000
+        Top = 298.582870000000000000
+        Width = 718.110700000000000000
+        Condition = 'consumablesDataSet."statement_uuid"'
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Width = 718.110717770000000000
+          Height = 26.456708240000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1042#1080#1076#1099' '#1088#1072#1089#1093#1086#1076#1085#1099#1093' '#1084#1072#1090#1077#1088#1080#1072#1083#1086#1074' '#1087#1086' '#1079#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076#1091':')
+          ParentFont = False
+        end
+        object Memo15: TfrxMemoView
+          Align = baBottom
+          AllowVectorExport = True
+          Top = 26.456707424628910000
+          Width = 279.685237770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1053#1072#1079#1074#1072#1085#1080#1077)
+          ParentFont = False
+        end
+        object Memo16: TfrxMemoView
+          Align = baBottom
+          AllowVectorExport = True
+          Left = 279.685220000000000000
+          Top = 26.456707424628910000
+          Width = 151.181217770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1062#1077#1085#1072)
+          ParentFont = False
+        end
+        object Memo17: TfrxMemoView
+          Align = baBottom
+          AllowVectorExport = True
+          Left = 430.866420000000000000
+          Top = 26.456707424628910000
+          Width = 75.590617770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086)
+          ParentFont = False
+        end
+        object Memo18: TfrxMemoView
+          Align = baBottom
+          AllowVectorExport = True
+          Left = 506.457020000000000000
+          Top = 26.456707424628910000
+          Width = 211.653697770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1054#1073#1097#1072#1103' '#1094#1077#1085#1072)
+          ParentFont = False
+        end
+      end
+      object GroupHeader2: TfrxGroupHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 49.133890000000000000
         Top = 136.063080000000000000
         Width = 718.110700000000000000
-        RowCount = 1
+        Condition = 'servicesDataSet."statement_uuid"'
         object Memo7: TfrxMemoView
-          Align = baClient
           AllowVectorExport = True
-          Width = 718.110717773437500000
-          Height = 26.456710815429690000
+          Width = 718.110717770000000000
+          Height = 26.456710820000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = DEFAULT_CHARSET
@@ -755,6 +911,130 @@ object DataModule1: TDataModule1
             #1059#1089#1083#1091#1075#1080' '#1087#1086' '#1079#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076#1091':')
           ParentFont = False
         end
+        object Memo11: TfrxMemoView
+          Align = baBottom
+          AllowVectorExport = True
+          Top = 26.456707424628910000
+          Width = 279.685237770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1053#1072#1079#1074#1072#1085#1080#1077)
+          ParentFont = False
+        end
+        object Memo12: TfrxMemoView
+          Align = baBottom
+          AllowVectorExport = True
+          Left = 279.685220000000000000
+          Top = 26.456707424628910000
+          Width = 151.181217770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1062#1077#1085#1072)
+          ParentFont = False
+        end
+        object Memo13: TfrxMemoView
+          Align = baBottom
+          AllowVectorExport = True
+          Left = 430.866420000000000000
+          Top = 26.456707424628910000
+          Width = 75.590617770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086)
+          ParentFont = False
+        end
+        object Memo14: TfrxMemoView
+          Align = baBottom
+          AllowVectorExport = True
+          Left = 506.457020000000000000
+          Top = 26.456707424628910000
+          Width = 211.653697770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            #1054#1073#1097#1072#1103' '#1094#1077#1085#1072)
+          ParentFont = False
+        end
+      end
+      object GroupFooter2: TfrxGroupFooter
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 253.228510000000000000
+        Width = 718.110700000000000000
+        object Memo23: TfrxMemoView
+          Align = baRight
+          AllowVectorExport = True
+          Left = 396.850632233437500000
+          Width = 109.606387770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1060#1080#1085#1072#1083#1100#1085#1072#1103' '#1094#1077#1085#1072':')
+          ParentFont = False
+        end
+        object Memo24: TfrxMemoView
+          Align = baRight
+          AllowVectorExport = True
+          Left = 506.457020003437500000
+          Width = 211.653697770000000000
+          Height = 22.677180820000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            
+              '[SUM(<servicesDataSet."service_price"> * <servicesDataSet."quant' +
+              'ity">)] '#1088'.')
+          ParentFont = False
+        end
       end
     end
   end
@@ -764,9 +1044,24 @@ object DataModule1: TDataModule1
     DataSet = FDTableStatements
     BCDToCurrency = False
     DataSetOptions = []
-    Left = 608
-    Top = 420
+    Left = 792
+    Top = 460
     FieldDefs = <
+      item
+        FieldName = 'client_first_name'
+        FieldType = fftString
+        Size = 20
+      end
+      item
+        FieldName = 'client_last_name'
+        FieldType = fftString
+        Size = 20
+      end
+      item
+        FieldName = 'client_second_name'
+        FieldType = fftString
+        Size = 20
+      end
       item
         FieldName = 'uuid'
         FieldType = fftString
@@ -786,9 +1081,9 @@ object DataModule1: TDataModule1
         Size = 12
       end
       item
-        FieldName = 'request_uuid'
+        FieldName = 'comment'
         FieldType = fftString
-        Size = 36
+        Size = 4096
       end
       item
         FieldName = 'client_uuid'
@@ -805,41 +1100,32 @@ object DataModule1: TDataModule1
         FieldType = fftBoolean
       end
       item
-        FieldName = 'client_first_name'
-        FieldType = fftString
-        Size = 20
+        FieldName = 'registration_date'
+        FieldType = fftDateTime
       end
       item
-        FieldName = 'client_last_name'
-        FieldType = fftString
-        Size = 20
+        FieldName = 'execution_date'
+        FieldType = fftDateTime
       end
       item
-        FieldName = 'client_second_name'
+        FieldName = 'pickup_time'
+        FieldType = fftDateTime
+      end
+      item
+        FieldName = 'client_name'
         FieldType = fftString
         Size = 20
       end>
   end
   object FDTableVehicles: TFDTable
     Active = True
+    OnCalcFields = FDTableVehiclesCalcFields
     IndexFieldNames = 'uuid'
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.vehicles'
-    Left = 392
-    Top = 448
-    object FDTableVehiclesuuid: TStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'uuid'
-      Origin = 'uuid'
-      FixedChar = True
-      Size = 36
-    end
-    object FDTableVehiclesregistration_plate: TStringField
-      FieldName = 'registration_plate'
-      Origin = 'registration_plate'
-      Required = True
-    end
+    Left = 432
+    Top = 32
     object FDTableVehiclescreated_at: TDateTimeField
       FieldName = 'created_at'
       Origin = 'created_at'
@@ -855,53 +1141,15 @@ object DataModule1: TDataModule1
       Origin = 'model_id'
       Required = True
     end
-    object FDTableVehiclesworkshop_uuid: TStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'workshop_uuid'
-      Origin = 'workshop_uuid'
-      FixedChar = True
-      Size = 36
-    end
-    object FDTableVehiclesclient_uuid: TStringField
-      FieldName = 'client_uuid'
-      Origin = 'client_uuid'
-      Required = True
-      FixedChar = True
-      Size = 36
-    end
     object FDTableVehiclesis_active: TBooleanField
       AutoGenerateValue = arDefault
       FieldName = 'is_active'
       Origin = 'is_active'
     end
-    object FDTableVehiclesvin: TStringField
-      FieldName = 'vin'
-      Origin = 'vin'
-      Required = True
-      Size = 255
-    end
-    object FDTableVehiclesengine: TStringField
-      FieldName = 'engine'
-      Origin = '`engine`'
-      Required = True
-      Size = 255
-    end
-    object FDTableVehiclestech_passport: TMemoField
-      AutoGenerateValue = arDefault
-      FieldName = 'tech_passport'
-      Origin = 'tech_passport'
-      BlobType = ftMemo
-    end
     object FDTableVehiclesmileage: TIntegerField
       FieldName = 'mileage'
       Origin = 'mileage'
       Required = True
-    end
-    object FDTableVehiclescolor: TStringField
-      FieldName = 'color'
-      Origin = 'color'
-      Required = True
-      Size = 255
     end
     object FDTableVehiclesmark_id: TIntegerField
       FieldKind = fkLookup
@@ -930,173 +1178,139 @@ object DataModule1: TDataModule1
       KeyFields = 'mark_id'
       Lookup = True
     end
+    object FDTableVehiclesuuid: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'uuid'
+      Origin = 'uuid'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      FixedChar = True
+      Size = 36
+    end
+    object FDTableVehiclesregistration_plate: TWideStringField
+      FieldName = 'registration_plate'
+      Origin = 'registration_plate'
+      Required = True
+    end
+    object FDTableVehiclesworkshop_uuid: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'workshop_uuid'
+      Origin = 'workshop_uuid'
+      FixedChar = True
+      Size = 36
+    end
+    object FDTableVehiclesvin: TWideStringField
+      FieldName = 'vin'
+      Origin = 'vin'
+      Required = True
+      Size = 255
+    end
+    object FDTableVehiclesengine: TWideStringField
+      FieldName = 'engine'
+      Origin = '`engine`'
+      Required = True
+      Size = 255
+    end
+    object FDTableVehiclestech_passport: TWideMemoField
+      AutoGenerateValue = arDefault
+      FieldName = 'tech_passport'
+      Origin = 'tech_passport'
+      BlobType = ftWideMemo
+    end
+    object FDTableVehiclescolor: TWideStringField
+      FieldName = 'color'
+      Origin = 'color'
+      Required = True
+      Size = 255
+    end
+    object FDTableVehiclesvehicle_print: TStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'vehicle_print'
+    end
   end
   object DataSource1: TDataSource
-    DataSet = FDTable2
-    Left = 608
-    Top = 160
+    AutoEdit = False
+    Left = 256
+    Top = 440
   end
-  object FDTable1: TFDTable
+  object FDTableStuff: TFDTable
+    Active = True
     IndexFieldNames = 'uuid'
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.stuff'
-    Left = 608
-    Top = 268
-    object FDTable1workshop_uuid: TStringField
+    Left = 440
+    Top = 476
+    object FDTableStuffworkshop_uuid: TWideStringField
       FieldName = 'workshop_uuid'
       Origin = 'workshop_uuid'
       Required = True
       FixedChar = True
       Size = 36
     end
-    object FDTable1role: TStringField
+    object FDTableStuffrole: TWideStringField
       FieldName = 'role'
       Origin = 'role'
       Required = True
       FixedChar = True
       Size = 8
     end
-    object FDTable1first_name: TStringField
+    object FDTableStufffirst_name: TWideStringField
       FieldName = 'first_name'
       Origin = 'first_name'
       Required = True
       Size = 45
     end
-    object FDTable1second_name: TStringField
+    object FDTableStuffsecond_name: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'second_name'
       Origin = 'second_name'
       Size = 45
     end
-    object FDTable1last_name: TStringField
+    object FDTableStufflast_name: TWideStringField
       FieldName = 'last_name'
       Origin = 'last_name'
       Required = True
       Size = 45
     end
-    object FDTable1is_active: TBooleanField
+    object FDTableStuffis_active: TBooleanField
       AutoGenerateValue = arDefault
       FieldName = 'is_active'
       Origin = 'is_active'
     end
-    object FDTable1email: TStringField
+    object FDTableStuffemail: TWideStringField
       FieldName = 'email'
       Origin = 'email'
       Required = True
       Size = 255
     end
-    object FDTable1password: TStringField
+    object FDTableStuffpassword: TWideStringField
       FieldName = 'password'
       Origin = '`password`'
       Required = True
       Size = 255
     end
-    object FDTable1remember_token: TStringField
+    object FDTableStuffremember_token: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'remember_token'
       Origin = 'remember_token'
       Size = 100
     end
-    object FDTable1created_at: TSQLTimeStampField
+    object FDTableStuffcreated_at: TSQLTimeStampField
       AutoGenerateValue = arDefault
       FieldName = 'created_at'
       Origin = 'created_at'
     end
-    object FDTable1updated_at: TSQLTimeStampField
+    object FDTableStuffupdated_at: TSQLTimeStampField
       AutoGenerateValue = arDefault
       FieldName = 'updated_at'
       Origin = 'updated_at'
     end
-    object FDTable1uuid: TStringField
+    object FDTableStuffuuid: TWideStringField
       FieldName = 'uuid'
       Origin = 'uuid'
       Required = True
       FixedChar = True
       Size = 36
-    end
-  end
-  object FDTable2: TFDTable
-    IndexFieldNames = 'uuid'
-    Connection = FDConnectionMain
-    ResourceOptions.AssignedValues = [rvEscapeExpand]
-    TableName = '`car-workshop`.vehicles'
-    Left = 608
-    Top = 168
-    object FDTable2uuid: TStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'uuid'
-      Origin = 'uuid'
-      FixedChar = True
-      Size = 36
-    end
-    object FDTable2registration_plate: TStringField
-      FieldName = 'registration_plate'
-      Origin = 'registration_plate'
-      Required = True
-    end
-    object FDTable2created_at: TDateTimeField
-      FieldName = 'created_at'
-      Origin = 'created_at'
-      Required = True
-    end
-    object FDTable2updated_at: TDateTimeField
-      FieldName = 'updated_at'
-      Origin = 'updated_at'
-      Required = True
-    end
-    object FDTable2model_id: TLargeintField
-      FieldName = 'model_id'
-      Origin = 'model_id'
-      Required = True
-    end
-    object FDTable2workshop_uuid: TStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'workshop_uuid'
-      Origin = 'workshop_uuid'
-      FixedChar = True
-      Size = 36
-    end
-    object FDTable2client_uuid: TStringField
-      FieldName = 'client_uuid'
-      Origin = 'client_uuid'
-      Required = True
-      FixedChar = True
-      Size = 36
-    end
-    object FDTable2is_active: TBooleanField
-      AutoGenerateValue = arDefault
-      FieldName = 'is_active'
-      Origin = 'is_active'
-    end
-    object FDTable2vin: TStringField
-      FieldName = 'vin'
-      Origin = 'vin'
-      Required = True
-      Size = 255
-    end
-    object FDTable2engine: TStringField
-      FieldName = 'engine'
-      Origin = '`engine`'
-      Required = True
-      Size = 255
-    end
-    object FDTable2tech_passport: TMemoField
-      AutoGenerateValue = arDefault
-      FieldName = 'tech_passport'
-      Origin = 'tech_passport'
-      BlobType = ftMemo
-    end
-    object FDTable2mileage: TIntegerField
-      FieldName = 'mileage'
-      Origin = 'mileage'
-      Required = True
-    end
-    object FDTable2color: TStringField
-      FieldName = 'color'
-      Origin = 'color'
-      Required = True
-      Size = 255
     end
   end
   object FDTableMarks: TFDTable
@@ -1105,8 +1319,19 @@ object DataModule1: TDataModule1
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.marks'
-    Left = 608
-    Top = 78
+    Left = 672
+    Top = 278
+    object FDTableMarksid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ReadOnly = False
+    end
+    object FDTableMarksname: TWideStringField
+      FieldName = 'name'
+      Origin = '`name`'
+      Required = True
+      Size = 45
+    end
   end
   object FDTableModels: TFDTable
     Active = True
@@ -1114,8 +1339,36 @@ object DataModule1: TDataModule1
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.models'
-    Left = 608
-    Top = 152
+    Left = 584
+    Top = 280
+    object FDTableModelsid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ReadOnly = False
+    end
+    object FDTableModelsname: TWideStringField
+      FieldName = 'name'
+      Origin = '`name`'
+      Required = True
+      Size = 45
+    end
+    object FDTableModelstype: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'type'
+      Origin = '`type`'
+      FixedChar = True
+      Size = 4
+    end
+    object FDTableModelsyear: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'year'
+      Origin = '`year`'
+    end
+    object FDTableModelsmark_id: TIntegerField
+      FieldName = 'mark_id'
+      Origin = 'mark_id'
+      Required = True
+    end
   end
   object FDTableConsumables: TFDTable
     Active = True
@@ -1123,71 +1376,38 @@ object DataModule1: TDataModule1
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.consumables'
-    Left = 520
-    Top = 158
-    object FDTableConsumablesuuid: TStringField
+    Left = 120
+    Top = 22
+    object FDTableConsumablesprice: TFloatField
+      FieldName = 'price'
+      Origin = 'price'
+      Required = True
+      currency = True
+    end
+    object FDTableConsumablesuuid: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'uuid'
       Origin = 'uuid'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       FixedChar = True
       Size = 36
     end
-    object FDTableConsumablesname: TStringField
+    object FDTableConsumablesname: TWideStringField
       FieldName = 'name'
       Origin = '`name`'
       Required = True
       Size = 255
     end
-    object FDTableConsumablesprice: TFloatField
-      FieldName = 'price'
-      Origin = 'price'
-      Required = True
-    end
   end
   object FDTableUsedServices: TFDTable
     Active = True
+    OnCalcFields = FDTableUsedServicesCalcFields
     IndexFieldNames = 'uuid'
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.used_services'
-    Left = 368
-    Top = 94
-    object FDTableUsedServicesuuid: TStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'uuid'
-      Origin = 'uuid'
-      FixedChar = True
-      Size = 36
-    end
-    object FDTableUsedServicescreated_at: TDateTimeField
-      FieldName = 'created_at'
-      Origin = 'created_at'
-      Required = True
-    end
-    object FDTableUsedServicesupdated_at: TDateTimeField
-      FieldName = 'updated_at'
-      Origin = 'updated_at'
-      Required = True
-    end
-    object FDTableUsedServicesstatement_uuid: TStringField
-      FieldName = 'statement_uuid'
-      Origin = 'statement_uuid'
-      Required = True
-      FixedChar = True
-      Size = 36
-    end
-    object FDTableUsedServicesservice_uuid: TStringField
-      FieldName = 'service_uuid'
-      Origin = 'service_uuid'
-      Required = True
-      FixedChar = True
-      Size = 36
-    end
-    object FDTableUsedServicesquantity: TIntegerField
-      FieldName = 'quantity'
-      Origin = 'quantity'
-      Required = True
-    end
+    Left = 288
+    Top = 86
     object FDTableUsedServicesservices_name: TStringField
       FieldKind = fkLookup
       FieldName = 'services_name'
@@ -1206,51 +1426,57 @@ object DataModule1: TDataModule1
       KeyFields = 'service_uuid'
       Lookup = True
     end
-  end
-  object FDTableUsedConsumables: TFDTable
-    Active = True
-    IndexFieldNames = 'uuid'
-    Connection = FDConnectionMain
-    ResourceOptions.AssignedValues = [rvEscapeExpand]
-    TableName = '`car-workshop`.used_consumables'
-    Left = 360
-    Top = 166
-    object FDTableUsedConsumablesuuid: TStringField
+    object FDTableUsedServicesuuid: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'uuid'
       Origin = 'uuid'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       FixedChar = True
       Size = 36
     end
-    object FDTableUsedConsumablescreated_at: TDateTimeField
-      FieldName = 'created_at'
-      Origin = 'created_at'
-      Required = True
-    end
-    object FDTableUsedConsumablesupdated_at: TDateTimeField
-      FieldName = 'updated_at'
-      Origin = 'updated_at'
-      Required = True
-    end
-    object FDTableUsedConsumablesstatement_uuid: TStringField
+    object FDTableUsedServicesstatement_uuid: TWideStringField
       FieldName = 'statement_uuid'
       Origin = 'statement_uuid'
       Required = True
       FixedChar = True
       Size = 36
     end
-    object FDTableUsedConsumablesconsumable_uuid: TStringField
-      FieldName = 'consumable_uuid'
-      Origin = 'consumable_uuid'
+    object FDTableUsedServicesservice_uuid: TWideStringField
+      FieldName = 'service_uuid'
+      Origin = 'service_uuid'
       Required = True
       FixedChar = True
       Size = 36
     end
-    object FDTableUsedConsumablesquantity: TIntegerField
+    object FDTableUsedServicesquantity: TIntegerField
       FieldName = 'quantity'
       Origin = 'quantity'
       Required = True
     end
+    object FDTableUsedServicesfull_price: TCurrencyField
+      FieldKind = fkInternalCalc
+      FieldName = 'full_price'
+    end
+    object FDTableUsedServicescreated_at: TSQLTimeStampField
+      AutoGenerateValue = arDefault
+      FieldName = 'created_at'
+      Origin = 'created_at'
+    end
+    object FDTableUsedServicesupdated_at: TSQLTimeStampField
+      AutoGenerateValue = arDefault
+      FieldName = 'updated_at'
+      Origin = 'updated_at'
+    end
+  end
+  object FDTableUsedConsumables: TFDTable
+    Active = True
+    OnCalcFields = FDTableUsedConsumablesCalcFields
+    IndexFieldNames = 'uuid'
+    Connection = FDConnectionMain
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = '`car-workshop`.used_consumables'
+    Left = 120
+    Top = 86
     object FDTableUsedConsumablesconsumable_name: TStringField
       FieldKind = fkLookup
       FieldName = 'consumable_name'
@@ -1269,65 +1495,65 @@ object DataModule1: TDataModule1
       KeyFields = 'consumable_uuid'
       Lookup = True
     end
-  end
-  object FDTableStatements: TFDTable
-    Active = True
-    IndexFieldNames = 'uuid'
-    Connection = FDConnectionMain
-    ResourceOptions.AssignedValues = [rvEscapeExpand]
-    TableName = '`car-workshop`.statements'
-    Left = 328
-    Top = 312
-    object FDTableStatementsuuid: TStringField
+    object FDTableUsedConsumablesuuid: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'uuid'
       Origin = 'uuid'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       FixedChar = True
       Size = 36
     end
-    object FDTableStatementscreated_at: TDateTimeField
+    object FDTableUsedConsumablesstatement_uuid: TWideStringField
+      FieldName = 'statement_uuid'
+      Origin = 'statement_uuid'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object FDTableUsedConsumablesconsumable_uuid: TWideStringField
+      FieldName = 'consumable_uuid'
+      Origin = 'consumable_uuid'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object FDTableUsedConsumablesquantity: TIntegerField
+      FieldName = 'quantity'
+      Origin = 'quantity'
+      Required = True
+    end
+    object FDTableUsedConsumablesconsumable_print: TStringField
+      DefaultExpression = 'CONCAT_WS('#39' '#39', consumable_name, consumable_price)'
+      FieldKind = fkCalculated
+      FieldName = 'consumable_print'
+      Calculated = True
+    end
+    object FDTableUsedConsumablesfull_price: TCurrencyField
+      FieldKind = fkInternalCalc
+      FieldName = 'full_price'
+    end
+    object FDTableUsedConsumablescreated_at: TSQLTimeStampField
+      AutoGenerateValue = arDefault
       FieldName = 'created_at'
       Origin = 'created_at'
-      Required = True
     end
-    object FDTableStatementsupdated_at: TDateTimeField
+    object FDTableUsedConsumablesupdated_at: TSQLTimeStampField
+      AutoGenerateValue = arDefault
       FieldName = 'updated_at'
       Origin = 'updated_at'
-      Required = True
     end
-    object FDTableStatementsstatus: TStringField
-      FieldName = 'status'
-      Origin = '`status`'
-      Required = True
-      FixedChar = True
-      Size = 12
-    end
-    object FDTableStatementsrequest_uuid: TStringField
-      FieldName = 'request_uuid'
-      Origin = 'request_uuid'
-      Required = True
-      FixedChar = True
-      Size = 36
-    end
-    object FDTableStatementsclient_uuid: TStringField
-      FieldName = 'client_uuid'
-      Origin = 'client_uuid'
-      Required = True
-      FixedChar = True
-      Size = 36
-    end
-    object FDTableStatementsvehicle_uuid: TStringField
-      FieldName = 'vehicle_uuid'
-      Origin = 'vehicle_uuid'
-      Required = True
-      FixedChar = True
-      Size = 36
-    end
-    object FDTableStatementsis_active: TBooleanField
-      AutoGenerateValue = arDefault
-      FieldName = 'is_active'
-      Origin = 'is_active'
-    end
+  end
+  object FDTableStatements: TFDTable
+    Active = True
+    AfterScroll = FDTableStatementsAfterScroll
+    OnCalcFields = FDTableStatementsCalcFields
+    IndexFieldNames = 'uuid'
+    AfterGetRecord = FDTableStatementsAfterGetRecord
+    Connection = FDConnectionMain
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = '`car-workshop`.statements'
+    Left = 368
+    Top = 304
     object FDTableStatementsclient_first_name: TStringField
       FieldKind = fkLookup
       FieldName = 'client_first_name'
@@ -1355,14 +1581,100 @@ object DataModule1: TDataModule1
       KeyFields = 'client_uuid'
       Lookup = True
     end
+    object FDTableStatementsuuid: TWideStringField
+      FieldName = 'uuid'
+      FixedChar = True
+      Size = 36
+    end
+    object FDTableStatementscreated_at: TDateTimeField
+      FieldName = 'created_at'
+      Required = True
+    end
+    object FDTableStatementsupdated_at: TDateTimeField
+      FieldName = 'updated_at'
+      Required = True
+    end
+    object FDTableStatementsstatus: TWideStringField
+      FieldName = 'status'
+      FixedChar = True
+      Size = 12
+    end
+    object FDTableStatementscomment: TWideStringField
+      FieldName = 'comment'
+      Required = True
+      Size = 4096
+    end
+    object FDTableStatementsclient_uuid: TWideStringField
+      FieldName = 'client_uuid'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object FDTableStatementsvehicle_uuid: TWideStringField
+      FieldName = 'vehicle_uuid'
+      Required = True
+      FixedChar = True
+      Size = 36
+    end
+    object FDTableStatementsis_active: TBooleanField
+      FieldName = 'is_active'
+    end
+    object FDTableStatementsregistration_date: TDateField
+      FieldName = 'registration_date'
+    end
+    object FDTableStatementsexecution_date: TDateField
+      FieldName = 'execution_date'
+    end
+    object FDTableStatementspickup_time: TDateTimeField
+      FieldName = 'pickup_time'
+      Required = True
+    end
+    object FDTableStatementsclient_name: TStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'client_name'
+    end
+    object FDTableStatementsvehicle_registration_plate: TStringField
+      FieldKind = fkLookup
+      FieldName = 'vehicle_registration_plate'
+      LookupDataSet = FDTableVehicles
+      LookupKeyFields = 'uuid'
+      LookupResultField = 'registration_plate'
+      KeyFields = 'vehicle_uuid'
+      Lookup = True
+    end
+    object FDTableStatementsvehicle_print: TStringField
+      FieldKind = fkInternalCalc
+      FieldName = 'vehicle_print'
+    end
+    object FDTableStatementsvehicle_mark: TStringField
+      FieldKind = fkLookup
+      FieldName = 'vehicle_mark'
+      LookupDataSet = FDTableVehicles
+      LookupKeyFields = 'uuid'
+      LookupResultField = 'mark'
+      KeyFields = 'vehicle_uuid'
+      LookupCache = True
+      Lookup = True
+    end
+    object FDTableStatementsvehicle_model: TStringField
+      FieldKind = fkLookup
+      FieldName = 'vehicle_model'
+      LookupDataSet = FDTableVehicles
+      LookupKeyFields = 'uuid'
+      LookupResultField = 'model'
+      KeyFields = 'vehicle_uuid'
+      LookupCache = True
+      Lookup = True
+    end
   end
   object FDConnectionMain: TFDConnection
     Params.Strings = (
-      'ConnectionDef=CarWorkshop')
+      'ConnectionDef=CarWorkshop'
+      'CharacterSet=utf8')
     Connected = True
     LoginPrompt = False
-    Left = 168
-    Top = 352
+    Left = 112
+    Top = 504
   end
   object FDTableClients: TFDTable
     Active = True
@@ -1370,28 +1682,29 @@ object DataModule1: TDataModule1
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.clients'
-    Left = 608
-    Top = 270
-    object FDTableClientsuuid: TStringField
+    Left = 136
+    Top = 294
+    object FDTableClientsuuid: TWideStringField
       FieldName = 'uuid'
       Origin = 'uuid'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
       Size = 36
     end
-    object FDTableClientsfirst_name: TStringField
+    object FDTableClientsfirst_name: TWideStringField
       FieldName = 'first_name'
       Origin = 'first_name'
       Required = True
       Size = 45
     end
-    object FDTableClientssecond_name: TStringField
+    object FDTableClientssecond_name: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'second_name'
       Origin = 'second_name'
       Size = 45
     end
-    object FDTableClientslast_name: TStringField
+    object FDTableClientslast_name: TWideStringField
       FieldName = 'last_name'
       Origin = 'last_name'
       Required = True
@@ -1402,19 +1715,19 @@ object DataModule1: TDataModule1
       FieldName = 'is_active'
       Origin = 'is_active'
     end
-    object FDTableClientsemail: TStringField
+    object FDTableClientsemail: TWideStringField
       FieldName = 'email'
       Origin = 'email'
       Required = True
       Size = 255
     end
-    object FDTableClientspassword: TStringField
+    object FDTableClientspassword: TWideStringField
       FieldName = 'password'
       Origin = '`password`'
       Required = True
       Size = 255
     end
-    object FDTableClientsremember_token: TStringField
+    object FDTableClientsremember_token: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'remember_token'
       Origin = 'remember_token'
@@ -1429,6 +1742,238 @@ object DataModule1: TDataModule1
       AutoGenerateValue = arDefault
       FieldName = 'updated_at'
       Origin = 'updated_at'
+    end
+  end
+  object DataSourceServices: TDataSource
+    DataSet = FDTableServices
+    Left = 288
+    Top = 152
+  end
+  object DataSourceConsumables: TDataSource
+    DataSet = FDTableConsumables
+    Left = 120
+    Top = 152
+  end
+  object DataSourceUsedConsumables: TDataSource
+    DataSet = FDTableUsedConsumables
+    Left = 120
+    Top = 208
+  end
+  object DataSourceUsedServices: TDataSource
+    DataSet = FDTableUsedServices
+    Left = 288
+    Top = 208
+  end
+  object DataSourceVehicles: TDataSource
+    DataSet = FDTableVehicles
+    Left = 432
+    Top = 96
+  end
+  object DataSourceClients: TDataSource
+    DataSet = FDTableClients
+    Left = 136
+    Top = 352
+  end
+  object DataSourceStatements: TDataSource
+    DataSet = FDTableStatements
+    Left = 368
+    Top = 360
+  end
+  object FDQueryReportUsedServices: TFDQuery
+    Active = True
+    AggregatesActive = True
+    Connection = FDConnectionMain
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    SQL.Strings = (
+      'select'
+      
+        #9'CONCAT_WS('#39' '#39', cl.last_name, cl.first_name, cl.second_name, ma.' +
+        'name, m.name, v.registration_plate) "statement_info",'
+      #9'se.name "'#1054#1087#1077#1088#1072#1094#1080#1103'",'
+      #9'se.price "'#1062#1077#1085#1072'",'
+      '        s.execution_date "statement_execution_date",'
+      '        s.`uuid` "statement_uuid",'
+      #9'sum(se.price) OVER (PARTITION BY se.`uuid`) "'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'",'
+      
+        #9'count(se.`uuid`) OVER (PARTITION BY se.`uuid`)  "'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077 +
+        #1088#1072#1094#1080#1081'"'
+      'from'
+      #9'used_services u'
+      'right outer join services se on'
+      #9'u.service_uuid = se.uuid'
+      'right outer join statements s on'
+      #9'u.statement_uuid = s.uuid'
+      'right outer join clients cl on'
+      #9's.client_uuid = cl.`uuid`'
+      'right outer join vehicles v on'
+      #9's.vehicle_uuid = v.`uuid`'
+      'right outer join models m on'
+      #9'v.model_id = m.id'
+      'right outer join marks ma on'
+      #9'm.mark_id = ma.id'
+      'where'
+      
+        #9's.execution_date between :start_date and :end_date order by s.e' +
+        'xecution_date;'
+      '')
+    Left = 782
+    Top = 138
+    ParamData = <
+      item
+        Name = 'START_DATE'
+        DataType = ftDateTime
+        FDDataType = dtDate
+        ParamType = ptInput
+        Value = 36526d
+      end
+      item
+        Name = 'END_DATE'
+        DataType = ftDateTime
+        ParamType = ptInput
+        Value = 45658d
+      end>
+    object FDQueryReportUsedServicesstatement_info: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'statement_info'
+      Origin = 'statement_info'
+      Size = 250
+    end
+    object FDQueryReportUsedServicesОперация: TWideStringField
+      FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
+      Origin = '`'#1054#1087#1077#1088#1072#1094#1080#1103'`'
+      Size = 255
+    end
+    object FDQueryReportUsedServicesЦена: TFloatField
+      FieldName = #1062#1077#1085#1072
+      Origin = '`'#1062#1077#1085#1072'`'
+    end
+    object FDQueryReportUsedServicesstatement_uuid: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'statement_uuid'
+      Origin = 'statement_uuid'
+      FixedChar = True
+      Size = 36
+    end
+    object FDQueryReportUsedServicesОбщаяцена: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+      Origin = '`'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'`'
+    end
+    object FDQueryReportUsedServicesКоличествоопераций: TLargeintField
+      AutoGenerateValue = arDefault
+      FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+      Origin = '`'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081'`'
+    end
+    object FDQueryReportUsedServicesstatement_execution_date: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'statement_execution_date'
+      Origin = 'statement_execution_date'
+    end
+    object FDQueryReportUsedServicesfullSum: TAggregateField
+      FieldName = 'fullSum'
+      Active = True
+      currency = True
+      DisplayName = ''
+      Expression = 'sum("'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'")'
+    end
+  end
+  object FDQueryReportUsedConsumables: TFDQuery
+    Active = True
+    AggregatesActive = True
+    Connection = FDConnectionMain
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    SQL.Strings = (
+      'select'
+      
+        #9'CONCAT_WS('#39' '#39', cl.last_name, cl.first_name, cl.second_name, ma.' +
+        'name, m.name, v.registration_plate) statement_info,'
+      #9'co.name "'#1056#1072#1089#1093#1086#1076#1085#1080#1082'",'
+      '        s.`uuid` "statement_uuid",'
+      '                s.execution_date "statement_execution_date",'
+      #9'co.price "'#1062#1077#1085#1072'",'
+      #9'sum(co.price) OVER (PARTITION BY co.`uuid`) "'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'",'
+      
+        #9'count(co.`uuid`) OVER (PARTITION BY co.`uuid`)  "'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077 +
+        #1088#1072#1094#1080#1081'"'
+      'from'
+      #9'used_consumables u'
+      'right outer join consumables co on'
+      #9'u.consumable_uuid = co.uuid'
+      'right outer join statements s on'
+      #9'u.statement_uuid = s.uuid'
+      'right outer join clients cl on'
+      #9's.client_uuid = cl.`uuid`'
+      'right outer join vehicles v on'
+      #9's.vehicle_uuid = v.`uuid`'
+      'right outer join models m on'
+      #9'v.model_id = m.id'
+      'right outer join marks ma on'
+      #9'm.mark_id = ma.id'
+      'where'
+      
+        #9's.execution_date between :start_date and :end_date order by s.e' +
+        'xecution_date;')
+    Left = 782
+    Top = 202
+    ParamData = <
+      item
+        Name = 'START_DATE'
+        DataType = ftDateTime
+        FDDataType = dtDate
+        ParamType = ptInput
+        Value = 36526d
+      end
+      item
+        Name = 'END_DATE'
+        DataType = ftDateTime
+        ParamType = ptInput
+        Value = 45658d
+      end>
+    object FDQueryReportUsedConsumablesstatement_info: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'statement_info'
+      Origin = 'statement_info'
+      Size = 250
+    end
+    object FDQueryReportUsedConsumablesРасходник: TWideStringField
+      FieldName = #1056#1072#1089#1093#1086#1076#1085#1080#1082
+      Origin = '`'#1056#1072#1089#1093#1086#1076#1085#1080#1082'`'
+      Size = 255
+    end
+    object FDQueryReportUsedConsumablesstatement_uuid: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'statement_uuid'
+      Origin = 'statement_uuid'
+      FixedChar = True
+      Size = 36
+    end
+    object FDQueryReportUsedConsumablesЦена: TFloatField
+      FieldName = #1062#1077#1085#1072
+      Origin = '`'#1062#1077#1085#1072'`'
+    end
+    object FDQueryReportUsedConsumablesОбщаяцена: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+      Origin = '`'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'`'
+    end
+    object FDQueryReportUsedConsumablesКоличествоопераций: TLargeintField
+      AutoGenerateValue = arDefault
+      FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+      Origin = '`'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081'`'
+    end
+    object FDQueryReportUsedConsumablesstatement_execution_date: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'statement_execution_date'
+      Origin = 'statement_execution_date'
+    end
+    object FDQueryReportUsedConsumablesfullSum: TAggregateField
+      FieldName = 'fullSum'
+      Active = True
+      currency = True
+      DisplayName = ''
+      Expression = 'sum("'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'")'
     end
   end
 end

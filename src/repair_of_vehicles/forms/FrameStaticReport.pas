@@ -15,12 +15,9 @@ uses
 
 type
   TFrameStaticReport = class(TFrame)
-    DBGrid1: TDBGrid;
-    Panel1: TPanel;
     Button1: TButton;
-    frxReport1: TfrxReport;
-    frxPDFExport1: TfrxPDFExport;
-    frxDBDataset1: TfrxDBDataset;
+    Panel1: TPanel;
+    Label1: TLabel;
 
   private
     { Private declarations }

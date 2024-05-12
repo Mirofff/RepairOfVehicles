@@ -65,7 +65,6 @@ object Form1: TForm1
     ShowCaption = False
     ShowHint = False
     TabOrder = 0
-    ExplicitWidth = 981
     object GroupBox1: TGroupBox
       Left = 0
       Top = 0
@@ -74,7 +73,6 @@ object Form1: TForm1
       Align = alClient
       Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1084#1086#1076#1077#1083#1080
       TabOrder = 0
-      ExplicitWidth = 694
       object SearchEdit: TEdit
         AlignWithMargins = True
         Left = 5
@@ -100,7 +98,6 @@ object Form1: TForm1
         ShowHint = False
         TabOrder = 0
         OnChange = SearchEditChange
-        ExplicitWidth = 684
       end
     end
     object GroupBox2: TGroupBox
@@ -111,7 +108,6 @@ object Form1: TForm1
       Align = alRight
       Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103
       TabOrder = 1
-      ExplicitLeft = 694
       object SpeedButton1: TSpeedButton
         Left = 5
         Top = 17
@@ -184,7 +180,6 @@ object Form1: TForm1
       ParentColor = True
       ShowCaption = False
       TabOrder = 0
-      ExplicitTop = 1
       object GroupBox7: TGroupBox
         Left = 0
         Top = 0
@@ -259,17 +254,25 @@ object Form1: TForm1
         Align = alTop
         Caption = #1043#1086#1076' '#1074#1099#1087#1091#1089#1082#1072
         TabOrder = 3
-        object DateTimePicker1: TDateTimePicker
+        object DatePicker1: TDatePicker
           AlignWithMargins = True
           Left = 5
           Top = 20
           Width = 279
-          Height = 23
+          Height = 25
           Align = alClient
           Date = 45421.000000000000000000
-          Format = 'yyyy'
-          Time = 0.660367476848478000
+          DateFormat = 'yyyy'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = []
           TabOrder = 0
+          ExplicitLeft = 72
+          ExplicitTop = 8
+          ExplicitWidth = 150
+          ExplicitHeight = 32
         end
       end
       object GroupBox8: TGroupBox
@@ -381,7 +384,6 @@ object Form1: TForm1
         Enabled = False
         TabOrder = 2
         OnClick = Button5Click
-        ExplicitLeft = 4
       end
     end
   end
