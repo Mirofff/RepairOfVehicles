@@ -28,10 +28,10 @@ type
     DataSourceVehicles: TDataSource;
     DataSourceClients: TDataSource;
     DataSourceStatements: TDataSource;
-    FDQueryReportUsedServices: TFDQuery;
-    FDQueryReportUsedServicesfullSum: TAggregateField;
-    FDQueryReportUsedConsumables: TFDQuery;
-    FDQueryReportUsedConsumablesfullSum: TAggregateField;
+    FDQueryDynamicReportUsedServices: TFDQuery;
+    FDQueryDynamicReportUsedServicesfullSum: TAggregateField;
+    FDQueryDynamicReportUsedConsumables: TFDQuery;
+    FDQueryDynamicReportUsedConsumablesfullSum: TAggregateField;
     FDTableModelsid: TLargeintField;
     FDTableModelsname: TWideMemoField;
     FDTableModelscylinders: TIntegerField;
@@ -51,19 +51,19 @@ type
     FDTableModelsmark_id: TLargeintField;
     FDTableMarksid: TLargeintField;
     FDTableMarksname: TWideStringField;
-    FDQueryReportUsedConsumablesРасходник: TWideStringField;
-    FDQueryReportUsedConsumablesstatement_id: TLargeintField;
-    FDQueryReportUsedConsumablesstatement_execution_date: TDateField;
-    FDQueryReportUsedConsumablesЦена: TFloatField;
-    FDQueryReportUsedConsumablesОбщаяцена: TFloatField;
-    FDQueryReportUsedConsumablesКоличествоопераций: TLargeintField;
-    FDQueryReportUsedServicesstatement_info: TWideMemoField;
-    FDQueryReportUsedServicesОперация: TWideStringField;
-    FDQueryReportUsedServicesЦена: TFloatField;
-    FDQueryReportUsedServicesstatement_execution_date: TDateField;
-    FDQueryReportUsedServicesstatement_id: TLargeintField;
-    FDQueryReportUsedServicesОбщаяцена: TFloatField;
-    FDQueryReportUsedServicesКоличествоопераций: TLargeintField;
+    FDQueryDynamicReportUsedConsumablesРасходник: TWideStringField;
+    FDQueryDynamicReportUsedConsumablesstatement_id: TLargeintField;
+    FDQueryDynamicReportUsedConsumablesstatement_execution_date: TDateField;
+    FDQueryDynamicReportUsedConsumablesЦена: TFloatField;
+    FDQueryDynamicReportUsedConsumablesОбщаяцена: TFloatField;
+    FDQueryDynamicReportUsedConsumablesКоличествоопераций: TLargeintField;
+    FDQueryDynamicReportUsedServicesstatement_info: TWideMemoField;
+    FDQueryDynamicReportUsedServicesОперация: TWideStringField;
+    FDQueryDynamicReportUsedServicesЦена: TFloatField;
+    FDQueryDynamicReportUsedServicesstatement_execution_date: TDateField;
+    FDQueryDynamicReportUsedServicesstatement_id: TLargeintField;
+    FDQueryDynamicReportUsedServicesОбщаяцена: TFloatField;
+    FDQueryDynamicReportUsedServicesКоличествоопераций: TLargeintField;
     FDTableVehicles: TFDTable;
     FDTableVehiclesid: TLargeintField;
     FDTableVehiclesregistration_plate: TWideStringField;
@@ -156,7 +156,21 @@ type
     FDTableStatementsvehicle_mark_id: TLargeintField;
     FDTableStatementsvehicle_mark: TStringField;
     FDTableStatementsvehicle_print: TStringField;
-    FDQueryReportUsedConsumablesstatement_info: TWideMemoField;
+    FDQueryDynamicReportUsedConsumablesstatement_info: TWideMemoField;
+    FDTable1: TFDTable;
+    DataSource2: TDataSource;
+    FDQueryStaticReportUsedServices: TFDQuery;
+    FDQueryStaticReportUsedConsumables: TFDQuery;
+    FDQueryStaticReportUsedServicesmark: TWideStringField;
+    FDQueryStaticReportUsedServicesfull_sum: TFloatField;
+    FDQueryStaticReportUsedServicesservice_price: TFloatField;
+    FDQueryStaticReportUsedServicesused_consumable_quantity: TIntegerField;
+    FDQueryStaticReportUsedServicesservice_name: TWideStringField;
+    FDQueryStaticReportUsedConsumablesmark: TWideStringField;
+    FDQueryStaticReportUsedConsumablesfull_sum: TFloatField;
+    FDQueryStaticReportUsedConsumablesconsumable_price: TFloatField;
+    FDQueryStaticReportUsedConsumablesused_consumable_quantity: TIntegerField;
+    FDQueryStaticReportUsedConsumablesconsumable_name: TWideStringField;
     procedure FDTableVehiclesCalcFields(DataSet: TDataSet);
     procedure FDTableStatementsAfterGetRecord(DataSet: TFDDataSet);
     procedure FDTableStatementsAfterScroll(DataSet: TDataSet);
@@ -166,6 +180,7 @@ type
     procedure FDTableUsedServicesCalcFields(DataSet: TDataSet);
     procedure FDTableUsedConsumablesCalcFields(DataSet: TDataSet);
     procedure FDTableStatementsCalcFields(DataSet: TDataSet);
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -181,6 +196,13 @@ implementation
 
 uses frmRepairOfVehicles;
 {$R *.dfm}
+
+procedure TDataModuleDB.DataModuleCreate(Sender: TObject);
+begin
+//FDConnectionMain.Connected := False;
+//FDConnectionMain.ConnectionString := 'DriverID=MySQL;Database=car-workshop;server=192.168.32.2;user_name=root;password=password;CharacterSet=utf8';
+//FDConnectionMain.Connected := True;
+end;
 
 procedure TDataModuleDB.DataSourceStatementsDataChange(Sender: TObject;
   Field: TField);

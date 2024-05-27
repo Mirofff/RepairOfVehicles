@@ -187,6 +187,7 @@ object Form1: TForm1
         Align = alTop
         Caption = '#'
         TabOrder = 0
+        ExplicitTop = 1
         object DBLabeledEditId: TDBLabeledEdit
           AlignWithMargins = True
           Left = 5
@@ -200,6 +201,7 @@ object Form1: TForm1
           TabOrder = 0
           EditLabel.Width = 10
           EditLabel.Height = 15
+          LabelPosition = lpBelow
           ExplicitHeight = 23
         end
       end

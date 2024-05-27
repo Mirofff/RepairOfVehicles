@@ -1,6 +1,7 @@
 ﻿object DataModuleDB: TDataModuleDB
-  Height = 618
-  Width = 906
+  OnCreate = DataModuleCreate
+  Height = 687
+  Width = 1022
   object frxDBDatasetConsumables: TfrxDBDataset
     UserName = 'consumablesDataSet'
     CloseDataSource = False
@@ -215,14 +216,14 @@
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 147.401671200000000000
+        Height = 192.756031200000000000
         Top = 18.897650000000000000
         Width = 718.110700000000000000
         object Memo1: TfrxMemoView
           AllowVectorExport = True
           Top = 105.826840000000000000
           Width = 718.110717770000000000
-          Height = 34.015771200000000000
+          Height = 86.929191200000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
           Font.Charset = RUSSIAN_CHARSET
@@ -234,7 +235,8 @@
           Memo.UTF8W = (
             
               #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076'  - '#8470' [statementsDataSet."id"] '#1086#1090' [statementsDataSet.' +
-              '"updated_at"]')
+              '"registration_date"]'
+            #1044#1072#1090#1072' '#1074#1099#1087#1086#1083#1085#1077#1085#1080#1103': [statementsDataSet."execution_date"]')
           ParentFont = False
           Formats = <
             item
@@ -2717,7 +2719,7 @@
         FillGap.Right = 0
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 298.582870000000000000
+        Top = 343.937230000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDatasetServices
         DataSetName = 'servicesDataSet'
@@ -2814,7 +2816,7 @@
         FillGap.Right = 0
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 461.102660000000000000
+        Top = 506.457020000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDatasetConsumables
         DataSetName = 'consumablesDataSet'
@@ -2910,35 +2912,24 @@
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 226.771800000000000000
-        Top = 551.811380000000000000
+        Height = 205.855663700000000000
+        Top = 597.165740000000000000
         Width = 718.110700000000000000
         RowCount = 1
         object TableObject1: TfrxTableObject
-          Align = baClient
+          Align = baCenter
           AllowVectorExport = True
+          Left = -0.000000000000249994
           object TableColumn1: TfrxTableColumn
-            Width = 146.145801698688000000
+            Width = 195.364504246719000000
             MaxWidth = 75.590600000000000000
           end
           object TableColumn2: TfrxTableColumn
-            Width = 133.527510978688000000
-            MaxWidth = 75.590600000000000000
-          end
-          object TableColumn3: TfrxTableColumn
-            Width = 146.145801698688000000
-            MaxWidth = 75.590600000000000000
-          end
-          object TableColumn4: TfrxTableColumn
-            Width = 146.145801698688000000
-            MaxWidth = 75.590600000000000000
-          end
-          object TableColumn5: TfrxTableColumn
-            Width = 146.145801698688000000
+            Width = 522.746213526719000000
             MaxWidth = 75.590600000000000000
           end
           object TableRow1: TfrxTableRow
-            Height = 52.325680036428500000
+            Height = 50.837536115529800000
             object TableCell1: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
@@ -2952,8 +2943,9 @@
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
               Memo.UTF8W = (
                 
-                  '[statementsDataSet."client_last_name"] [statementsDataSet."clien' +
-                  't_first_name"] [statementsDataSet."client_second_name"]')
+                  #1042#1083#1072#1076#1077#1083#1077#1094': [statementsDataSet."client_last_name"] [statementsData' +
+                  'Set."client_first_name"] [statementsDataSet."client_second_name"' +
+                  ']')
               ParentFont = False
               ColSpan = 2
               Formats = <
@@ -2971,31 +2963,9 @@
               ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
-            object TableCell3: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-              ColSpan = 3
-            end
-            object TableCell4: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-            end
-            object TableCell5: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-            end
           end
           object TableRow2: TfrxTableRow
-            Height = 57.120444736713200000
+            Height = 41.632300815814500000
             object TableCell6: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
@@ -3007,7 +2977,7 @@
                   #1055#1083#1072#1090#1077#1083#1100#1097#1080#1082': [statementsDataSet."client_last_name"] [statementsDa' +
                   'taSet."client_first_name"] [statementsDataSet."client_second_nam' +
                   'e"]')
-              ColSpan = 5
+              ColSpan = 2
               Formats = <
                 item
                 end
@@ -3023,42 +2993,21 @@
               ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
-            object TableCell8: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-            end
-            object TableCell9: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-            end
-            object TableCell10: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-            end
           end
           object TableRow3: TfrxTableRow
-            Height = 117.325680036429000000
+            Height = 113.385826771653500000
             object TableCell11: TfrxTableCell
               AllowVectorExport = True
               Restrictions = [rfDontDelete]
               ContentScaleOptions.Constraints.MaxIterationValue = 0
               ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-              ColSpan = 5
+              ColSpan = 2
               object Memo4: TfrxMemoView
                 Align = baClient
                 AllowVectorExport = True
                 Width = 718.110717773437500000
-                Height = 117.325683593750000000
+                Height = 113.385826110839800000
                 ContentScaleOptions.Constraints.MaxIterationValue = 0
                 ContentScaleOptions.Constraints.MinIterationValue = 0
                 Frame.Typ = []
@@ -3095,27 +3044,6 @@
               ContentScaleOptions.Constraints.MinIterationValue = 0
               Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
             end
-            object TableCell13: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-            end
-            object TableCell14: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-            end
-            object TableCell15: TfrxTableCell
-              AllowVectorExport = True
-              Restrictions = [rfDontDelete]
-              ContentScaleOptions.Constraints.MaxIterationValue = 0
-              ContentScaleOptions.Constraints.MinIterationValue = 0
-              Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-            end
           end
         end
       end
@@ -3127,7 +3055,7 @@
         FillGap.Right = 0
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 506.457020000000000000
+        Top = 551.811380000000000000
         Width = 718.110700000000000000
         object Memo21: TfrxMemoView
           Align = baRight
@@ -3176,7 +3104,7 @@
         FillGap.Right = 0
         Frame.Typ = []
         Height = 49.133890000000000000
-        Top = 389.291590000000000000
+        Top = 434.645950000000000000
         Width = 718.110700000000000000
         Condition = 'consumablesDataSet."statement_id"'
         object Memo8: TfrxMemoView
@@ -3279,7 +3207,7 @@
         FillGap.Right = 0
         Frame.Typ = []
         Height = 49.133890000000000000
-        Top = 226.771800000000000000
+        Top = 272.126160000000000000
         Width = 718.110700000000000000
         Condition = 'servicesDataSet."statement_id"'
         object Memo7: TfrxMemoView
@@ -3382,7 +3310,7 @@
         FillGap.Right = 0
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 343.937230000000000000
+        Top = 389.291590000000000000
         Width = 718.110700000000000000
         object Memo23: TfrxMemoView
           Align = baRight
@@ -3701,7 +3629,7 @@
     Left = 368
     Top = 360
   end
-  object FDQueryReportUsedServices: TFDQuery
+  object FDQueryDynamicReportUsedServices: TFDQuery
     Active = True
     AggregatesActive = True
     Connection = FDConnectionMain
@@ -3757,43 +3685,43 @@
         ParamType = ptInput
         Value = 45658d
       end>
-    object FDQueryReportUsedServicesstatement_info: TWideMemoField
+    object FDQueryDynamicReportUsedServicesstatement_info: TWideMemoField
       AutoGenerateValue = arDefault
       FieldName = 'statement_info'
       Origin = 'statement_info'
       BlobType = ftWideMemo
     end
-    object FDQueryReportUsedServicesОперация: TWideStringField
+    object FDQueryDynamicReportUsedServicesОперация: TWideStringField
       FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
       Origin = '`'#1054#1087#1077#1088#1072#1094#1080#1103'`'
       FixedChar = True
       Size = 255
     end
-    object FDQueryReportUsedServicesЦена: TFloatField
+    object FDQueryDynamicReportUsedServicesЦена: TFloatField
       FieldName = #1062#1077#1085#1072
       Origin = '`'#1062#1077#1085#1072'`'
     end
-    object FDQueryReportUsedServicesstatement_execution_date: TDateField
+    object FDQueryDynamicReportUsedServicesstatement_execution_date: TDateField
       AutoGenerateValue = arDefault
       FieldName = 'statement_execution_date'
       Origin = 'statement_execution_date'
     end
-    object FDQueryReportUsedServicesstatement_id: TLargeintField
+    object FDQueryDynamicReportUsedServicesstatement_id: TLargeintField
       AutoGenerateValue = arDefault
       FieldName = 'statement_id'
       Origin = 'statement_id'
     end
-    object FDQueryReportUsedServicesОбщаяцена: TFloatField
+    object FDQueryDynamicReportUsedServicesОбщаяцена: TFloatField
       AutoGenerateValue = arDefault
       FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
       Origin = '`'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'`'
     end
-    object FDQueryReportUsedServicesКоличествоопераций: TLargeintField
+    object FDQueryDynamicReportUsedServicesКоличествоопераций: TLargeintField
       AutoGenerateValue = arDefault
       FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
       Origin = '`'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081'`'
     end
-    object FDQueryReportUsedServicesfullSum: TAggregateField
+    object FDQueryDynamicReportUsedServicesfullSum: TAggregateField
       FieldName = 'fullSum'
       Active = True
       currency = True
@@ -3801,7 +3729,7 @@
       Expression = 'sum("'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'")'
     end
   end
-  object FDQueryReportUsedConsumables: TFDQuery
+  object FDQueryDynamicReportUsedConsumables: TFDQuery
     Active = True
     AggregatesActive = True
     Connection = FDConnectionMain
@@ -3856,42 +3784,42 @@
         ParamType = ptInput
         Value = 45658d
       end>
-    object FDQueryReportUsedConsumablesstatement_info: TWideMemoField
+    object FDQueryDynamicReportUsedConsumablesstatement_info: TWideMemoField
       AutoGenerateValue = arDefault
       FieldName = 'statement_info'
       Origin = 'statement_info'
       BlobType = ftWideMemo
     end
-    object FDQueryReportUsedConsumablesРасходник: TWideStringField
+    object FDQueryDynamicReportUsedConsumablesРасходник: TWideStringField
       FieldName = #1056#1072#1089#1093#1086#1076#1085#1080#1082
       Origin = '`'#1056#1072#1089#1093#1086#1076#1085#1080#1082'`'
       Size = 255
     end
-    object FDQueryReportUsedConsumablesstatement_id: TLargeintField
+    object FDQueryDynamicReportUsedConsumablesstatement_id: TLargeintField
       AutoGenerateValue = arDefault
       FieldName = 'statement_id'
       Origin = 'statement_id'
     end
-    object FDQueryReportUsedConsumablesstatement_execution_date: TDateField
+    object FDQueryDynamicReportUsedConsumablesstatement_execution_date: TDateField
       AutoGenerateValue = arDefault
       FieldName = 'statement_execution_date'
       Origin = 'statement_execution_date'
     end
-    object FDQueryReportUsedConsumablesЦена: TFloatField
+    object FDQueryDynamicReportUsedConsumablesЦена: TFloatField
       FieldName = #1062#1077#1085#1072
       Origin = '`'#1062#1077#1085#1072'`'
     end
-    object FDQueryReportUsedConsumablesОбщаяцена: TFloatField
+    object FDQueryDynamicReportUsedConsumablesОбщаяцена: TFloatField
       AutoGenerateValue = arDefault
       FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
       Origin = '`'#1054#1073#1097#1072#1103' '#1094#1077#1085#1072'`'
     end
-    object FDQueryReportUsedConsumablesКоличествоопераций: TLargeintField
+    object FDQueryDynamicReportUsedConsumablesКоличествоопераций: TLargeintField
       AutoGenerateValue = arDefault
       FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
       Origin = '`'#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081'`'
     end
-    object FDQueryReportUsedConsumablesfullSum: TAggregateField
+    object FDQueryDynamicReportUsedConsumablesfullSum: TAggregateField
       FieldName = 'fullSum'
       Active = True
       currency = True
@@ -4501,6 +4429,127 @@
       AutoGenerateValue = arDefault
       FieldName = 'updated_at'
       Origin = 'updated_at'
+    end
+  end
+  object FDTable1: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = FDConnectionMain
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = '`car-workshop`.stuff'
+    Left = 348
+    Top = 540
+  end
+  object DataSource2: TDataSource
+    Left = 304
+    Top = 536
+  end
+  object FDQueryStaticReportUsedServices: TFDQuery
+    Connection = FDConnectionMain
+    SQL.Strings = (
+      'select ma.name "mark",'
+      '       se.price * us.quantity      "full_sum",'
+      '       se.price "service_price",'
+      '       us.quantity "used_consumable_quantity",'
+      '       se.name "service_name"'
+      'from marks ma'
+      '         join models m on m.mark_id = ma.id'
+      '         join vehicles v on m.id = v.model_id'
+      '         left outer join statements s on v.id = s.vehicle_id'
+      '         join used_services us on us.statement_id = s.id'
+      '         join services se on se.id = us.service_id'
+      'group by se.id, ma.id'
+      'order by ma.id;')
+    Left = 888
+    Top = 320
+    object FDQueryStaticReportUsedServicesmark: TWideStringField
+      FieldName = 'mark'
+      Origin = '`name`'
+      Required = True
+      Size = 1024
+    end
+    object FDQueryStaticReportUsedServicesfull_sum: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'full_sum'
+      Origin = 'full_sum'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object FDQueryStaticReportUsedServicesservice_price: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'service_price'
+      Origin = 'price'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object FDQueryStaticReportUsedServicesused_consumable_quantity: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'used_consumable_quantity'
+      Origin = 'quantity'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object FDQueryStaticReportUsedServicesservice_name: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'service_name'
+      Origin = '`name`'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 255
+    end
+  end
+  object FDQueryStaticReportUsedConsumables: TFDQuery
+    Connection = FDConnectionMain
+    SQL.Strings = (
+      'select ma.name "mark",'
+      '       co.price * uc.quantity      "full_sum",'
+      '       co.price "consumable_price",'
+      '       uc.quantity "used_consumable_quantity",'
+      '       co.name "consumable_name"'
+      'from marks ma'
+      '         join models m on m.mark_id = ma.id'
+      '         join vehicles v on m.id = v.model_id'
+      '         left outer join statements s on v.id = s.vehicle_id'
+      '         join used_consumables uc on uc.statement_id = s.id'
+      '         join consumables co on co.id = uc.consumable_id'
+      'group by co.id, ma.id'
+      'order by ma.id;')
+    Left = 888
+    Top = 376
+    object FDQueryStaticReportUsedConsumablesmark: TWideStringField
+      FieldName = 'mark'
+      Origin = '`name`'
+      Required = True
+      Size = 1024
+    end
+    object FDQueryStaticReportUsedConsumablesfull_sum: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'full_sum'
+      Origin = 'full_sum'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object FDQueryStaticReportUsedConsumablesconsumable_price: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'consumable_price'
+      Origin = 'price'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object FDQueryStaticReportUsedConsumablesused_consumable_quantity: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'used_consumable_quantity'
+      Origin = 'quantity'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object FDQueryStaticReportUsedConsumablesconsumable_name: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'consumable_name'
+      Origin = '`name`'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 255
     end
   end
 end

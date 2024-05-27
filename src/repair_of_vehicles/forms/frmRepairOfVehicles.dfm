@@ -108,14 +108,14 @@
     object TabSheetAuth: TTabSheet
       Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
       TabVisible = False
-      object GridPanel1: TGridPanel
+      object GridPanelAuth: TGridPanel
         Left = 0
         Top = 0
         Width = 908
         Height = 512
         Align = alClient
         BevelOuter = bvNone
-        Caption = 'GridPanel1'
+        Caption = 'GridPanelAuth'
         ColumnCollection = <
           item
             Value = 50.000000000000000000
@@ -132,11 +132,6 @@
             Column = 1
             Control = Panel5
             Row = 1
-          end
-          item
-            Column = 1
-            Control = Button8
-            Row = 2
           end>
         RowCollection = <
           item
@@ -273,209 +268,6 @@
             Caption = #1040#1074#1090#1086#1088#1080#1079#1080#1088#1086#1074#1072#1090#1100#1089#1103
             TabOrder = 1
             OnClick = Button1Click
-          end
-        end
-        object Button8: TButton
-          AlignWithMargins = True
-          Left = 304
-          Top = 484
-          Width = 300
-          Height = 25
-          Margins.Left = 50
-          Margins.Right = 50
-          Align = alBottom
-          Caption = #1048#1079#1084#1077#1085#1080#1090#1100' '#1087#1086#1076#1082#1083#1102#1095#1077#1085#1080#1077
-          TabOrder = 1
-          OnClick = Button8Click
-        end
-      end
-      object SplitViewDatabaseConnection: TSplitView
-        Left = 0
-        Top = 0
-        Width = 0
-        Height = 512
-        Opened = False
-        OpenedWidth = 280
-        Placement = svpLeft
-        TabOrder = 1
-        object GridPanelDatabaseConnection: TGridPanel
-          Left = 0
-          Top = 0
-          Width = 0
-          Height = 512
-          Align = alClient
-          BevelOuter = bvNone
-          Caption = 'GridPanel1'
-          ColumnCollection = <
-            item
-              Value = 49.999999925000000000
-            end
-            item
-              SizeStyle = ssAbsolute
-              Value = 240.000000000000000000
-            end
-            item
-              Value = 50.000000075000000000
-            end>
-          ControlCollection = <
-            item
-              Column = 1
-              Control = Panel4
-              Row = 1
-            end>
-          RowCollection = <
-            item
-              Value = 33.333333300000000000
-            end
-            item
-              Value = 33.333333300000000000
-            end
-            item
-              Value = 33.333333400000000000
-            end>
-          ShowCaption = False
-          TabOrder = 0
-          object Panel4: TPanel
-            Left = -120
-            Top = 171
-            Width = 240
-            Height = 170
-            Align = alClient
-            Anchors = []
-            BevelEdges = []
-            BevelOuter = bvNone
-            Caption = 'Panel1'
-            ShowCaption = False
-            TabOrder = 0
-            StyleElements = [seFont, seClient]
-            object GridPanel3: TGridPanel
-              Left = 0
-              Top = 0
-              Width = 240
-              Height = 145
-              Align = alClient
-              BevelEdges = []
-              BevelOuter = bvNone
-              Caption = 'GridPanel2'
-              ColumnCollection = <
-                item
-                  Value = 100.000000000000000000
-                end>
-              ControlCollection = <
-                item
-                  Column = 0
-                  Control = GridPanel4
-                  Row = 0
-                end>
-              RowCollection = <
-                item
-                  Value = 100.000000000000000000
-                end>
-              ShowCaption = False
-              TabOrder = 0
-              object GridPanel4: TGridPanel
-                Left = 0
-                Top = 0
-                Width = 240
-                Height = 145
-                Align = alClient
-                Caption = 'GridPanel4'
-                ColumnCollection = <
-                  item
-                    Value = 50.000000000000000000
-                  end
-                  item
-                    Value = 50.000000000000000000
-                  end>
-                ControlCollection = <
-                  item
-                    Column = 0
-                    Control = Panel1
-                    Row = 0
-                  end
-                  item
-                    Column = 1
-                    Control = Panel2
-                    Row = 0
-                  end>
-                RowCollection = <
-                  item
-                    Value = 100.000000000000000000
-                  end>
-                ShowCaption = False
-                TabOrder = 0
-                object Panel1: TPanel
-                  Left = 1
-                  Top = 1
-                  Width = 119
-                  Height = 143
-                  Align = alClient
-                  Caption = 'v'
-                  ShowCaption = False
-                  TabOrder = 0
-                  StyleElements = [seFont, seClient]
-                  object Label3: TLabel
-                    Left = 1
-                    Top = 1
-                    Width = 117
-                    Height = 15
-                    Align = alTop
-                    Caption = #1061#1086#1089#1090' '#1041#1044
-                    Layout = tlCenter
-                    ExplicitWidth = 43
-                  end
-                  object EditDBHost: TEdit
-                    Left = 1
-                    Top = 16
-                    Width = 117
-                    Height = 23
-                    Align = alTop
-                    TabOrder = 0
-                    Text = '172.20.0.2'
-                  end
-                end
-                object Panel2: TPanel
-                  Left = 120
-                  Top = 1
-                  Width = 119
-                  Height = 143
-                  Align = alClient
-                  Caption = 'Panel1'
-                  ShowCaption = False
-                  TabOrder = 1
-                  StyleElements = [seFont, seClient]
-                  object Label4: TLabel
-                    Left = 1
-                    Top = 1
-                    Width = 117
-                    Height = 15
-                    Align = alTop
-                    Caption = #1055#1086#1088#1090' '#1041#1044
-                    Layout = tlCenter
-                    ExplicitWidth = 46
-                  end
-                  object EditDBPort: TEdit
-                    Left = 1
-                    Top = 16
-                    Width = 117
-                    Height = 23
-                    Align = alTop
-                    TabOrder = 0
-                    Text = '3306'
-                  end
-                end
-              end
-            end
-            object Button2: TButton
-              Left = 0
-              Top = 145
-              Width = 240
-              Height = 25
-              Align = alBottom
-              Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
-              TabOrder = 1
-              OnClick = Button2Click
-            end
           end
         end
       end
@@ -1030,9 +822,6 @@
               EditLabel.Width = 67
               EditLabel.Height = 15
               LabelPosition = lpBelow
-              ExplicitLeft = 56
-              ExplicitTop = 16
-              ExplicitWidth = 121
               ExplicitHeight = 23
             end
           end
@@ -1762,13 +1551,13 @@
     Top = 342
   end
   object DataSourceReportUsedServices: TDataSource
-    DataSet = DataModuleDB.FDQueryReportUsedServices
+    DataSet = DataModuleDB.FDQueryDynamicReportUsedServices
     OnDataChange = DataSourceReportUsedServicesDataChange
     Left = 392
     Top = 198
   end
   object DataSourceReportUsedConsumables: TDataSource
-    DataSet = DataModuleDB.FDQueryReportUsedConsumables
+    DataSet = DataModuleDB.FDQueryDynamicReportUsedConsumables
     OnDataChange = DataSourceReportUsedConsumablesDataChange
     Left = 392
     Top = 256
@@ -2246,7 +2035,7 @@
   object frxDBDatasetReportUsedConsumables: TfrxDBDataset
     UserName = 'DatasetReportUsedConsumables'
     CloseDataSource = False
-    DataSet = DataModuleDB.FDQueryReportUsedConsumables
+    DataSet = DataModuleDB.FDQueryDynamicReportUsedConsumables
     BCDToCurrency = True
     DataSetOptions = []
     Left = 624
@@ -2283,7 +2072,7 @@
   object frxDBDatasetReportUsedServices: TfrxDBDataset
     UserName = 'DatasetReportUsedServices'
     CloseDataSource = False
-    DataSet = DataModuleDB.FDQueryReportUsedServices
+    DataSet = DataModuleDB.FDQueryDynamicReportUsedServices
     BCDToCurrency = True
     DataSetOptions = []
     Left = 624
@@ -2321,5 +2110,79 @@
     UserName = 'frxUserDataSet1'
     Left = 440
     Top = 462
+  end
+  object frxDBDatasetStaticReportUsedServices: TfrxDBDataset
+    UserName = 'DatasetReportUsedServices'
+    CloseDataSource = False
+    DataSet = DataModuleDB.FDQueryStaticReportUsedServices
+    BCDToCurrency = True
+    DataSetOptions = []
+    Left = 712
+    Top = 126
+    FieldDefs = <
+      item
+        FieldName = 'statement_info'
+      end
+      item
+        FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
+        FieldType = fftString
+        Size = 255
+      end
+      item
+        FieldName = #1062#1077#1085#1072
+      end
+      item
+        FieldName = 'statement_execution_date'
+        FieldType = fftDateTime
+      end
+      item
+        FieldName = 'statement_id'
+      end
+      item
+        FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+      end
+      item
+        FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+      end
+      item
+        FieldName = 'fullSum'
+      end>
+  end
+  object frxDBDatasetStaticReportUsedConsumables: TfrxDBDataset
+    UserName = 'DatasetReportUsedServices'
+    CloseDataSource = False
+    DataSet = DataModuleDB.FDQueryStaticReportUsedConsumables
+    BCDToCurrency = True
+    DataSetOptions = []
+    Left = 712
+    Top = 182
+    FieldDefs = <
+      item
+        FieldName = 'statement_info'
+      end
+      item
+        FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
+        FieldType = fftString
+        Size = 255
+      end
+      item
+        FieldName = #1062#1077#1085#1072
+      end
+      item
+        FieldName = 'statement_execution_date'
+        FieldType = fftDateTime
+      end
+      item
+        FieldName = 'statement_id'
+      end
+      item
+        FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
+      end
+      item
+        FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
+      end
+      item
+        FieldName = 'fullSum'
+      end>
   end
 end

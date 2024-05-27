@@ -30,7 +30,7 @@ type
     TabSheet8: TTabSheet;
     TabSheet9: TTabSheet;
     TabSheetAuth: TTabSheet;
-    GridPanel1: TGridPanel;
+    GridPanelAuth: TGridPanel;
     Panel5: TPanel;
     GridPanel2: TGridPanel;
     Label1: TLabel;
@@ -48,25 +48,12 @@ type
     ImageCollection1: TImageCollection;
     VirtualImageList1: TVirtualImageList;
     FrameStaticReport1: TFrameStaticReport;
-    SplitViewDatabaseConnection: TSplitView;
     SplitViewMenu: TSplitView;
     SpeedButtonMenuLogout: TSpeedButton;
     SpeedButtonMenuHandbooks: TSpeedButton;
     SpeedButtonMenuReports: TSpeedButton;
     SpeedButtonMenuOperationsLogs: TSpeedButton;
     SpeedButtonMenuHelp: TSpeedButton;
-    GridPanelDatabaseConnection: TGridPanel;
-    Button8: TButton;
-    Panel4: TPanel;
-    GridPanel3: TGridPanel;
-    GridPanel4: TGridPanel;
-    Panel1: TPanel;
-    Label3: TLabel;
-    EditDBHost: TEdit;
-    Panel2: TPanel;
-    Label4: TLabel;
-    EditDBPort: TEdit;
-    Button2: TButton;
     Panel6: TPanel;
     DBGrid3: TDBGrid;
     Panel8: TPanel;
@@ -124,10 +111,10 @@ type
     frxDBDatasetReportUsedServices: TfrxDBDataset;
     frxUserDataSet1: TfrxUserDataSet;
     DBLabeledEdit1: TDBLabeledEdit;
+    frxDBDatasetStaticReportUsedServices: TfrxDBDataset;
+    frxDBDatasetStaticReportUsedConsumables: TfrxDBDataset;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure Button8Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButtonMenuHandbooksClick(Sender: TObject);
@@ -246,6 +233,8 @@ var
   passwordRehashNeeded: Boolean;
   isPasswordValid: Boolean;
 begin
+
+  DataModuleDB.FDTableStuffpassword.AsString;
   DataModuleDB.FDTableStuff.Filter := 'email = ''' + EditLogin.Text + '''';
   DataModuleDB.FDTableStuff.Filtered := true;
 
@@ -257,19 +246,6 @@ begin
     PageControlMain.ActivePage := TabSheetOperationsLog;
     unlockSideMenuButtons(DataModuleDB.FDTableStuffrole.AsString);
   end;
-
-end;
-
-procedure TMainForm.Button2Click(Sender: TObject);
-begin
-  with DataModuleDB.FDConnectionMain do
-  begin
-    Params.Values['Server'] := EditDBHost.Text;
-    Params.Values['Port'] := EditDBPort.Text;
-  end;
-
-  DataModuleDB.FDConnectionMain.Connected := true;
-  SplitViewDatabaseConnection.Opened := false;
 end;
 
 procedure TMainForm.Button3Click(Sender: TObject);
@@ -308,7 +284,6 @@ begin
     QuotedStr(IntToStr(DataModuleDB.FDTableStatementsid.AsLargeInt));
 
   DataModuleDB.FDTableUsedConsumables.Filtered := true;
-
 end;
 
 procedure TMainForm.ButtonServicesAddClick(Sender: TObject);
@@ -398,13 +373,6 @@ end;
 procedure TMainForm.Button7Click(Sender: TObject);
 begin
   DataModuleDB.frxReportStatement.ShowReport();
-end;
-
-procedure TMainForm.Button8Click(Sender: TObject);
-
-begin
-  SplitViewDatabaseConnection.Opened := true;
-
 end;
 
 procedure TMainForm.DataSourceReportUsedConsumablesDataChange(Sender: TObject;
@@ -532,13 +500,13 @@ begin
   begin
     SplitViewMenu.Opened := true;
   end;
-  resizeTheEngineForm;
-  resizeModelForm;
-  resizeBrandsForm;
-  resizeCarsForm;
-  resizeServicesForm;
+//  resizeTheEngineForm;
+//  resizeModelForm;
+//  resizeBrandsForm;
+//  resizeCarsForm;
+//  resizeServicesForm;
   resizeConsumablesForm;
-  resizeClientsForm
+//  resizeClientsForm
 end;
 
 procedure TMainForm.SpeedButtonStatementFirstClick(Sender: TObject);
