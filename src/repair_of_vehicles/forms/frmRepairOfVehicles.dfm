@@ -44,7 +44,7 @@
     Margins.Top = 0
     Margins.Right = 0
     Margins.Bottom = 0
-    ActivePage = TabSheetOperationsLog
+    ActivePage = TabSheetReports
     Align = alClient
     Constraints.MinHeight = 400
     Constraints.MinWidth = 400
@@ -281,7 +281,7 @@
         Top = 0
         Width = 908
         Height = 512
-        ActivePage = TabSheet11
+        ActivePage = TabSheet12
         Align = alClient
         TabOrder = 0
         object TabSheet11: TTabSheet
@@ -534,35 +534,148 @@
         object TabSheet12: TTabSheet
           Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1095#1077#1089#1082#1080#1081' '#1086#1090#1095#1077#1090
           ImageIndex = 1
-          inline FrameStaticReport1: TFrameStaticReport
+          object GridPanel1: TGridPanel
             Left = 0
             Top = 0
             Width = 900
-            Height = 482
+            Height = 451
             Align = alClient
-            TabOrder = 0
-            ExplicitWidth = 900
-            ExplicitHeight = 482
-            inherited Button1: TButton
-              Top = 459
-              Width = 894
-              ExplicitLeft = 3
-              ExplicitTop = 459
-              ExplicitWidth = 894
-            end
-            inherited Panel1: TPanel
-              Width = 900
-              Height = 456
-              StyleElements = [seFont, seClient, seBorder]
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 900
-              ExplicitHeight = 456
-              inherited Label1: TLabel
-                Width = 898
-                StyleElements = [seFont, seClient, seBorder]
+            Caption = 'GridPanel1'
+            ColumnCollection = <
+              item
+                Value = 50.000000000000000000
               end
+              item
+                Value = 50.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = DBGrid4
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = DBGrid5
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end>
+            TabOrder = 0
+            ExplicitLeft = 440
+            ExplicitTop = 304
+            ExplicitWidth = 185
+            ExplicitHeight = 41
+            object DBGrid4: TDBGrid
+              Left = 1
+              Top = 1
+              Width = 449
+              Height = 449
+              Align = alClient
+              DataSource = DataSourceStaticReportConsumables
+              TabOrder = 0
+              TitleFont.Charset = DEFAULT_CHARSET
+              TitleFont.Color = clWindowText
+              TitleFont.Height = -12
+              TitleFont.Name = 'Segoe UI'
+              TitleFont.Style = []
+              Columns = <
+                item
+                  Expanded = False
+                  FieldName = 'mark'
+                  Title.Caption = #1052#1072#1088#1082#1072
+                  Width = 100
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'full_sum'
+                  Title.Caption = #1055#1086#1083#1085#1072#1103' '#1094#1077#1085#1072
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'consumable_price'
+                  Title.Caption = #1062#1077#1085#1072
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'used_consumable_quantity'
+                  Title.Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'consumable_name'
+                  Title.Caption = #1059#1089#1083#1091#1075#1072
+                  Width = 100
+                  Visible = True
+                end>
             end
+            object DBGrid5: TDBGrid
+              Left = 450
+              Top = 1
+              Width = 449
+              Height = 449
+              Align = alClient
+              DataSource = DataSourceStaticReportServices
+              TabOrder = 1
+              TitleFont.Charset = DEFAULT_CHARSET
+              TitleFont.Color = clWindowText
+              TitleFont.Height = -12
+              TitleFont.Name = 'Segoe UI'
+              TitleFont.Style = []
+              Columns = <
+                item
+                  Expanded = False
+                  FieldName = 'mark'
+                  Title.Caption = #1052#1072#1088#1082#1072
+                  Width = 100
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'full_sum'
+                  Title.Caption = #1055#1086#1083#1085#1072#1103' '#1094#1077#1085#1072
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'service_price'
+                  Title.Caption = #1062#1077#1085#1072
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'used_consumable_quantity'
+                  Title.Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086
+                  Visible = True
+                end
+                item
+                  Expanded = False
+                  FieldName = 'service_name'
+                  Title.Caption = #1057#1077#1088#1074#1080#1089
+                  Width = 100
+                  Visible = True
+                end>
+            end
+          end
+          object Button2: TButton
+            AlignWithMargins = True
+            Left = 3
+            Top = 454
+            Width = 894
+            Height = 25
+            Align = alBottom
+            Caption = #1055#1077#1095#1072#1090#1100' '#1086#1090#1095#1077#1090#1072
+            TabOrder = 1
+            OnClick = Button2Click
+            ExplicitLeft = 296
+            ExplicitTop = 0
+            ExplicitWidth = 75
           end
         end
       end
@@ -1577,8 +1690,8 @@
       'begin'
       ''
       'end.')
-    Left = 392
-    Top = 374
+    Left = 624
+    Top = 446
     Datasets = <
       item
         DataSet = frxDBDatasetReportUsedConsumables
@@ -2108,7 +2221,7 @@
   end
   object frxUserDataSet1: TfrxUserDataSet
     UserName = 'frxUserDataSet1'
-    Left = 440
+    Left = 472
     Top = 462
   end
   object frxDBDatasetStaticReportUsedServices: TfrxDBDataset
@@ -2121,35 +2234,27 @@
     Top = 126
     FieldDefs = <
       item
-        FieldName = 'statement_info'
+        FieldName = 'mark'
+        FieldType = fftString
+        Size = 1024
       end
       item
-        FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
+        FieldName = 'full_sum'
+      end
+      item
+        FieldName = 'service_price'
+      end
+      item
+        FieldName = 'used_consumable_quantity'
+      end
+      item
+        FieldName = 'service_name'
         FieldType = fftString
         Size = 255
-      end
-      item
-        FieldName = #1062#1077#1085#1072
-      end
-      item
-        FieldName = 'statement_execution_date'
-        FieldType = fftDateTime
-      end
-      item
-        FieldName = 'statement_id'
-      end
-      item
-        FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
-      end
-      item
-        FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
-      end
-      item
-        FieldName = 'fullSum'
       end>
   end
   object frxDBDatasetStaticReportUsedConsumables: TfrxDBDataset
-    UserName = 'DatasetReportUsedServices'
+    UserName = 'DatasetReportUsedConsumables'
     CloseDataSource = False
     DataSet = DataModuleDB.FDQueryStaticReportUsedConsumables
     BCDToCurrency = True
@@ -2158,31 +2263,483 @@
     Top = 182
     FieldDefs = <
       item
-        FieldName = 'statement_info'
+        FieldName = 'mark'
+        FieldType = fftString
+        Size = 1024
       end
       item
-        FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
+        FieldName = 'full_sum'
+      end
+      item
+        FieldName = 'consumable_price'
+      end
+      item
+        FieldName = 'used_consumable_quantity'
+      end
+      item
+        FieldName = 'consumable_name'
         FieldType = fftString
         Size = 255
-      end
-      item
-        FieldName = #1062#1077#1085#1072
-      end
-      item
-        FieldName = 'statement_execution_date'
-        FieldType = fftDateTime
-      end
-      item
-        FieldName = 'statement_id'
-      end
-      item
-        FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
-      end
-      item
-        FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
-      end
-      item
-        FieldName = 'fullSum'
       end>
+  end
+  object frxReportStaticReport: TfrxReport
+    Version = '2024.2.2'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45424.844183576400000000
+    ReportOptions.LastChange = 45424.885137881900000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 712
+    Top = 238
+    Datasets = <
+      item
+        DataSet = frxDBDatasetStaticReportUsedServices
+        DataSetName = 'DatasetReportUsedServices'
+      end
+      item
+        DataSet = frxDBDatasetStaticReportUsedConsumables
+        DataSetName = 'DatasetReportUsedConsumables'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 41.574830000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo17: TfrxMemoView
+          Align = baClient
+          AllowVectorExport = True
+          Width = 718.110717773437500000
+          Height = 41.574829101562500000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -21
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1057#1090#1072#1090#1080#1089#1090#1080#1095#1077#1089#1082#1080#1081' '#1086#1090#1095#1077#1090' '#1087#1086' '#1084#1072#1088#1082#1072#1084' '#1072#1074#1090#1086':')
+          ParentFont = False
+        end
+      end
+      object GroupHeader1: TfrxGroupHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 49.133891790000000000
+        Top = 166.299320000000000000
+        Width = 718.110700000000000000
+        Condition = 'DatasetReportUsedConsumables."mark"'
+        object Memo1: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Top = 26.456706610000000000
+          Width = 483.779841540000000000
+          Height = 18.897651670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1056#1072#1089#1093#1086#1076#1085#1080#1082)
+        end
+        object DatasetReportUsedConsumablesstatement_info: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Top = 0.000000120000000006
+          Width = 718.110700000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1052#1072#1088#1082#1072': [DatasetReportUsedConsumables."mark"]:')
+        end
+        object Memo14: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 483.779841540000000000
+          Top = 26.456713500000000000
+          Width = 86.929183960000000000
+          Height = 22.677174040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086)
+        end
+        object Memo15: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 570.709025500000000000
+          Top = 26.456710120000000000
+          Width = 75.590591430000000000
+          Height = 22.677181670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1062#1077#1085#1072)
+        end
+        object Memo16: TfrxMemoView
+          Align = baLeft
+          AllowVectorExport = True
+          Left = 646.299616930000000000
+          Top = 26.456710120000000000
+          Width = 71.811074160000000000
+          Height = 22.677178290000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1054#1073#1097#1072#1103' '#1094#1077#1085#1072)
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 238.110390000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDBDatasetStaticReportUsedConsumables
+        DataSetName = 'DatasetReportUsedConsumables'
+        RowCount = 0
+        object DatasetReportUsedConsumablesРасходник: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Width = 483.779840000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedConsumables."consumable_name"]')
+        end
+        object DatasetReportUsedConsumablesКоличествоопераций: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 483.779840000000000000
+          Width = 86.929190000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedConsumables."used_consumable_quantity"]')
+        end
+        object DatasetReportUsedConsumablesЦена: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 570.709030000000000000
+          Width = 75.590600000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedConsumables."consumable_price"]')
+        end
+        object DatasetReportUsedConsumablesОбщаяцена: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 646.299630000000000000
+          Width = 71.811070000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedConsumables
+          DataSetName = 'DatasetReportUsedConsumables'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedConsumables."full_sum"]')
+        end
+      end
+      object GroupHeader2: TfrxGroupHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 41.574835060000000000
+        Top = 374.173470000000000000
+        Width = 718.110700000000000000
+        Condition = 'DatasetReportUsedServices."mark"'
+        object DatasetReportUsedServicesstatement_info: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Width = 718.110700000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1052#1072#1088#1082#1072':  [DatasetReportUsedServices."mark"]:')
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Top = 18.897650000000000000
+          Width = 483.779841540000000000
+          Height = 18.897651670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1054#1087#1077#1088#1072#1094#1080#1103)
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 483.779841540000000000
+          Top = 18.897656770000000000
+          Width = 86.929183960000000000
+          Height = 22.677174040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086)
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 570.709025500000000000
+          Top = 18.897653390000000000
+          Width = 75.590591430000000000
+          Height = 22.677181670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1062#1077#1085#1072)
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 646.299616930000000000
+          Top = 18.897653390000000000
+          Width = 71.811074160000000000
+          Height = 22.677178290000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1054#1073#1097#1072#1103' '#1094#1077#1085#1072)
+        end
+      end
+      object MasterData2: TfrxMasterData
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 438.425480000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDBDatasetStaticReportUsedServices
+        DataSetName = 'DatasetReportUsedServices'
+        RowCount = 0
+        object DatasetReportUsedServicesОперация: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Width = 483.779840000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedServices."service_name"]')
+        end
+        object DatasetReportUsedServicesКоличествоопераций: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 483.779840000000000000
+          Width = 79.370130000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedServices."used_consumable_quantity"]')
+        end
+        object DatasetReportUsedServicesЦена: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 566.929500000000000000
+          Width = 79.370130000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedServices."service_price"]')
+        end
+        object DatasetReportUsedServicesОбщаяцена: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 646.299630000000000000
+          Width = 71.811070000000000000
+          Height = 22.677180000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataSet = frxDBDatasetReportUsedServices
+          DataSetName = 'DatasetReportUsedServices'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[DatasetReportUsedServices."full_sum"]')
+        end
+      end
+      object GroupFooter1: TfrxGroupFooter
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 283.464750000000000000
+        Width = 718.110700000000000000
+        object Memo5: TfrxMemoView
+          Align = baRight
+          AllowVectorExport = True
+          Left = 483.779856573437500000
+          Width = 234.330861200000000000
+          Height = 18.897644040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1060#1080#1085#1072#1083#1100#1085#1072#1103' '#1094#1077#1085#1072': [SUM(<DatasetReportUsedConsumables."full_sum">)]')
+        end
+      end
+      object GroupFooter2: TfrxGroupFooter
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 483.779840000000000000
+        Width = 718.110700000000000000
+        object Memo11: TfrxMemoView
+          Align = baRight
+          AllowVectorExport = True
+          Left = 483.779856573437500000
+          Top = 3.779530000000000000
+          Width = 234.330861200000000000
+          Height = 18.897644040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1060#1080#1085#1072#1083#1100#1085#1072#1103' '#1094#1077#1085#1072': [SUM(<DatasetReportUsedServices."full_sum">)]')
+        end
+      end
+      object Header1: TfrxHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 120.944960000000000000
+        Width = 718.110700000000000000
+        object Memo13: TfrxMemoView
+          Align = baClient
+          AllowVectorExport = True
+          Width = 718.110717773437500000
+          Height = 22.677179336547850000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1047#1072#1082#1072#1079#1072#1085#1085#1099#1077' '#1088#1072#1089#1093#1086#1076#1085#1099#1077' '#1084#1072#1090#1077#1088#1080#1072#1083#1099':')
+        end
+      end
+      object Header2: TfrxHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 328.819110000000000000
+        Width = 718.110700000000000000
+        object Memo12: TfrxMemoView
+          Align = baClient
+          AllowVectorExport = True
+          Width = 718.110717773437500000
+          Height = 22.677179336547850000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          Memo.UTF8W = (
+            #1054#1082#1072#1079#1072#1085#1085#1099#1077' '#1088#1077#1084#1086#1085#1090#1085#1099#1077' '#1091#1089#1083#1091#1075#1080)
+        end
+      end
+    end
+  end
+  object DataSourceStaticReportConsumables: TDataSource
+    DataSet = DataModuleDB.FDQueryStaticReportUsedConsumables
+    Left = 320
+    Top = 382
+  end
+  object DataSourceStaticReportServices: TDataSource
+    DataSet = DataModuleDB.FDQueryStaticReportUsedServices
+    Left = 864
+    Top = 390
   end
 end

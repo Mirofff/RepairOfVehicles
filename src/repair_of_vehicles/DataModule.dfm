@@ -4445,6 +4445,7 @@
     Top = 536
   end
   object FDQueryStaticReportUsedServices: TFDQuery
+    Active = True
     Connection = FDConnectionMain
     SQL.Strings = (
       'select ma.name "mark",'
@@ -4474,6 +4475,7 @@
       Origin = 'full_sum'
       ProviderFlags = []
       ReadOnly = True
+      currency = True
     end
     object FDQueryStaticReportUsedServicesservice_price: TFloatField
       AutoGenerateValue = arDefault
@@ -4481,6 +4483,7 @@
       Origin = 'price'
       ProviderFlags = []
       ReadOnly = True
+      currency = True
     end
     object FDQueryStaticReportUsedServicesused_consumable_quantity: TIntegerField
       AutoGenerateValue = arDefault
@@ -4499,6 +4502,7 @@
     end
   end
   object FDQueryStaticReportUsedConsumables: TFDQuery
+    Active = True
     Connection = FDConnectionMain
     SQL.Strings = (
       'select ma.name "mark",'
@@ -4528,6 +4532,7 @@
       Origin = 'full_sum'
       ProviderFlags = []
       ReadOnly = True
+      currency = True
     end
     object FDQueryStaticReportUsedConsumablesconsumable_price: TFloatField
       AutoGenerateValue = arDefault
@@ -4535,6 +4540,7 @@
       Origin = 'price'
       ProviderFlags = []
       ReadOnly = True
+      currency = True
     end
     object FDQueryStaticReportUsedConsumablesused_consumable_quantity: TIntegerField
       AutoGenerateValue = arDefault

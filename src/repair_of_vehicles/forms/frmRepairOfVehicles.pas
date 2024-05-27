@@ -47,7 +47,6 @@ type
     SpeedButton1: TSpeedButton;
     ImageCollection1: TImageCollection;
     VirtualImageList1: TVirtualImageList;
-    FrameStaticReport1: TFrameStaticReport;
     SplitViewMenu: TSplitView;
     SpeedButtonMenuLogout: TSpeedButton;
     SpeedButtonMenuHandbooks: TSpeedButton;
@@ -113,6 +112,13 @@ type
     DBLabeledEdit1: TDBLabeledEdit;
     frxDBDatasetStaticReportUsedServices: TfrxDBDataset;
     frxDBDatasetStaticReportUsedConsumables: TfrxDBDataset;
+    frxReportStaticReport: TfrxReport;
+    GridPanel1: TGridPanel;
+    DBGrid4: TDBGrid;
+    DBGrid5: TDBGrid;
+    DataSourceStaticReportConsumables: TDataSource;
+    DataSourceStaticReportServices: TDataSource;
+    Button2: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -141,6 +147,7 @@ type
     procedure DataSourceReportUsedServicesDataChange(Sender: TObject;
       Field: TField);
     procedure Button3Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -246,6 +253,11 @@ begin
     PageControlMain.ActivePage := TabSheetOperationsLog;
     unlockSideMenuButtons(DataModuleDB.FDTableStuffrole.AsString);
   end;
+end;
+
+procedure TMainForm.Button2Click(Sender: TObject);
+begin
+  frxReportStaticReport.ShowReport;
 end;
 
 procedure TMainForm.Button3Click(Sender: TObject);
@@ -382,7 +394,7 @@ begin
     'Общая расходы на расходные материалы с ' +
     DateToStr(DatePickerDynamicReportStart.Date) + ' по ' +
     DateToStr(MainForm.DatePickerDynamicReportEnd.Date) + ' - ' +
-    VarToStr(DataModuleDB.FDQueryReportUsedConsumablesfullSum.Value);
+    VarToStr(DataModuleDB.FDQueryDynamicReportUsedConsumablesfullSum.Value);
 end;
 
 procedure TMainForm.DataSourceReportUsedServicesDataChange(Sender: TObject;
@@ -391,57 +403,57 @@ begin
   LabelUsedServicesReportFullPrice.Caption := 'Общая выручка за операции с ' +
     DateToStr(DatePickerDynamicReportStart.Date) + ' по ' +
     DateToStr(MainForm.DatePickerDynamicReportEnd.Date) + ' - ' +
-    VarToStr(DataModuleDB.FDQueryReportUsedServicesfullSum.Value);
+    VarToStr(DataModuleDB.FDQueryDynamicReportUsedServicesfullSum.Value);
 end;
 
 procedure TMainForm.DatePickerDynamicReportEndChange(Sender: TObject);
 begin
-  DataModuleDB.FDQueryReportUsedServices.Filtered := false;
-  DataModuleDB.FDQueryReportUsedServices.Filter :=
+  DataModuleDB.FDQueryDynamicReportUsedServices.Filtered := false;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Filter :=
     'statement_execution_date between ' +
     QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
     QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
-  DataModuleDB.FDQueryReportUsedServices.Filtered := true;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Filtered := true;
 
-  DataModuleDB.FDQueryReportUsedServices.Params.ParamValues['END_DATE'] :=
+  DataModuleDB.FDQueryDynamicReportUsedServices.Params.ParamValues['END_DATE'] :=
     DatePickerDynamicReportEnd.Date;
-  DataModuleDB.FDQueryReportUsedServices.Open;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Open;
 
-  DataModuleDB.FDQueryReportUsedConsumables.Filtered := false;
-  DataModuleDB.FDQueryReportUsedConsumables.Filter :=
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := false;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filter :=
     'statement_execution_date between ' +
     QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
     QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
-  DataModuleDB.FDQueryReportUsedConsumables.Filtered := true;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := true;
 
-  DataModuleDB.FDQueryReportUsedConsumables.Params.ParamValues['END_DATE'] :=
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Params.ParamValues['END_DATE'] :=
     DatePickerDynamicReportEnd.Date;
-  DataModuleDB.FDQueryReportUsedConsumables.Open;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Open;
 end;
 
 procedure TMainForm.DatePickerDynamicReportStartChange(Sender: TObject);
 begin
-  DataModuleDB.FDQueryReportUsedServices.Filtered := false;
-  DataModuleDB.FDQueryReportUsedServices.Filter :=
+  DataModuleDB.FDQueryDynamicReportUsedServices.Filtered := false;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Filter :=
     'statement_execution_date between ' +
     QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
     QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
-  DataModuleDB.FDQueryReportUsedServices.Filtered := true;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Filtered := true;
 
-  DataModuleDB.FDQueryReportUsedServices.Params.ParamValues['START_DATE'] :=
+  DataModuleDB.FDQueryDynamicReportUsedServices.Params.ParamValues['START_DATE'] :=
     DatePickerDynamicReportStart.Date;
-  DataModuleDB.FDQueryReportUsedServices.Open;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Open;
 
-  DataModuleDB.FDQueryReportUsedConsumables.Filtered := false;
-  DataModuleDB.FDQueryReportUsedConsumables.Filter :=
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := false;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filter :=
     'statement_execution_date between ' +
     QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
     QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
-  DataModuleDB.FDQueryReportUsedConsumables.Filtered := true;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := true;
 
-  DataModuleDB.FDQueryReportUsedConsumables.Params.ParamValues['END_DATE'] :=
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Params.ParamValues['END_DATE'] :=
     DatePickerDynamicReportEnd.Date;
-  DataModuleDB.FDQueryReportUsedConsumables.Open;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Open;
 end;
 
 procedure TMainForm.DBGridConsumablesDblClick(Sender: TObject);
@@ -474,7 +486,7 @@ begin
   // createBrandsForm(TabSheet4, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
   // createCarsForm(TabSheet9, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
   // createServicesForm(TabSheet8, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
-   createConsumablesForm(TabSheet7, PWideChar('CarWorkshop'));
+  createConsumablesForm(TabSheet7, PWideChar('CarWorkshop'));
   // createClientsForm(TabSheet6, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
 
 end;
@@ -486,7 +498,7 @@ begin
   // resizeBrandsForm;
   // resizeCarsForm;
   // resizeServicesForm;
-   resizeConsumablesForm;
+  resizeConsumablesForm;
   // resizeClientsForm;
 end;
 
@@ -500,13 +512,13 @@ begin
   begin
     SplitViewMenu.Opened := true;
   end;
-//  resizeTheEngineForm;
-//  resizeModelForm;
-//  resizeBrandsForm;
-//  resizeCarsForm;
-//  resizeServicesForm;
+  // resizeTheEngineForm;
+  // resizeModelForm;
+  // resizeBrandsForm;
+  // resizeCarsForm;
+  // resizeServicesForm;
   resizeConsumablesForm;
-//  resizeClientsForm
+  // resizeClientsForm
 end;
 
 procedure TMainForm.SpeedButtonStatementFirstClick(Sender: TObject);
@@ -680,8 +692,8 @@ procedure TMainForm.SpeedButtonMenuReportsClick(Sender: TObject);
 begin
   PageControlMain.ActivePage := TabSheetReports;
 
-  DataModuleDB.FDQueryReportUsedServices.Refresh;
-  DataModuleDB.FDQueryReportUsedConsumables.Refresh;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Refresh;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Refresh;
 end;
 
 end.
