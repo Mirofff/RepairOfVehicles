@@ -11,10 +11,12 @@ uses
 var
   tabSheet: TTabSheet;
 
-procedure createConsumablesForm(tabShee: TTabSheet);
+procedure createConsumablesForm(tabShee: TTabSheet;
+  connectionDefName: PWideChar);
 begin
   tabSheet := tabShee;
   form1 := TForm1.createparented(tabShee.handle);
+  form1.updateFDConnectionDefName(WideCharToString(connectionDefName));
 
   form1.show;
 
@@ -33,4 +35,5 @@ exports
   resizeConsumablesForm;
 
 begin
+
 end.

@@ -1,6 +1,6 @@
 ﻿object MainForm: TMainForm
-  Left = 440
-  Top = 282
+  Left = 470
+  Top = 270
   Caption = #1056#1077#1084#1086#1085#1090' '#1090#1088#1072#1085#1089#1087#1086#1088#1090#1085#1099#1093' '#1089#1088#1077#1076#1089#1090#1074
   ClientHeight = 552
   ClientWidth = 964
@@ -44,7 +44,7 @@
     Margins.Top = 0
     Margins.Right = 0
     Margins.Bottom = 0
-    ActivePage = TabSheetAuth
+    ActivePage = TabSheetOperationsLog
     Align = alClient
     Constraints.MinHeight = 400
     Constraints.MinWidth = 400
@@ -68,13 +68,17 @@
         Margins.Top = 0
         Margins.Right = 0
         Margins.Bottom = 0
-        ActivePage = TabSheet5
+        ActivePage = TabSheet7
         Align = alClient
         HotTrack = True
         MultiLine = True
         RaggedRight = True
         TabOrder = 0
         StyleElements = [seFont]
+        object TabSheet7: TTabSheet
+          Caption = #1056#1072#1089#1093#1086#1076#1085#1099#1077' '#1084#1072#1090#1077#1088#1080#1072#1083#1099
+          ImageIndex = 4
+        end
         object TabSheet5: TTabSheet
           Caption = #1052#1086#1076#1077#1083#1080
           ImageIndex = 2
@@ -86,10 +90,6 @@
         object TabSheet3: TTabSheet
           Caption = #1044#1074#1080#1075#1072#1090#1077#1083#1080
           DragMode = dmAutomatic
-        end
-        object TabSheet7: TTabSheet
-          Caption = #1056#1072#1089#1093#1086#1076#1085#1099#1077' '#1084#1072#1090#1077#1088#1080#1072#1083#1099
-          ImageIndex = 4
         end
         object TabSheet6: TTabSheet
           Caption = #1050#1083#1080#1077#1085#1090#1099
@@ -563,15 +563,8 @@
                 Columns = <
                   item
                     Expanded = False
-                    FieldName = 'statement_info'
-                    Title.Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1079#1072#1082#1072#1079' '#1085#1072#1088#1103#1076#1077
-                    Width = 386
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
                     FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
-                    Width = 183
+                    Width = 555
                     Visible = True
                   end
                   item
@@ -582,6 +575,7 @@
                   item
                     Expanded = False
                     FieldName = #1062#1077#1085#1072
+                    Width = 86
                     Visible = True
                   end
                   item
@@ -627,15 +621,8 @@
                 Columns = <
                   item
                     Expanded = False
-                    FieldName = 'statement_info'
-                    Title.Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1079#1072#1082#1072#1079' '#1085#1072#1088#1103#1076#1077
-                    Width = 379
-                    Visible = True
-                  end
-                  item
-                    Expanded = False
                     FieldName = #1056#1072#1089#1093#1086#1076#1085#1080#1082
-                    Width = 200
+                    Width = 551
                     Visible = True
                   end
                   item
@@ -646,6 +633,7 @@
                   item
                     Expanded = False
                     FieldName = #1062#1077#1085#1072
+                    Width = 87
                     Visible = True
                   end
                   item
@@ -713,7 +701,7 @@
                 Width = 446
                 Height = 38
                 Align = alClient
-                Date = 36526.000000000000000000
+                Date = 45436.000000000000000000
                 DateFormat = 'dd/mm/yyyy'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -738,7 +726,7 @@
                 Width = 446
                 Height = 38
                 Align = alClient
-                Date = 73051.000000000000000000
+                Date = 45436.000000000000000000
                 DateFormat = 'dd/mm/yyyy'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -793,7 +781,7 @@
       TabVisible = False
       object Splitter2: TSplitter
         Left = 0
-        Top = 129
+        Top = 165
         Width = 908
         Height = 3
         Cursor = crVSplit
@@ -805,7 +793,7 @@
         Left = 0
         Top = 0
         Width = 908
-        Height = 129
+        Height = 165
         ParentCustomHint = False
         Align = alTop
         BevelOuter = bvNone
@@ -832,7 +820,7 @@
           Left = 0
           Top = 41
           Width = 908
-          Height = 88
+          Height = 124
           Align = alClient
           DataSource = DataModuleDB.DataSourceStatements
           TabOrder = 0
@@ -846,28 +834,21 @@
               Expanded = False
               FieldName = 'pickup_time'
               Title.Caption = #1042#1088#1077#1084#1103' '#1079#1072#1087#1080#1089#1080
-              Width = 126
-              Visible = True
-            end
-            item
-              Expanded = False
-              FieldName = 'status'
-              Title.Caption = #1057#1090#1072#1090#1091#1089
-              Width = 187
+              Width = 85
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'client_name'
               Title.Caption = #1050#1083#1080#1077#1085#1090
-              Width = 264
+              Width = 359
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'vehicle_print'
               Title.Caption = #1058#1088#1072#1085#1089#1087#1086#1088#1090
-              Width = 286
+              Width = 407
               Visible = True
             end>
         end
@@ -954,9 +935,9 @@
       end
       object Panel3: TPanel
         Left = 0
-        Top = 132
+        Top = 168
         Width = 908
-        Height = 380
+        Height = 344
         Align = alClient
         BevelOuter = bvNone
         Caption = 'Panel1'
@@ -965,7 +946,7 @@
         object Splitter1: TSplitter
           Left = 233
           Top = 0
-          Height = 380
+          Height = 344
           ExplicitLeft = 8
           ExplicitHeight = 465
         end
@@ -973,7 +954,7 @@
           Left = 0
           Top = 0
           Width = 233
-          Height = 380
+          Height = 344
           Align = alLeft
           Caption = 'Panel7'
           ShowCaption = False
@@ -1034,7 +1015,7 @@
             Align = alTop
             Caption = #1058#1088#1072#1085#1089#1087#1086#1088#1090
             TabOrder = 2
-            object DBEdit2: TDBEdit
+            object DBLabeledEdit1: TDBLabeledEdit
               AlignWithMargins = True
               Left = 5
               Top = 20
@@ -1042,9 +1023,16 @@
               Height = 20
               Align = alClient
               DataField = 'vehicle_print'
-              DataSource = DataModuleDB.DataSourceVehicles
+              DataSource = DataModuleDB.DataSourceStatements
               Enabled = False
               TabOrder = 0
+              TextHint = 'asdf'
+              EditLabel.Width = 67
+              EditLabel.Height = 15
+              LabelPosition = lpBelow
+              ExplicitLeft = 56
+              ExplicitTop = 16
+              ExplicitWidth = 121
               ExplicitHeight = 23
             end
           end
@@ -1063,7 +1051,7 @@
               Width = 221
               Height = 20
               Align = alClient
-              DataField = 'uuid'
+              DataField = 'id'
               DataSource = DataModuleDB.DataSourceStatements
               Enabled = False
               TabOrder = 0
@@ -1073,7 +1061,7 @@
           object Button7: TButton
             AlignWithMargins = True
             Left = 4
-            Top = 356
+            Top = 320
             Width = 225
             Height = 20
             Align = alBottom
@@ -1084,7 +1072,7 @@
           object ButtonStatementSave: TButton
             AlignWithMargins = True
             Left = 4
-            Top = 330
+            Top = 294
             Width = 225
             Height = 20
             Align = alBottom
@@ -1097,7 +1085,7 @@
           Left = 236
           Top = 0
           Width = 672
-          Height = 380
+          Height = 344
           Align = alClient
           BevelOuter = bvNone
           Caption = 'Panel9'
@@ -1107,7 +1095,7 @@
             Left = 0
             Top = 0
             Width = 672
-            Height = 380
+            Height = 344
             Align = alClient
             BevelOuter = bvNone
             Caption = 'GridPanel3'
@@ -1153,7 +1141,7 @@
               Left = 370
               Top = 3
               Width = 299
-              Height = 184
+              Height = 166
               Align = alClient
               AutoSize = True
               BevelEdges = []
@@ -1165,7 +1153,7 @@
                 Left = 0
                 Top = 0
                 Width = 299
-                Height = 164
+                Height = 146
                 Align = alClient
                 DataSource = DataModuleDB.DataSourceConsumables
                 TabOrder = 0
@@ -1192,7 +1180,7 @@
               end
               object ButtonConsumablesAdd: TButton
                 Left = 0
-                Top = 164
+                Top = 146
                 Width = 299
                 Height = 20
                 Align = alBottom
@@ -1204,9 +1192,9 @@
             object Panel11: TPanel
               AlignWithMargins = True
               Left = 370
-              Top = 193
+              Top = 175
               Width = 299
-              Height = 184
+              Height = 166
               Align = alClient
               AutoSize = True
               BevelOuter = bvNone
@@ -1217,7 +1205,7 @@
                 Left = 0
                 Top = 0
                 Width = 299
-                Height = 164
+                Height = 146
                 Align = alClient
                 DataSource = DataModuleDB.DataSourceServices
                 TabOrder = 0
@@ -1244,7 +1232,7 @@
               end
               object ButtonServicesAdd: TButton
                 Left = 0
-                Top = 164
+                Top = 146
                 Width = 299
                 Height = 20
                 Align = alBottom
@@ -1256,9 +1244,9 @@
             object Panel12: TPanel
               AlignWithMargins = True
               Left = 3
-              Top = 193
+              Top = 175
               Width = 361
-              Height = 184
+              Height = 166
               Align = alClient
               AutoSize = True
               BevelOuter = bvNone
@@ -1269,7 +1257,7 @@
                 Left = 0
                 Top = 0
                 Width = 361
-                Height = 164
+                Height = 146
                 Align = alClient
                 DataSource = DataModuleDB.DataSourceUsedServices
                 TabOrder = 0
@@ -1281,7 +1269,7 @@
                 Columns = <
                   item
                     Expanded = False
-                    FieldName = 'services_name'
+                    FieldName = 'service_name'
                     Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
                     Visible = True
                   end
@@ -1300,14 +1288,14 @@
                   end
                   item
                     Expanded = False
-                    FieldName = 'full_price'
+                    FieldName = 'full_sum'
                     Title.Caption = #1055#1086#1083#1085#1072#1103' '#1094#1077#1085#1072
                     Visible = True
                   end>
               end
               object ButtonServicesDelete: TButton
                 Left = 0
-                Top = 164
+                Top = 146
                 Width = 361
                 Height = 20
                 Align = alBottom
@@ -1321,7 +1309,7 @@
               Left = 3
               Top = 3
               Width = 361
-              Height = 184
+              Height = 166
               Align = alClient
               AutoSize = True
               BevelOuter = bvNone
@@ -1332,7 +1320,7 @@
                 Left = 0
                 Top = 0
                 Width = 361
-                Height = 164
+                Height = 146
                 Align = alClient
                 DataSource = DataModuleDB.DataSourceUsedConsumables
                 TabOrder = 0
@@ -1363,14 +1351,14 @@
                   end
                   item
                     Expanded = False
-                    FieldName = 'full_price'
+                    FieldName = 'full_sum'
                     Title.Caption = #1055#1086#1083#1085#1072#1103' '#1094#1077#1085#1072
                     Visible = True
                   end>
               end
               object ButtonConsumablesDelete: TButton
                 Left = 0
-                Top = 164
+                Top = 146
                 Width = 361
                 Height = 20
                 Align = alBottom
@@ -1732,7 +1720,7 @@
               270000000049454E44AE426082}
           end>
       end>
-    Left = 10
+    Left = 42
     Top = 402
   end
   object VirtualImageList1: TVirtualImageList
@@ -1770,7 +1758,7 @@
     ImageCollection = ImageCollection1
     Width = 40
     Height = 40
-    Left = 11
+    Left = 43
     Top = 342
   end
   object DataSourceReportUsedServices: TDataSource
@@ -1848,7 +1836,7 @@
         Height = 56.692951790000000000
         Top = 185.196970000000000000
         Width = 718.110700000000000000
-        Condition = 'DatasetReportUsedConsumables."statement_uuid"'
+        Condition = 'DatasetReportUsedConsumables."statement_id"'
         object Memo1: TfrxMemoView
           Align = baLeft
           AllowVectorExport = True
@@ -1876,8 +1864,10 @@
             
               '[DatasetReportUsedConsumables."statement_info"] '#1086#1090' [DatasetRepor' +
               'tUsedConsumables."statement_execution_date"]'
-            #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076': [DatasetReportUsedConsumables."statement_uuid"]')
+            #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076': [DatasetReportUsedConsumables."statement_id"]')
           Formats = <
+            item
+            end
             item
             end
             item
@@ -1973,7 +1963,6 @@
           Height = 22.677180000000000000
           ContentScaleOptions.Constraints.MaxIterationValue = 0
           ContentScaleOptions.Constraints.MinIterationValue = 0
-          DataField = #1062#1077#1085#1072
           DataSet = frxDBDatasetReportUsedConsumables
           DataSetName = 'DatasetReportUsedConsumables'
           Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
@@ -2006,7 +1995,7 @@
         Height = 64.252015060000000000
         Top = 430.866420000000000000
         Width = 718.110700000000000000
-        Condition = 'DatasetReportUsedServices."statement_uuid"'
+        Condition = 'DatasetReportUsedServices."statement_id"'
         object DatasetReportUsedServicesstatement_info: TfrxMemoView
           IndexTag = 1
           AllowVectorExport = True
@@ -2021,8 +2010,10 @@
             
               '[DatasetReportUsedServices."statement_info"] '#1086#1090' [DatasetReportUs' +
               'edServices."statement_execution_date"]'
-            #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076': [DatasetReportUsedServices."statement_uuid"]')
+            #1047#1072#1082#1072#1079'-'#1085#1072#1088#1103#1076': [DatasetReportUsedServices."statement_id"]')
           Formats = <
+            item
+            end
             item
             end
             item
@@ -2263,8 +2254,6 @@
     FieldDefs = <
       item
         FieldName = 'statement_info'
-        FieldType = fftString
-        Size = 250
       end
       item
         FieldName = #1056#1072#1089#1093#1086#1076#1085#1080#1082
@@ -2272,9 +2261,11 @@
         Size = 255
       end
       item
-        FieldName = 'statement_uuid'
-        FieldType = fftString
-        Size = 36
+        FieldName = 'statement_id'
+      end
+      item
+        FieldName = 'statement_execution_date'
+        FieldType = fftDateTime
       end
       item
         FieldName = #1062#1077#1085#1072
@@ -2284,10 +2275,6 @@
       end
       item
         FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
-      end
-      item
-        FieldName = 'statement_execution_date'
-        FieldType = fftDateTime
       end
       item
         FieldName = 'fullSum'
@@ -2304,8 +2291,6 @@
     FieldDefs = <
       item
         FieldName = 'statement_info'
-        FieldType = fftString
-        Size = 250
       end
       item
         FieldName = #1054#1087#1077#1088#1072#1094#1080#1103
@@ -2316,19 +2301,17 @@
         FieldName = #1062#1077#1085#1072
       end
       item
-        FieldName = 'statement_uuid'
-        FieldType = fftString
-        Size = 36
+        FieldName = 'statement_execution_date'
+        FieldType = fftDateTime
+      end
+      item
+        FieldName = 'statement_id'
       end
       item
         FieldName = #1054#1073#1097#1072#1103' '#1094#1077#1085#1072
       end
       item
         FieldName = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1087#1077#1088#1072#1094#1080#1081
-      end
-      item
-        FieldName = 'statement_execution_date'
-        FieldType = fftDateTime
       end
       item
         FieldName = 'fullSum'

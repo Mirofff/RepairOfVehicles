@@ -211,17 +211,6 @@ object Form1: TForm1
         Align = alTop
         Caption = #1053#1072#1079#1074#1072#1085#1080#1077
         TabOrder = 1
-        object DBEdit1: TDBEdit
-          AlignWithMargins = True
-          Left = 5
-          Top = 20
-          Width = 279
-          Height = 23
-          Align = alClient
-          DataField = 'name'
-          DataSource = DataSourceModels
-          TabOrder = 0
-        end
       end
       object GroupBox5: TGroupBox
         Left = 0
@@ -231,20 +220,6 @@ object Form1: TForm1
         Align = alTop
         Caption = #1058#1080#1087
         TabOrder = 2
-        object DBComboBox1: TDBComboBox
-          AlignWithMargins = True
-          Left = 5
-          Top = 20
-          Width = 279
-          Height = 23
-          Align = alClient
-          DataField = 'type'
-          DataSource = DataSourceModels
-          Items.Strings = (
-            'car'
-            'bike')
-          TabOrder = 0
-        end
       end
       object GroupBox6: TGroupBox
         Left = 0
@@ -269,10 +244,6 @@ object Form1: TForm1
           Font.Name = 'Segoe UI'
           Font.Style = []
           TabOrder = 0
-          ExplicitLeft = 72
-          ExplicitTop = 8
-          ExplicitWidth = 150
-          ExplicitHeight = 32
         end
       end
       object GroupBox8: TGroupBox
@@ -283,20 +254,6 @@ object Form1: TForm1
         Align = alTop
         Caption = #1052#1072#1088#1082#1072
         TabOrder = 4
-        object DBLookupComboBox1: TDBLookupComboBox
-          AlignWithMargins = True
-          Left = 5
-          Top = 20
-          Width = 279
-          Height = 23
-          Align = alClient
-          DataField = 'mark_id'
-          DataSource = DataSourceModels
-          KeyField = 'id'
-          ListField = 'name'
-          ListSource = DataSourceMarks
-          TabOrder = 0
-        end
       end
     end
     object GroupBox3: TGroupBox
@@ -413,12 +370,6 @@ object Form1: TForm1
       end
       item
         Expanded = False
-        FieldName = 'type'
-        Title.Caption = #1058#1080#1087
-        Visible = True
-      end
-      item
-        Expanded = False
         FieldName = 'mark'
         Title.Caption = #1052#1072#1088#1082#1072
         Width = 232
@@ -433,21 +384,21 @@ object Form1: TForm1
   end
   object DataSourceModels: TDataSource
     DataSet = FDTableModels
-    Left = 200
-    Top = 436
+    Left = 104
+    Top = 420
   end
   object DataSourceMarks: TDataSource
     DataSet = FDTableMarks
-    Left = 40
-    Top = 436
+    Left = 104
+    Top = 508
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
       'ConnectionDef=CarWorkshop')
     Connected = True
     LoginPrompt = False
-    Left = 48
-    Top = 336
+    Left = 104
+    Top = 344
   end
   object FDTableModels: TFDTable
     Active = True
@@ -455,45 +406,70 @@ object Form1: TForm1
     Connection = FDConnection1
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.models'
-    Left = 200
-    Top = 332
-    object FDTableModelsid: TFDAutoIncField
+    Left = 208
+    Top = 420
+    object FDTableModelsid: TLargeintField
       FieldName = 'id'
-      Origin = 'id'
-      ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = False
     end
-    object FDTableModelsname: TStringField
+    object FDTableModelsname: TMemoField
       FieldName = 'name'
-      Origin = '`name`'
-      Required = True
-      Size = 45
+      BlobType = ftMemo
     end
-    object FDTableModelstype: TStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'type'
-      Origin = '`type`'
-      FixedChar = True
-      Size = 4
+    object FDTableModelscylinders: TIntegerField
+      FieldName = 'cylinders'
     end
-    object FDTableModelsmark_id: TIntegerField
-      FieldName = 'mark_id'
-      Origin = 'mark_id'
-      Required = True
+    object FDTableModelsengine_displacement: TFloatField
+      FieldName = 'engine_displacement'
     end
-    object FDTableModelsmark: TStringField
-      FieldKind = fkLookup
-      FieldName = 'mark'
-      LookupDataSet = FDTableMarks
-      LookupKeyFields = 'id'
-      LookupResultField = 'name'
-      KeyFields = 'mark_id'
-      Lookup = True
+    object FDTableModelsdrive: TMemoField
+      FieldName = 'drive'
+      BlobType = ftMemo
     end
-    object FDTableModelsyear: TDateField
-      AutoGenerateValue = arDefault
+    object FDTableModelsepa_index: TIntegerField
+      FieldName = 'epa_index'
+    end
+    object FDTableModelsengine_descriptor: TMemoField
+      FieldName = 'engine_descriptor'
+      BlobType = ftMemo
+    end
+    object FDTableModelsepa_fuel_economy: TIntegerField
+      FieldName = 'epa_fuel_economy'
+    end
+    object FDTableModelsfuel_type: TMemoField
+      FieldName = 'fuel_type'
+      BlobType = ftMemo
+    end
+    object FDTableModelstransmission: TMemoField
+      FieldName = 'transmission'
+      BlobType = ftMemo
+    end
+    object FDTableModelscity_mpg: TMemoField
+      FieldName = 'city_mpg'
+      BlobType = ftMemo
+    end
+    object FDTableModelshighway_mpg: TMemoField
+      FieldName = 'highway_mpg'
+      BlobType = ftMemo
+    end
+    object FDTableModelsclass: TMemoField
+      FieldName = 'class'
+      BlobType = ftMemo
+    end
+    object FDTableModelsyear: TMemoField
       FieldName = 'year'
-      Origin = '`year`'
+      BlobType = ftMemo
+    end
+    object FDTableModelsmfr_code: TMemoField
+      FieldName = 'mfr_code'
+      BlobType = ftMemo
+    end
+    object FDTableModelsbase_model: TMemoField
+      FieldName = 'base_model'
+      BlobType = ftMemo
+    end
+    object FDTableModelsmark_id: TLargeintField
+      FieldName = 'mark_id'
+      Required = True
     end
   end
   object FDTableMarks: TFDTable
@@ -504,17 +480,17 @@ object Form1: TForm1
     TableName = '`car-workshop`.marks'
     Left = 200
     Top = 508
-    object FDTableMarksid: TFDAutoIncField
+    object FDTableMarksid: TLargeintField
+      AutoGenerateValue = arAutoInc
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = False
     end
     object FDTableMarksname: TStringField
       FieldName = 'name'
       Origin = '`name`'
       Required = True
-      Size = 45
+      Size = 1024
     end
   end
 end

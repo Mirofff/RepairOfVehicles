@@ -14,7 +14,8 @@ uses
 var
   tabSheet: TTabSheet;
 
-procedure createTheEngineForm(tabShee: TTabSheet);
+procedure createTheEngineForm(tabShee: TTabSheet;
+  connectionDefName: PWideChar);
 begin
   tabSheet := tabShee;
   form1 := TForm1.createparented(tabShee.handle);

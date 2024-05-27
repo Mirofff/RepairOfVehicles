@@ -11,7 +11,8 @@ uses
 var
   tabSheet: TTabSheet;
 
-procedure createCarsForm(tabShee: TTabSheet);
+procedure createCarsForm(tabShee: TTabSheet;
+  connectionDefName: PWideChar);
 begin
   tabSheet := tabShee;
   form1 := TForm1.createparented(tabShee.handle);

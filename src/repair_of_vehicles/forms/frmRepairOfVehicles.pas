@@ -86,7 +86,6 @@ type
     GroupBox3: TGroupBox;
     DatePickerStatementExecutionDate: TDatePicker;
     GroupBox5: TGroupBox;
-    DBEdit2: TDBEdit;
     GroupBox1: TGroupBox;
     DBEdit1: TDBEdit;
     Button7: TButton;
@@ -124,6 +123,7 @@ type
     frxDBDatasetReportUsedConsumables: TfrxDBDataset;
     frxDBDatasetReportUsedServices: TfrxDBDataset;
     frxUserDataSet1: TfrxUserDataSet;
+    DBLabeledEdit1: TDBLabeledEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Button8Click(Sender: TObject);
@@ -180,33 +180,40 @@ uses Bcrypt, DataModule;
 
 {$R *.dfm}
 { =--- Model's form procedures ---= }
-procedure createTheEngineForm(tabShee: TTabSheet); external 'engines.dll';
+procedure createTheEngineForm(tabShee: TTabSheet; connectionDefName: PWideChar);
+  external 'engines.dll';
 procedure resizeTheEngineForm; external 'engines.dll';
 procedure closeTheEngineForm; external 'engines.dll';
 
 { =--- Model's form procedures ---= }
-procedure createModelForm(tabShee: TTabSheet); external 'models.dll';
+procedure createModelForm(tabShee: TTabSheet; connectionDefName: PWideChar);
+  external 'models.dll';
 procedure resizeModelForm; external 'models.dll';
 procedure closeModelForm; external 'models.dll';
 
 { =--- Brand's form procedures ---= }
-procedure createBrandsForm(tabShee: TTabSheet); external 'brands.dll';
+procedure createBrandsForm(tabShee: TTabSheet; connectionDefName: PWideChar);
+  external 'brands.dll';
 procedure resizeBrandsForm; external 'brands.dll';
 
 { =--- Car's form procedures ---= }
-procedure createCarsForm(tabShee: TTabSheet); external 'cars.dll';
+procedure createCarsForm(tabShee: TTabSheet; connectionDefName: PWideChar);
+  external 'cars.dll';
 procedure resizeCarsForm; external 'cars.dll';
 
 { =--- Service's form procedures ---= }
-procedure createServicesForm(tabShee: TTabSheet); external 'services.dll';
+procedure createServicesForm(tabShee: TTabSheet; connectionDefName: PWideChar);
+  external 'services.dll';
 procedure resizeServicesForm; external 'services.dll';
 
 { =--- Consumable's form procedures ---= }
-procedure createConsumablesForm(tabShee: TTabSheet); external 'consumables.dll';
+procedure createConsumablesForm(tabShee: TTabSheet;
+  connectionDefName: PWideChar); external 'consumables.dll';
 procedure resizeConsumablesForm; external 'consumables.dll';
 
 { =--- Client's form procedures ---= }
-procedure createClientsForm(tabShee: TTabSheet); external 'clients.dll';
+procedure createClientsForm(tabShee: TTabSheet; connectionDefName: PWideChar);
+  external 'clients.dll';
 procedure resizeClientsForm; external 'clients.dll';
 
 procedure TMainForm.unlockSideMenuButtons(stuff_role: string);
@@ -273,20 +280,20 @@ end;
 procedure TMainForm.ButtonConsumablesAddClick(Sender: TObject);
 begin
   DataModuleDB.FDTableUsedConsumables.Filtered := false;
-  DataModuleDB.FDTableUsedConsumables.Filter := 'consumable_uuid = ' +
-    QuotedStr(DataModuleDB.FDTableConsumablesuuid.AsString) +
-    ' and statement_uuid = ' +
-    QuotedStr(DataModuleDB.FDTableStatementsuuid.AsString);
+  DataModuleDB.FDTableUsedConsumables.Filter := 'consumable_id = ' +
+    QuotedStr(IntToStr(DataModuleDB.FDTableConsumablesid.AsLargeInt)) +
+    ' and statement_id = ' +
+    QuotedStr(IntToStr(DataModuleDB.FDTableStatementsid.AsLargeInt));
   DataModuleDB.FDTableUsedConsumables.Filtered := true;
 
   if DataModuleDB.FDTableUsedConsumablesquantity.AsInteger = 0 then
   begin
     DataModuleDB.FDTableUsedConsumables.Append;
     DataModuleDB.FDTableUsedConsumablesquantity.AsInteger := 1;
-    DataModuleDB.FDTableUsedConsumablesconsumable_uuid.AsString :=
-      DataModuleDB.FDTableConsumablesuuid.AsString;
-    DataModuleDB.FDTableUsedConsumablesstatement_uuid.AsString :=
-      DataModuleDB.FDTableStatementsuuid.AsString;
+    DataModuleDB.FDTableUsedConsumablesconsumable_id.AsLargeInt :=
+      DataModuleDB.FDTableConsumablesid.AsLargeInt;
+    DataModuleDB.FDTableUsedConsumablesstatement_id.AsLargeInt :=
+      DataModuleDB.FDTableStatementsid.AsLargeInt;
   end
   else
   begin
@@ -296,8 +303,9 @@ begin
   end;
   DataModuleDB.FDTableUsedConsumables.Post;
 
-  DataModuleDB.FDTableUsedConsumables.Filter := 'statement_uuid = ' +
-    QuotedStr(DataModuleDB.FDTableStatementsuuid.AsString);
+  DataModuleDB.FDTableUsedConsumables.Filtered := false;
+  DataModuleDB.FDTableUsedConsumables.Filter := 'statement_id = ' +
+    QuotedStr(IntToStr(DataModuleDB.FDTableStatementsid.AsLargeInt));
 
   DataModuleDB.FDTableUsedConsumables.Filtered := true;
 
@@ -306,20 +314,19 @@ end;
 procedure TMainForm.ButtonServicesAddClick(Sender: TObject);
 begin
   DataModuleDB.FDTableUsedServices.Filtered := false;
-  DataModuleDB.FDTableUsedServices.Filter := 'service_uuid = ' +
-    QuotedStr(DataModuleDB.FDTableServicesuuid.AsString) +
-    ' and statement_uuid = ' +
-    QuotedStr(DataModuleDB.FDTableStatementsuuid.AsString);
+  DataModuleDB.FDTableUsedServices.Filter := 'service_id = ' +
+    QuotedStr(DataModuleDB.FDTableServicesid.AsString) + ' and statement_id = '
+    + QuotedStr(IntToStr(DataModuleDB.FDTableStatementsid.AsLargeInt));
   DataModuleDB.FDTableUsedServices.Filtered := true;
 
   if DataModuleDB.FDTableUsedServicesquantity.AsInteger = 0 then
   begin
     DataModuleDB.FDTableUsedServices.Append;
     DataModuleDB.FDTableUsedServicesquantity.AsInteger := 1;
-    DataModuleDB.FDTableUsedServicesservice_uuid.AsString :=
-      DataModuleDB.FDTableServicesuuid.AsString;
-    DataModuleDB.FDTableUsedServicesstatement_uuid.AsString :=
-      DataModuleDB.FDTableStatementsuuid.AsString;
+    DataModuleDB.FDTableUsedServicesservice_id.AsString :=
+      DataModuleDB.FDTableServicesid.AsString;
+    DataModuleDB.FDTableUsedServicesstatement_id.AsString :=
+      DataModuleDB.FDTableStatementsid.AsString;
   end
   else
   begin
@@ -330,8 +337,9 @@ begin
 
   DataModuleDB.FDTableUsedServices.Post;
 
-  DataModuleDB.FDTableUsedServices.Filter := 'statement_uuid = ' +
-    QuotedStr(DataModuleDB.FDTableStatementsuuid.AsString);
+  DataModuleDB.FDTableUsedServices.Filtered := false;
+  DataModuleDB.FDTableUsedServices.Filter := 'statement_id = ' +
+    QuotedStr((DataModuleDB.FDTableStatementsid.AsString));
 
   DataModuleDB.FDTableUsedServices.Filtered := true;
 end;
@@ -345,7 +353,6 @@ begin
   end
   else
   begin
-
     DataModuleDB.FDTableUsedServicesquantity.AsInteger :=
       DataModuleDB.FDTableUsedServicesquantity.AsInteger - 1;
 
@@ -421,17 +428,52 @@ end;
 
 procedure TMainForm.DatePickerDynamicReportEndChange(Sender: TObject);
 begin
-  // FDQueryReportUsedServices.Params.ParamValues['END_DATE'] :=
-  // DatePickerDynamicReportEnd.Date;
-  // FDQueryReportUsedServices.Open;
+  DataModuleDB.FDQueryReportUsedServices.Filtered := false;
+  DataModuleDB.FDQueryReportUsedServices.Filter :=
+    'statement_execution_date between ' +
+    QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
+    QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
+  DataModuleDB.FDQueryReportUsedServices.Filtered := true;
 
+  DataModuleDB.FDQueryReportUsedServices.Params.ParamValues['END_DATE'] :=
+    DatePickerDynamicReportEnd.Date;
+  DataModuleDB.FDQueryReportUsedServices.Open;
+
+  DataModuleDB.FDQueryReportUsedConsumables.Filtered := false;
+  DataModuleDB.FDQueryReportUsedConsumables.Filter :=
+    'statement_execution_date between ' +
+    QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
+    QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
+  DataModuleDB.FDQueryReportUsedConsumables.Filtered := true;
+
+  DataModuleDB.FDQueryReportUsedConsumables.Params.ParamValues['END_DATE'] :=
+    DatePickerDynamicReportEnd.Date;
+  DataModuleDB.FDQueryReportUsedConsumables.Open;
 end;
 
 procedure TMainForm.DatePickerDynamicReportStartChange(Sender: TObject);
 begin
-  // FDQueryReportUsedServices.Params.ParamValues['START_DATE'] :=
-  // DatePickerDynamicReportStart.Date;
-  // FDQueryReportUsedServices.Open;
+  DataModuleDB.FDQueryReportUsedServices.Filtered := false;
+  DataModuleDB.FDQueryReportUsedServices.Filter :=
+    'statement_execution_date between ' +
+    QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
+    QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
+  DataModuleDB.FDQueryReportUsedServices.Filtered := true;
+
+  DataModuleDB.FDQueryReportUsedServices.Params.ParamValues['START_DATE'] :=
+    DatePickerDynamicReportStart.Date;
+  DataModuleDB.FDQueryReportUsedServices.Open;
+
+  DataModuleDB.FDQueryReportUsedConsumables.Filtered := false;
+  DataModuleDB.FDQueryReportUsedConsumables.Filter :=
+    'statement_execution_date between ' +
+    QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
+    QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
+  DataModuleDB.FDQueryReportUsedConsumables.Filtered := true;
+
+  DataModuleDB.FDQueryReportUsedConsumables.Params.ParamValues['END_DATE'] :=
+    DatePickerDynamicReportEnd.Date;
+  DataModuleDB.FDQueryReportUsedConsumables.Open;
 end;
 
 procedure TMainForm.DBGridConsumablesDblClick(Sender: TObject);
@@ -459,25 +501,25 @@ procedure TMainForm.FormCreate(Sender: TObject);
 begin
 
   { =--- DLL's forms initialize ---= }
-  createTheEngineForm(TabSheet3);
-  createModelForm(TabSheet5);
-  createBrandsForm(TabSheet4);
-  createCarsForm(TabSheet9);
-  createServicesForm(TabSheet8);
-  createConsumablesForm(TabSheet7);
-  createClientsForm(TabSheet6);
+  // createTheEngineForm(TabSheet3, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
+  // createModelForm(TabSheet5, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
+  // createBrandsForm(TabSheet4, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
+  // createCarsForm(TabSheet9, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
+  // createServicesForm(TabSheet8, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
+   createConsumablesForm(TabSheet7, PWideChar('CarWorkshop'));
+  // createClientsForm(TabSheet6, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
 
 end;
 
 procedure TMainForm.FormResize(Sender: TObject);
 begin
-  resizeTheEngineForm;
-  resizeModelForm;
-  resizeBrandsForm;
-  resizeCarsForm;
-  resizeServicesForm;
-  resizeConsumablesForm;
-  resizeClientsForm
+  // resizeTheEngineForm;
+  // resizeModelForm;
+  // resizeBrandsForm;
+  // resizeCarsForm;
+  // resizeServicesForm;
+   resizeConsumablesForm;
+  // resizeClientsForm;
 end;
 
 procedure TMainForm.SpeedButton1Click(Sender: TObject);
