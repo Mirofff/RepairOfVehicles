@@ -3588,6 +3588,7 @@
     Params.Strings = (
       'CharacterSet=utf8'
       'ConnectionDef=CarWorkshop')
+    ConnectedStoredUsage = [auDesignTime]
     Connected = True
     LoginPrompt = False
     Left = 112
@@ -4259,12 +4260,6 @@
       FieldName = 'execution_date'
       Origin = 'execution_date'
     end
-    object FDTableStatementspickup_time: TDateTimeField
-      FieldName = 'pickup_time'
-      Origin = 'pickup_time'
-      Required = True
-      DisplayFormat = 'yyyy-mm-dd'
-    end
     object FDTableStatementsclient_id: TLargeintField
       FieldName = 'client_id'
       Origin = 'client_id'
@@ -4357,6 +4352,16 @@
       FieldName = 'vehicle_print'
       Calculated = True
     end
+    object FDTableStatementspickup_date: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'pickup_date'
+      Origin = 'pickup_date'
+    end
+    object FDTableStatementspickup_time: TTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'pickup_time'
+      Origin = 'pickup_time'
+    end
   end
   object FDTableStuff: TFDTable
     Active = True
@@ -4437,8 +4442,8 @@
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.stuff'
-    Left = 348
-    Top = 540
+    Left = 388
+    Top = 500
   end
   object DataSource2: TDataSource
     Left = 304

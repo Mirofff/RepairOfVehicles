@@ -43,6 +43,7 @@ Source: "C:\Users\user\projects\RepairOfVehicles\bin\consumables.dll"; DestDir: 
 Source: "C:\Users\user\projects\RepairOfVehicles\bin\engines.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\user\projects\RepairOfVehicles\bin\models.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\user\projects\RepairOfVehicles\bin\services.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\user\projects\RepairOfVehicles\bin\.env"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

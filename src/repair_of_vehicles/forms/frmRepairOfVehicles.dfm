@@ -44,7 +44,7 @@
     Margins.Top = 0
     Margins.Right = 0
     Margins.Bottom = 0
-    ActivePage = TabSheetReports
+    ActivePage = TabSheetAuth
     Align = alClient
     Constraints.MinHeight = 400
     Constraints.MinWidth = 400
@@ -259,7 +259,7 @@
               TabOrder = 1
             end
           end
-          object Button1: TButton
+          object ButtonTryAuth: TButton
             Left = 0
             Top = 161
             Width = 400
@@ -267,7 +267,7 @@
             Align = alBottom
             Caption = #1040#1074#1090#1086#1088#1080#1079#1080#1088#1086#1074#1072#1090#1100#1089#1103
             TabOrder = 1
-            OnClick = Button1Click
+            OnClick = ButtonTryAuthClick
           end
         end
       end
@@ -276,12 +276,13 @@
       Caption = #1054#1090#1095#1077#1090#1099
       ImageIndex = 2
       TabVisible = False
+      OnShow = TabSheetReportsShow
       object PageControl3: TPageControl
         Left = 0
         Top = 0
         Width = 908
         Height = 512
-        ActivePage = TabSheet12
+        ActivePage = TabSheet11
         Align = alClient
         TabOrder = 0
         object TabSheet11: TTabSheet
@@ -493,7 +494,7 @@
                 Width = 446
                 Height = 38
                 Align = alClient
-                Date = 45436.000000000000000000
+                Date = 45292.000000000000000000
                 DateFormat = 'dd/mm/yyyy'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -518,7 +519,7 @@
                 Width = 446
                 Height = 38
                 Align = alClient
-                Date = 45436.000000000000000000
+                Date = 45627.000000000000000000
                 DateFormat = 'dd/mm/yyyy'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -564,10 +565,6 @@
                 Value = 100.000000000000000000
               end>
             TabOrder = 0
-            ExplicitLeft = 440
-            ExplicitTop = 304
-            ExplicitWidth = 185
-            ExplicitHeight = 41
             object DBGrid4: TDBGrid
               Left = 1
               Top = 1
@@ -673,9 +670,6 @@
             Caption = #1055#1077#1095#1072#1090#1100' '#1086#1090#1095#1077#1090#1072
             TabOrder = 1
             OnClick = Button2Click
-            ExplicitLeft = 296
-            ExplicitTop = 0
-            ExplicitWidth = 75
           end
         end
       end
@@ -723,9 +717,9 @@
         TabOrder = 0
         object DBGrid3: TDBGrid
           Left = 0
-          Top = 41
+          Top = 45
           Width = 908
-          Height = 124
+          Height = 120
           Align = alClient
           DataSource = DataModuleDB.DataSourceStatements
           TabOrder = 0
@@ -761,7 +755,7 @@
           Left = 0
           Top = 0
           Width = 908
-          Height = 41
+          Height = 45
           Align = alTop
           BevelEdges = []
           BevelOuter = bvNone
@@ -772,25 +766,15 @@
             Left = 0
             Top = 0
             Width = 621
-            Height = 41
+            Height = 45
             Align = alClient
-            Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1079#1072#1103#1074#1082#1077
             TabOrder = 0
-            object Edit2: TEdit
-              Left = 2
-              Top = 17
-              Width = 617
-              Height = 22
-              Align = alClient
-              TabOrder = 0
-              ExplicitHeight = 23
-            end
           end
           object GroupBox8: TGroupBox
             Left = 621
             Top = 0
             Width = 287
-            Height = 41
+            Height = 45
             Align = alRight
             Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103
             TabOrder = 1
@@ -798,7 +782,7 @@
               Left = 2
               Top = 17
               Width = 70
-              Height = 22
+              Height = 26
               Align = alLeft
               Caption = '<'
               OnClick = SpeedButtonStatementPrivClick
@@ -808,7 +792,7 @@
               Left = 72
               Top = 17
               Width = 70
-              Height = 22
+              Height = 26
               Align = alLeft
               Caption = '|<'
               OnClick = SpeedButtonStatementFirstClick
@@ -818,7 +802,7 @@
               Left = 142
               Top = 17
               Width = 70
-              Height = 22
+              Height = 26
               Align = alLeft
               Caption = '>|'
               OnClick = SpeedButtonStatementLastClick
@@ -828,12 +812,13 @@
               Left = 212
               Top = 17
               Width = 70
-              Height = 22
+              Height = 26
               Align = alLeft
               Caption = '>'
               OnClick = SpeedButtonStatementNextClick
               ExplicitLeft = 214
               ExplicitTop = 16
+              ExplicitHeight = 22
             end
           end
         end
@@ -1666,14 +1651,14 @@
   object DataSourceReportUsedServices: TDataSource
     DataSet = DataModuleDB.FDQueryDynamicReportUsedServices
     OnDataChange = DataSourceReportUsedServicesDataChange
-    Left = 392
-    Top = 198
+    Left = 384
+    Top = 174
   end
   object DataSourceReportUsedConsumables: TDataSource
     DataSet = DataModuleDB.FDQueryDynamicReportUsedConsumables
     OnDataChange = DataSourceReportUsedConsumablesDataChange
-    Left = 392
-    Top = 256
+    Left = 320
+    Top = 328
   end
   object frxReportDynamicReport: TfrxReport
     Version = '2024.2.2'
@@ -2221,8 +2206,8 @@
   end
   object frxUserDataSet1: TfrxUserDataSet
     UserName = 'frxUserDataSet1'
-    Left = 472
-    Top = 462
+    Left = 496
+    Top = 262
   end
   object frxDBDatasetStaticReportUsedServices: TfrxDBDataset
     UserName = 'DatasetReportUsedServices'
@@ -2739,7 +2724,7 @@
   end
   object DataSourceStaticReportServices: TDataSource
     DataSet = DataModuleDB.FDQueryStaticReportUsedServices
-    Left = 864
-    Top = 390
+    Left = 384
+    Top = 118
   end
 end

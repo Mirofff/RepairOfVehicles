@@ -1,4 +1,4 @@
-unit FormModels;
+unit FormConsumables;
 
 interface
 
@@ -56,11 +56,10 @@ type
     procedure Button4Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
   public
-    procedure updateFDConnectionDefName(connectionDefName: string);
-
   end;
 
 var
@@ -69,6 +68,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DBManagement, DotEnv4Delphi;
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
@@ -100,6 +101,11 @@ begin
   Button5.Enabled := false;
 end;
 
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  UpdateDBConnection(FDConnectionMain, [FDTableConsumables]);
+end;
+
 procedure TForm1.SearchEditChange(Sender: TObject);
 begin
   FDTableConsumables.Filtered := false;
@@ -125,12 +131,6 @@ end;
 procedure TForm1.SpeedButton4Click(Sender: TObject);
 begin
   FDTableConsumables.Next;
-end;
-
-procedure TForm1.updateFDConnectionDefName(connectionDefName: string);
-begin
-  self.FDConnectionMain.connectionDefName := connectionDefName;
-  self.FDConnectionMain.Connected := true;
 end;
 
 end.

@@ -29,6 +29,7 @@ object Form1: TForm1
   ParentBiDiMode = False
   Position = poDefault
   StyleElements = [seFont, seClient]
+  OnActivate = FormActivate
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 289
@@ -392,9 +393,10 @@ object Form1: TForm1
     Left = 104
     Top = 508
   end
-  object FDConnection1: TFDConnection
+  object FDConnectionModels: TFDConnection
     Params.Strings = (
       'ConnectionDef=CarWorkshop')
+    ConnectedStoredUsage = [auDesignTime]
     Connected = True
     LoginPrompt = False
     Left = 104
@@ -403,7 +405,7 @@ object Form1: TForm1
   object FDTableModels: TFDTable
     Active = True
     IndexFieldNames = 'id'
-    Connection = FDConnection1
+    Connection = FDConnectionModels
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.models'
     Left = 208
@@ -475,7 +477,7 @@ object Form1: TForm1
   object FDTableMarks: TFDTable
     Active = True
     IndexFieldNames = 'id'
-    Connection = FDConnection1
+    Connection = FDConnectionModels
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = '`car-workshop`.marks'
     Left = 200

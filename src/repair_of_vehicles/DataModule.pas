@@ -115,7 +115,6 @@ type
     FDTableStatementsis_active: TBooleanField;
     FDTableStatementsregistration_date: TDateField;
     FDTableStatementsexecution_date: TDateField;
-    FDTableStatementspickup_time: TDateTimeField;
     FDTableStatementsclient_id: TLargeintField;
     FDTableStatementsvehicle_id: TLargeintField;
     FDTableStuffid: TLargeintField;
@@ -171,6 +170,8 @@ type
     FDQueryStaticReportUsedConsumablesconsumable_price: TFloatField;
     FDQueryStaticReportUsedConsumablesused_consumable_quantity: TIntegerField;
     FDQueryStaticReportUsedConsumablesconsumable_name: TWideStringField;
+    FDTableStatementspickup_date: TDateField;
+    FDTableStatementspickup_time: TTimeField;
     procedure FDTableVehiclesCalcFields(DataSet: TDataSet);
     procedure FDTableStatementsAfterGetRecord(DataSet: TFDDataSet);
     procedure FDTableStatementsAfterScroll(DataSet: TDataSet);
@@ -185,6 +186,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+
   end;
 
 var
@@ -194,14 +196,17 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses frmRepairOfVehicles;
+uses frmRepairOfVehicles, DotEnv4Delphi, DBManagement;
 {$R *.dfm}
 
 procedure TDataModuleDB.DataModuleCreate(Sender: TObject);
 begin
-//FDConnectionMain.Connected := False;
-//FDConnectionMain.ConnectionString := 'DriverID=MySQL;Database=car-workshop;server=192.168.32.2;user_name=root;password=password;CharacterSet=utf8';
-//FDConnectionMain.Connected := True;
+  UpdateDBConnection(FDConnectionMain, [FDTableMarks, FDTableModels,
+    FDTableVehicles, FDTableServices, FDTableConsumables,
+    FDTableUsedConsumables, FDTableUsedServices, FDTableClients, FDTableStuff,
+    FDTableStatements, FDQueryDynamicReportUsedServices,
+    FDQueryDynamicReportUsedConsumables, FDQueryStaticReportUsedServices,
+    FDQueryStaticReportUsedConsumables]);
 end;
 
 procedure TDataModuleDB.DataSourceStatementsDataChange(Sender: TObject;
@@ -217,28 +222,28 @@ end;
 procedure TDataModuleDB.FDTableStatementsAfterGetRecord(DataSet: TFDDataSet);
 begin
 
-  FDTableVehicles.Filtered := false;
+  FDTableVehicles.Filtered := False;
   FDTableVehicles.Filter := 'id = ' +
     QuotedStr(IntToStr(FDTableStatementsid.AsLargeInt));
-  FDTableVehicles.Filtered := true;
+  FDTableVehicles.Filtered := True;
 end;
 
 procedure TDataModuleDB.FDTableStatementsAfterScroll(DataSet: TDataSet);
 begin
-  FDTableVehicles.Filtered := false;
+  FDTableVehicles.Filtered := False;
   FDTableVehicles.Filter := 'id = ' +
     QuotedStr(FDTableStatementsvehicle_id.AsString);
-  FDTableVehicles.Filtered := true;
+  FDTableVehicles.Filtered := True;
 
-  FDTableUsedConsumables.Filtered := false;
+  FDTableUsedConsumables.Filtered := False;
   FDTableUsedConsumables.Filter := 'statement_id = ' +
     QuotedStr(IntToStr(FDTableStatementsid.AsLargeInt));
-  FDTableUsedConsumables.Filtered := true;
+  FDTableUsedConsumables.Filtered := True;
 
-  FDTableUsedServices.Filtered := false;
+  FDTableUsedServices.Filtered := False;
   FDTableUsedServices.Filter := 'statement_id = ' +
     QuotedStr(IntToStr(FDTableStatementsid.AsLargeInt));
-  FDTableUsedServices.Filtered := true;
+  FDTableUsedServices.Filtered := True;
 end;
 
 procedure TDataModuleDB.FDTableStatementsCalcFields(DataSet: TDataSet);

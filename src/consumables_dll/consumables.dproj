@@ -93,10 +93,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="forms\FormModels.pas">
+        <DCCReference Include="forms\FormConsumables.pas">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\common\DBManagement.pas"/>
+        <DCCReference Include="..\common\DotEnv4Delphi.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

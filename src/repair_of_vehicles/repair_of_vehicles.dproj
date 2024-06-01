@@ -127,6 +127,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\common\DotEnv4Delphi.pas"/>
+        <DCCReference Include="..\common\DBManagement.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

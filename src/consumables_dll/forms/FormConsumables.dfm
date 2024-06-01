@@ -28,6 +28,7 @@ object Form1: TForm1
   ParentBiDiMode = False
   Position = poDesigned
   StyleElements = [seFont, seClient]
+  OnCreate = FormCreate
   TextHeight = 15
   object Splitter1: TSplitter
     Left = 217
@@ -187,7 +188,6 @@ object Form1: TForm1
         Align = alTop
         Caption = '#'
         TabOrder = 0
-        ExplicitTop = 1
         object DBLabeledEditId: TDBLabeledEdit
           AlignWithMargins = True
           Left = 5
@@ -199,7 +199,7 @@ object Form1: TForm1
           DataSource = DataSourceConsumables
           Enabled = False
           TabOrder = 0
-          EditLabel.Width = 10
+          EditLabel.Width = 86
           EditLabel.Height = 15
           LabelPosition = lpBelow
           ExplicitHeight = 23
@@ -376,7 +376,6 @@ object Form1: TForm1
       end>
   end
   object FDTableConsumables: TFDTable
-    Active = True
     IndexFieldNames = 'id'
     Connection = FDConnectionMain
     ResourceOptions.AssignedValues = [rvEscapeExpand]
@@ -409,9 +408,8 @@ object Form1: TForm1
   end
   object FDConnectionMain: TFDConnection
     Params.Strings = (
-      'CharacterSet=utf8'
       'ConnectionDef=CarWorkshop')
-    Connected = True
+    ConnectedStoredUsage = [auDesignTime]
     LoginPrompt = False
     Left = 112
     Top = 392

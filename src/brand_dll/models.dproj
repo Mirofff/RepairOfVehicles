@@ -97,6 +97,8 @@
             <Form>Form3</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\common\DotEnv4Delphi.pas"/>
+        <DCCReference Include="..\common\DBManagement.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

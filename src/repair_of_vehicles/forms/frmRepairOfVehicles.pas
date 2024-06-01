@@ -13,8 +13,8 @@ uses
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.UI.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef,
   FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet,
-  FrameOperationsLog, FrameStaticReport, FrameDynamicReport, ShellAPI,
-  Vcl.DBCtrls, frxSmartMemo, Vcl.WinXPickers, frxClass, frCoreClasses, frxDBSet,
+  ShellAPI, Vcl.DBCtrls, frxSmartMemo, Vcl.WinXPickers, frxClass, frCoreClasses,
+  frxDBSet,
   Vcl.NumberBox, Vcl.Grids, Vcl.DBGrids, Vcl.Mask;
 
 type
@@ -37,7 +37,7 @@ type
     EditLogin: TEdit;
     Label2: TLabel;
     EditPassword: TEdit;
-    Button1: TButton;
+    ButtonTryAuth: TButton;
     TabSheetReports: TTabSheet;
     PageControl3: TPageControl;
     TabSheet11: TTabSheet;
@@ -57,7 +57,6 @@ type
     DBGrid3: TDBGrid;
     Panel8: TPanel;
     GroupBox7: TGroupBox;
-    Edit2: TEdit;
     GroupBox8: TGroupBox;
     SpeedButtonStatementPriv: TSpeedButton;
     SpeedButtonStatementFirst: TSpeedButton;
@@ -121,7 +120,7 @@ type
     Button2: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure ButtonTryAuthClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButtonMenuHandbooksClick(Sender: TObject);
     procedure SpeedButtonMenuReportsClick(Sender: TObject);
@@ -148,6 +147,7 @@ type
       Field: TField);
     procedure Button3Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure TabSheetReportsShow(Sender: TObject);
 
   private
     { Private declarations }
@@ -158,6 +158,9 @@ type
     procedure hideStatementModificationButtons();
     procedure showStatementModificationButtons();
     procedure lockSideMenuButtons;
+
+    procedure changeComponentsStatus(components: array of TControl;
+      status: boolean);
 
   public
     { Public declarations }
@@ -201,8 +204,7 @@ procedure createServicesForm(tabShee: TTabSheet; connectionDefName: PWideChar);
 procedure resizeServicesForm; external 'services.dll';
 
 { =--- Consumable's form procedures ---= }
-procedure createConsumablesForm(tabShee: TTabSheet;
-  connectionDefName: PWideChar); external 'consumables.dll';
+procedure createConsumablesForm(tabShee: TTabSheet); external 'consumables.dll';
 procedure resizeConsumablesForm; external 'consumables.dll';
 
 { =--- Client's form procedures ---= }
@@ -210,17 +212,26 @@ procedure createClientsForm(tabShee: TTabSheet; connectionDefName: PWideChar);
   external 'clients.dll';
 procedure resizeClientsForm; external 'clients.dll';
 
+procedure TMainForm.changeComponentsStatus(components: array of TControl;
+  status: boolean);
+var
+  component: TControl;
+begin
+  for component in components do
+    component.Enabled := True;
+end;
+
 procedure TMainForm.unlockSideMenuButtons(stuff_role: string);
 begin
   if stuff_role = 'admin' then
   begin
-    SpeedButtonMenuHandbooks.Enabled := true;
-    SpeedButtonMenuReports.Enabled := true;
-    SpeedButtonMenuOperationsLogs.Enabled := true;
+    changeComponentsStatus([SpeedButtonMenuHandbooks, SpeedButtonMenuReports,
+      SpeedButtonMenuOperationsLogs], True);
   end
   else if stuff_role = 'operator' then
   begin
-    //
+    changeComponentsStatus([SpeedButtonMenuReports,
+      SpeedButtonMenuOperationsLogs], True);
   end
   else
   begin
@@ -235,15 +246,15 @@ begin
   SpeedButtonMenuOperationsLogs.Enabled := false;
 end;
 
-procedure TMainForm.Button1Click(Sender: TObject);
+procedure TMainForm.ButtonTryAuthClick(Sender: TObject);
 var
-  passwordRehashNeeded: Boolean;
-  isPasswordValid: Boolean;
+  passwordRehashNeeded: boolean;
+  isPasswordValid: boolean;
 begin
 
   DataModuleDB.FDTableStuffpassword.AsString;
   DataModuleDB.FDTableStuff.Filter := 'email = ''' + EditLogin.Text + '''';
-  DataModuleDB.FDTableStuff.Filtered := true;
+  DataModuleDB.FDTableStuff.Filtered := True;
 
   isPasswordValid := TBCrypt.CheckPassword(EditPassword.Text,
     DataModuleDB.FDTableStuffpassword.AsString, passwordRehashNeeded);
@@ -252,6 +263,11 @@ begin
   begin
     PageControlMain.ActivePage := TabSheetOperationsLog;
     unlockSideMenuButtons(DataModuleDB.FDTableStuffrole.AsString);
+  end
+  else
+  begin
+    ShowMessage('Для учетной записи ' + QuotedStr(EditLogin.Text) +
+      ' введен неверный пароль!');
   end;
 end;
 
@@ -272,7 +288,7 @@ begin
     QuotedStr(IntToStr(DataModuleDB.FDTableConsumablesid.AsLargeInt)) +
     ' and statement_id = ' +
     QuotedStr(IntToStr(DataModuleDB.FDTableStatementsid.AsLargeInt));
-  DataModuleDB.FDTableUsedConsumables.Filtered := true;
+  DataModuleDB.FDTableUsedConsumables.Filtered := True;
 
   if DataModuleDB.FDTableUsedConsumablesquantity.AsInteger = 0 then
   begin
@@ -295,7 +311,7 @@ begin
   DataModuleDB.FDTableUsedConsumables.Filter := 'statement_id = ' +
     QuotedStr(IntToStr(DataModuleDB.FDTableStatementsid.AsLargeInt));
 
-  DataModuleDB.FDTableUsedConsumables.Filtered := true;
+  DataModuleDB.FDTableUsedConsumables.Filtered := True;
 end;
 
 procedure TMainForm.ButtonServicesAddClick(Sender: TObject);
@@ -304,7 +320,7 @@ begin
   DataModuleDB.FDTableUsedServices.Filter := 'service_id = ' +
     QuotedStr(DataModuleDB.FDTableServicesid.AsString) + ' and statement_id = '
     + QuotedStr(IntToStr(DataModuleDB.FDTableStatementsid.AsLargeInt));
-  DataModuleDB.FDTableUsedServices.Filtered := true;
+  DataModuleDB.FDTableUsedServices.Filtered := True;
 
   if DataModuleDB.FDTableUsedServicesquantity.AsInteger = 0 then
   begin
@@ -328,7 +344,7 @@ begin
   DataModuleDB.FDTableUsedServices.Filter := 'statement_id = ' +
     QuotedStr((DataModuleDB.FDTableStatementsid.AsString));
 
-  DataModuleDB.FDTableUsedServices.Filtered := true;
+  DataModuleDB.FDTableUsedServices.Filtered := True;
 end;
 
 procedure TMainForm.ButtonServicesDeleteClick(Sender: TObject);
@@ -413,10 +429,10 @@ begin
     'statement_execution_date between ' +
     QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
     QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
-  DataModuleDB.FDQueryDynamicReportUsedServices.Filtered := true;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Filtered := True;
 
-  DataModuleDB.FDQueryDynamicReportUsedServices.Params.ParamValues['END_DATE'] :=
-    DatePickerDynamicReportEnd.Date;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Params.ParamValues['END_DATE']
+    := DatePickerDynamicReportEnd.Date;
   DataModuleDB.FDQueryDynamicReportUsedServices.Open;
 
   DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := false;
@@ -424,10 +440,10 @@ begin
     'statement_execution_date between ' +
     QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
     QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
-  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := true;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := True;
 
-  DataModuleDB.FDQueryDynamicReportUsedConsumables.Params.ParamValues['END_DATE'] :=
-    DatePickerDynamicReportEnd.Date;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Params.ParamValues
+    ['END_DATE'] := DatePickerDynamicReportEnd.Date;
   DataModuleDB.FDQueryDynamicReportUsedConsumables.Open;
 end;
 
@@ -438,10 +454,10 @@ begin
     'statement_execution_date between ' +
     QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
     QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
-  DataModuleDB.FDQueryDynamicReportUsedServices.Filtered := true;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Filtered := True;
 
-  DataModuleDB.FDQueryDynamicReportUsedServices.Params.ParamValues['START_DATE'] :=
-    DatePickerDynamicReportStart.Date;
+  DataModuleDB.FDQueryDynamicReportUsedServices.Params.ParamValues['START_DATE']
+    := DatePickerDynamicReportStart.Date;
   DataModuleDB.FDQueryDynamicReportUsedServices.Open;
 
   DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := false;
@@ -449,10 +465,10 @@ begin
     'statement_execution_date between ' +
     QuotedStr(DateToStr(DatePickerDynamicReportStart.Date)) + ' and ' +
     QuotedStr(DateToStr(DatePickerDynamicReportEnd.Date));
-  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := true;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Filtered := True;
 
-  DataModuleDB.FDQueryDynamicReportUsedConsumables.Params.ParamValues['END_DATE'] :=
-    DatePickerDynamicReportEnd.Date;
+  DataModuleDB.FDQueryDynamicReportUsedConsumables.Params.ParamValues
+    ['END_DATE'] := DatePickerDynamicReportEnd.Date;
   DataModuleDB.FDQueryDynamicReportUsedConsumables.Open;
 end;
 
@@ -460,7 +476,7 @@ procedure TMainForm.DBGridConsumablesDblClick(Sender: TObject);
 begin
   if DBGridConsumables.SelectedRows.CurrentRowSelected then
   begin
-    showmessage('aahaha');
+    ShowMessage('aahaha');
   end;
 end;
 
@@ -468,7 +484,7 @@ procedure TMainForm.DBGridServicesDblClick(Sender: TObject);
 begin
   if DBGridServices.SelectedRows.CurrentRowSelected then
   begin
-    showmessage('aahaha');
+    ShowMessage('aahaha');
   end;
 end;
 
@@ -486,7 +502,7 @@ begin
   // createBrandsForm(TabSheet4, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
   // createCarsForm(TabSheet9, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
   // createServicesForm(TabSheet8, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
-  createConsumablesForm(TabSheet7, PWideChar('CarWorkshop'));
+  createConsumablesForm(TabSheet7);
   // createClientsForm(TabSheet6, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
 
 end;
@@ -510,7 +526,7 @@ begin
   end
   else
   begin
-    SplitViewMenu.Opened := true;
+    SplitViewMenu.Opened := True;
   end;
   // resizeTheEngineForm;
   // resizeModelForm;
@@ -541,11 +557,11 @@ begin
   end
   else
   begin
-    ButtonStatementSave.Enabled := true;
-    ButtonStatementSave.Visible := true;
+    ButtonStatementSave.Enabled := True;
+    ButtonStatementSave.Visible := True;
 
-    DatePickerStatementRegistrationDate.Enabled := true;
-    DatePickerStatementExecutionDate.Enabled := true;
+    DatePickerStatementRegistrationDate.Enabled := True;
+    DatePickerStatementExecutionDate.Enabled := True;
 
     showStatementModificationButtons
   end;
@@ -571,11 +587,11 @@ begin
   end
   else
   begin
-    ButtonStatementSave.Enabled := true;
-    ButtonStatementSave.Visible := true;
+    ButtonStatementSave.Enabled := True;
+    ButtonStatementSave.Visible := True;
 
-    DatePickerStatementRegistrationDate.Enabled := true;
-    DatePickerStatementExecutionDate.Enabled := true;
+    DatePickerStatementRegistrationDate.Enabled := True;
+    DatePickerStatementExecutionDate.Enabled := True;
 
     showStatementModificationButtons
   end;
@@ -598,17 +614,17 @@ end;
 
 procedure TMainForm.showStatementModificationButtons();
 begin
-  ButtonServicesAdd.Enabled := true;
-  ButtonServicesAdd.Visible := true;
+  ButtonServicesAdd.Enabled := True;
+  ButtonServicesAdd.Visible := True;
 
-  ButtonServicesDelete.Enabled := true;
-  ButtonServicesDelete.Visible := true;
+  ButtonServicesDelete.Enabled := True;
+  ButtonServicesDelete.Visible := True;
 
-  ButtonConsumablesAdd.Enabled := true;
-  ButtonConsumablesAdd.Visible := true;
+  ButtonConsumablesAdd.Enabled := True;
+  ButtonConsumablesAdd.Visible := True;
 
-  ButtonConsumablesDelete.Enabled := true;
-  ButtonConsumablesDelete.Visible := true;
+  ButtonConsumablesDelete.Enabled := True;
+  ButtonConsumablesDelete.Visible := True;
 end;
 
 procedure TMainForm.SpeedButtonStatementNextClick(Sender: TObject);
@@ -631,11 +647,11 @@ begin
   end
   else
   begin
-    ButtonStatementSave.Enabled := true;
-    ButtonStatementSave.Visible := true;
+    ButtonStatementSave.Enabled := True;
+    ButtonStatementSave.Visible := True;
 
-    DatePickerStatementRegistrationDate.Enabled := true;
-    DatePickerStatementExecutionDate.Enabled := true;
+    DatePickerStatementRegistrationDate.Enabled := True;
+    DatePickerStatementExecutionDate.Enabled := True;
 
     showStatementModificationButtons
   end;
@@ -662,14 +678,23 @@ begin
   end
   else
   begin
-    ButtonStatementSave.Enabled := true;
-    ButtonStatementSave.Visible := true;
+    ButtonStatementSave.Enabled := True;
+    ButtonStatementSave.Visible := True;
 
-    DatePickerStatementRegistrationDate.Enabled := true;
-    DatePickerStatementExecutionDate.Enabled := true;
+    DatePickerStatementRegistrationDate.Enabled := True;
+    DatePickerStatementExecutionDate.Enabled := True;
 
     showStatementModificationButtons
   end;
+end;
+
+procedure TMainForm.TabSheetReportsShow(Sender: TObject);
+begin
+  // DataModuleDB.FDQueryDynamicReportUsedServices.ParamByName('START_DATE').AsDate
+  // := DatePickerDynamicReportStart.Date;
+  // DataModuleDB.FDQueryDynamicReportUsedServices.ParamByName('END_DATE').AsDate
+  // := DatePickerDynamicReportEnd.Date;
+  // DataModuleDB.FDQueryDynamicReportUsedServices.Open;
 end;
 
 procedure TMainForm.SpeedButtonMenuHandbooksClick(Sender: TObject);

@@ -43,7 +43,7 @@ type
     DBEditModelId: TDBEdit;
     DataSourceModels: TDataSource;
     DataSourceMarks: TDataSource;
-    FDConnection1: TFDConnection;
+    FDConnectionModels: TFDConnection;
     FDTableModels: TFDTable;
     FDTableMarks: TFDTable;
     DatePicker1: TDatePicker;
@@ -75,11 +75,14 @@ type
     procedure Button5Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure SearchEditChange(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
 
   private
     FDConnection: TFDConnection;
+    DBUserName: string;
+    DBPassword: string;
+    DBAddress: string;
   public
-    procedure SetFDConnection(connection: TFDConnection);
 
   end;
 
@@ -89,6 +92,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DBManagement;
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
@@ -120,16 +125,16 @@ begin
   Button5.Enabled := false;
 end;
 
+procedure TForm1.FormActivate(Sender: TObject);
+begin
+  UpdateDBConnection(FDConnectionModels, [FDTableModels, FDTableMarks]);
+end;
+
 procedure TForm1.SearchEditChange(Sender: TObject);
 begin
   FDTableModels.Filtered := false;
   FDTableModels.Filter := 'name like ' + QuotedStr(SearchEdit.Text + '%');
   FDTableModels.Filtered := true;
-end;
-
-procedure TForm1.SetFDConnection(connection: TFDConnection);
-begin
-  FDConnection := connection;
 end;
 
 procedure TForm1.SpeedButton1Click(Sender: TObject);

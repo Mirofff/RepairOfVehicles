@@ -7,15 +7,16 @@ library models;
 uses
   System.Classes,
   Vcl.ComCtrls,
-  FormModels in 'forms\FormModels.pas' {Form3};
+  FormModels in 'forms\FormModels.pas' {Form3},
+  DotEnv4Delphi in '..\common\DotEnv4Delphi.pas',
+  DBManagement in '..\common\DBManagement.pas';
 
 {$R *.res}
 
 var
   tabSheet: TTabSheet;
 
-procedure createModelForm(tabShee: TTabSheet;
-  connectionDefName: PWideChar);
+procedure createModelForm(tabShee: TTabSheet);
 begin
   tabSheet := tabShee;
   form1 := TForm1.createparented(tabShee.handle);
