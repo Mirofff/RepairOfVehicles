@@ -25,9 +25,9 @@ type
     TabSheet5: TTabSheet;
     TabSheet4: TTabSheet;
     TabSheet3: TTabSheet;
-    TabSheet7: TTabSheet;
+    TabSheetConsumables: TTabSheet;
     TabSheet6: TTabSheet;
-    TabSheet8: TTabSheet;
+    TabSheetServices: TTabSheet;
     TabSheet9: TTabSheet;
     TabSheetAuth: TTabSheet;
     GridPanelAuth: TGridPanel;
@@ -126,7 +126,6 @@ type
     procedure SpeedButtonMenuReportsClick(Sender: TObject);
     procedure SpeedButtonMenuOperationsLogsClick(Sender: TObject);
     procedure SpeedButtonMenuLogoutClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBGridConsumablesDblClick(Sender: TObject);
     procedure DBGridServicesDblClick(Sender: TObject);
     procedure ButtonConsumablesAddClick(Sender: TObject);
@@ -176,41 +175,13 @@ implementation
 uses Bcrypt, DataModule;
 
 {$R *.dfm}
-{ =--- Model's form procedures ---= }
-procedure createTheEngineForm(tabShee: TTabSheet; connectionDefName: PWideChar);
-  external 'engines.dll';
-procedure resizeTheEngineForm; external 'engines.dll';
-procedure closeTheEngineForm; external 'engines.dll';
-
-{ =--- Model's form procedures ---= }
-procedure createModelForm(tabShee: TTabSheet; connectionDefName: PWideChar);
-  external 'models.dll';
-procedure resizeModelForm; external 'models.dll';
-procedure closeModelForm; external 'models.dll';
-
-{ =--- Brand's form procedures ---= }
-procedure createBrandsForm(tabShee: TTabSheet; connectionDefName: PWideChar);
-  external 'brands.dll';
-procedure resizeBrandsForm; external 'brands.dll';
-
-{ =--- Car's form procedures ---= }
-procedure createCarsForm(tabShee: TTabSheet; connectionDefName: PWideChar);
-  external 'cars.dll';
-procedure resizeCarsForm; external 'cars.dll';
-
-{ =--- Service's form procedures ---= }
-procedure createServicesForm(tabShee: TTabSheet; connectionDefName: PWideChar);
-  external 'services.dll';
+{ =--- Services form procedures ---= }
+procedure createServicesForm(tabShee: TTabSheet); external 'services.dll';
 procedure resizeServicesForm; external 'services.dll';
 
-{ =--- Consumable's form procedures ---= }
+{ =--- Consumables form procedures ---= }
 procedure createConsumablesForm(tabShee: TTabSheet); external 'consumables.dll';
 procedure resizeConsumablesForm; external 'consumables.dll';
-
-{ =--- Client's form procedures ---= }
-procedure createClientsForm(tabShee: TTabSheet; connectionDefName: PWideChar);
-  external 'clients.dll';
-procedure resizeClientsForm; external 'clients.dll';
 
 procedure TMainForm.changeComponentsStatus(components: array of TControl;
   status: boolean);
@@ -488,34 +459,17 @@ begin
   end;
 end;
 
-procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  closeModelForm;
-end;
-
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
-
-  { =--- DLL's forms initialize ---= }
-  // createTheEngineForm(TabSheet3, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
-  // createModelForm(TabSheet5, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
-  // createBrandsForm(TabSheet4, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
-  // createCarsForm(TabSheet9, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
-  // createServicesForm(TabSheet8, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
-  createConsumablesForm(TabSheet7);
-  // createClientsForm(TabSheet6, PWideChar(DataModuleDB.FDConnectionMain.ConnectionDefName));
-
+  { =--- DLLs forms initialize ---= }
+  createServicesForm(TabSheetServices);
+  createConsumablesForm(TabSheetConsumables);
 end;
 
 procedure TMainForm.FormResize(Sender: TObject);
 begin
-  // resizeTheEngineForm;
-  // resizeModelForm;
-  // resizeBrandsForm;
-  // resizeCarsForm;
-  // resizeServicesForm;
+  resizeServicesForm;
   resizeConsumablesForm;
-  // resizeClientsForm;
 end;
 
 procedure TMainForm.SpeedButton1Click(Sender: TObject);
@@ -528,13 +482,8 @@ begin
   begin
     SplitViewMenu.Opened := True;
   end;
-  // resizeTheEngineForm;
-  // resizeModelForm;
-  // resizeBrandsForm;
-  // resizeCarsForm;
-  // resizeServicesForm;
+  resizeServicesForm;
   resizeConsumablesForm;
-  // resizeClientsForm
 end;
 
 procedure TMainForm.SpeedButtonStatementFirstClick(Sender: TObject);

@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{93E2ECC3-B1BC-48CB-8DFB-8F7B7AE7CAAC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="repair_of_vehicles\RepairOfVehicles.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="consumables_dll\consumables.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="stuffDll\stuff.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="servicesDll\services.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RepairOfVehicles">
+        <MSBuild Projects="repair_of_vehicles\RepairOfVehicles.dproj"/>
+    </Target>
+    <Target Name="RepairOfVehicles:Clean">
+        <MSBuild Projects="repair_of_vehicles\RepairOfVehicles.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RepairOfVehicles:Make">
+        <MSBuild Projects="repair_of_vehicles\RepairOfVehicles.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="consumables">
+        <MSBuild Projects="consumables_dll\consumables.dproj"/>
+    </Target>
+    <Target Name="consumables:Clean">
+        <MSBuild Projects="consumables_dll\consumables.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="consumables:Make">
+        <MSBuild Projects="consumables_dll\consumables.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="stuff">
+        <MSBuild Projects="stuffDll\stuff.dproj"/>
+    </Target>
+    <Target Name="stuff:Clean">
+        <MSBuild Projects="stuffDll\stuff.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="stuff:Make">
+        <MSBuild Projects="stuffDll\stuff.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="services">
+        <MSBuild Projects="servicesDll\services.dproj"/>
+    </Target>
+    <Target Name="services:Clean">
+        <MSBuild Projects="servicesDll\services.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="services:Make">
+        <MSBuild Projects="servicesDll\services.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RepairOfVehicles;consumables;stuff;services"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RepairOfVehicles:Clean;consumables:Clean;stuff:Clean;services:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RepairOfVehicles:Make;consumables:Make;stuff:Make;services:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

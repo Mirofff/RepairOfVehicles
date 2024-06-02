@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{C1B5C0F7-FB8F-4846-BFE7-716FF94FDF69}</ProjectGuid>
+        <ProjectGuid>{D9223705-D06F-4D4B-B40C-429910E4A647}</ProjectGuid>
         <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -8,8 +8,8 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Library</AppType>
-        <MainSource>cars.dpr</MainSource>
-        <ProjectName Condition="'$(ProjectName)'==''">cars</ProjectName>
+        <MainSource>services.dpr</MainSource>
+        <ProjectName Condition="'$(ProjectName)'==''">services</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -50,9 +50,9 @@
         <DCC_K>false</DCC_K>
         <GenDll>true</GenDll>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-        <SanitizedProjectName>cars</SanitizedProjectName>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <SanitizedProjectName>services</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DataSnapServer;vclwinx;frxIBX28;emshosting;fmx;DbxCommonDriver;vclie;bindengine;VCLRESTComponents;FireDACCommonODBC;DBXMSSQLDriver;IndyIPCommon;emsclient;FireDACCommonDriver;fsIBX28;appanalytics;IndyProtocols;vclx;frxe28;dbxcds;vcledge;IndyIPClient;frxTee28;bindcompvclwinx;FmxTeeUI;emsedge;bindcompfmx;DBXFirebirdDriver;fsDB28;inetdb;frxADO28;ibmonitor;FireDACSqliteDriver;DbxClientDriver;FireDACASADriver;Tee;soapmidas;vclactnband;TeeUI;frxIntIO28;fmxFireDAC;dbexpress;FireDACInfxDriver;frxDBX28;DBXMySQLDriver;VclSmp;inet;DataSnapCommon;fmxase;vcltouch;frx28;DBXOdbcDriver;dbrtl;FireDACOracleDriver;FireDACDBXDriver;fmxdae;TeeDB;FireDACMSAccDriver;CustomIPTransport;FireDACMSSQLDriver;DataSnapIndy10ServerTransport;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;frxDB28;FireDACMongoDBDriver;IndySystem;FireDACTDataDriver;vcldb;ibxbindings;frxIntIOIndy28;vclFireDAC;fs28;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;IndyCore;RESTBackendComponents;fsTee28;bindcompdbx;frxHTML28;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;adortl;dsnapxml;IndyIPServer;DataSnapClient;DataSnapProviderClient;dsnapcon;DBXSybaseASEDriver;DBXDb2Driver;frxcs28;vclimg;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;FireDACDSDriver;inetdbxpress;xmlrtl;tethering;ibxpress;frxPDF28;bindcompvcl;dsnap;fsADO28;DBXSybaseASADriver;CloudService;DBXOracleDriver;FireDACDb2Driver;DBXInformixDriver;vclib;DataSnapNativeClient;bindcompvclsmp;fmxobj;FMXTee;DatasnapConnectorsFreePascal;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -79,7 +79,7 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <Manifest_File>(None)</Manifest_File>
+        <Manifest_File>..\..\..\..\OneDrive\Documents\Embarcadero\Studio\Projects\(None)</Manifest_File>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
         <DCC_DcuOutput>.\forms\</DCC_DcuOutput>
     </PropertyGroup>
@@ -93,7 +93,9 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="forms\FormModels.pas">
+        <DCCReference Include="..\common\DBManagement.pas"/>
+        <DCCReference Include="..\common\DotEnv4Delphi.pas"/>
+        <DCCReference Include="FormServices.pas">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -114,18 +116,18 @@
         <Borland.ProjectType>Application</Borland.ProjectType>
         <BorlandProject>
             <Delphi.Personality>
-                <Source>
-                    <Source Name="MainSource">cars.dpr</Source>
-                </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
+                <Source>
+                    <Source Name="MainSource">services.dpr</Source>
+                </Source>
             </Delphi.Personality>
             <Deployment Version="4">
-                <DeployFile LocalName="Win32\Debug\cars.dll" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\bin\services.dll" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>cars.dll</RemoteName>
+                        <RemoteName>services.dll</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

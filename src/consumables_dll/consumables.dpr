@@ -1,10 +1,10 @@
-library consumables;
+library Consumables;
 
 uses
   System.SysUtils,
   System.Classes,
   Vcl.ComCtrls,
-  FormConsumables in 'forms\FormConsumables.pas' {Form1},
+  FormConsumables in 'forms\FormConsumables.pas' {Form1} ,
   DBManagement in '..\common\DBManagement.pas',
   DotEnv4Delphi in '..\common\DotEnv4Delphi.pas';
 

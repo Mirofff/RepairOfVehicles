@@ -30,7 +30,6 @@
   GlassFrame.Top = 31
   Position = poDesigned
   StyleElements = [seFont, seClient]
-  OnClose = FormClose
   OnCreate = FormCreate
   OnResize = FormResize
   TextHeight = 15
@@ -68,14 +67,14 @@
         Margins.Top = 0
         Margins.Right = 0
         Margins.Bottom = 0
-        ActivePage = TabSheet7
+        ActivePage = TabSheetConsumables
         Align = alClient
         HotTrack = True
         MultiLine = True
         RaggedRight = True
         TabOrder = 0
         StyleElements = [seFont]
-        object TabSheet7: TTabSheet
+        object TabSheetConsumables: TTabSheet
           Caption = #1056#1072#1089#1093#1086#1076#1085#1099#1077' '#1084#1072#1090#1077#1088#1080#1072#1083#1099
           ImageIndex = 4
         end
@@ -95,7 +94,7 @@
           Caption = #1050#1083#1080#1077#1085#1090#1099
           ImageIndex = 3
         end
-        object TabSheet8: TTabSheet
+        object TabSheetServices: TTabSheet
           Caption = #1059#1089#1083#1091#1075#1080
           ImageIndex = 5
         end
@@ -1607,7 +1606,7 @@
               270000000049454E44AE426082}
           end>
       end>
-    Left = 42
+    Left = 74
     Top = 402
   end
   object VirtualImageList1: TVirtualImageList
@@ -1645,8 +1644,8 @@
     ImageCollection = ImageCollection1
     Width = 40
     Height = 40
-    Left = 43
-    Top = 342
+    Left = 75
+    Top = 334
   end
   object DataSourceReportUsedServices: TDataSource
     DataSet = DataModuleDB.FDQueryDynamicReportUsedServices

@@ -1,4 +1,4 @@
-program repair_of_vehicles;
+program RepairOfVehicles;
 
 uses
   Vcl.Forms,

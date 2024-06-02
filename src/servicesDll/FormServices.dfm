@@ -5,8 +5,8 @@ object Form1: TForm1
   BiDiMode = bdLeftToRight
   BorderStyle = bsNone
   Caption = #1044#1074#1080#1075#1072#1090#1077#1083#1080
-  ClientHeight = 624
-  ClientWidth = 919
+  ClientHeight = 580
+  ClientWidth = 854
   Color = clBtnFace
   CustomTitleBar.CaptionAlignment = taCenter
   CustomTitleBar.ShowIcon = False
@@ -28,11 +28,12 @@ object Form1: TForm1
   ParentBiDiMode = False
   Position = poDesigned
   StyleElements = [seFont, seClient]
+  OnCreate = FormCreate
   TextHeight = 15
   object Splitter1: TSplitter
-    Left = 289
-    Top = 52
-    Height = 572
+    Left = 217
+    Top = 45
+    Height = 535
     ExplicitLeft = 352
     ExplicitTop = 456
     ExplicitHeight = 100
@@ -40,8 +41,8 @@ object Form1: TForm1
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 919
-    Height = 52
+    Width = 854
+    Height = 45
     ParentCustomHint = False
     Align = alTop
     BevelOuter = bvNone
@@ -67,19 +68,19 @@ object Form1: TForm1
     object GroupBox1: TGroupBox
       Left = 0
       Top = 0
-      Width = 632
-      Height = 52
+      Width = 569
+      Height = 45
       Align = alClient
-      Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1092#1072#1084#1080#1083#1080#1080
+      Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1086#1087#1080#1089#1072#1085#1080#1102
       TabOrder = 0
       object SearchEdit: TEdit
-        Left = 2
-        Top = 17
-        Width = 628
-        Height = 33
+        AlignWithMargins = True
+        Left = 5
+        Top = 20
+        Width = 559
+        Height = 20
         ParentCustomHint = False
         Align = alClient
-        AutoSize = False
         BiDiMode = bdLeftToRight
         Ctl3D = True
         DoubleBuffered = False
@@ -95,67 +96,73 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
+        OnChange = SearchEditChange
+        ExplicitHeight = 25
       end
     end
     object GroupBox2: TGroupBox
-      Left = 632
+      Left = 569
       Top = 0
-      Width = 287
-      Height = 52
+      Width = 285
+      Height = 45
       Align = alRight
       Caption = #1053#1072#1074#1080#1075#1072#1094#1080#1103
       TabOrder = 1
       object SpeedButton1: TSpeedButton
-        Left = 5
-        Top = 17
-        Width = 70
-        Height = 33
+        AlignWithMargins = True
+        Left = 2
+        Top = 20
+        Width = 65
+        Height = 20
         Align = alRight
         Caption = #9664' '
-        ExplicitLeft = 1
-        ExplicitTop = 23
-        ExplicitHeight = 22
+        OnClick = SpeedButton1Click
+        ExplicitLeft = 24
+        ExplicitHeight = 27
       end
       object SpeedButton2: TSpeedButton
-        Left = 75
-        Top = 17
-        Width = 70
-        Height = 33
+        AlignWithMargins = True
+        Left = 73
+        Top = 20
+        Width = 65
+        Height = 20
         Align = alRight
         Caption = '|'#9664' '
-        ExplicitLeft = 69
-        ExplicitTop = 16
-        ExplicitHeight = 31
+        OnClick = SpeedButton2Click
+        ExplicitTop = 22
+        ExplicitHeight = 27
       end
       object SpeedButton3: TSpeedButton
-        Left = 145
-        Top = 17
-        Width = 70
-        Height = 33
+        AlignWithMargins = True
+        Left = 144
+        Top = 20
+        Width = 65
+        Height = 20
         Align = alRight
         Caption = #9654'|'
-        ExplicitLeft = 139
-        ExplicitTop = 16
-        ExplicitHeight = 31
+        OnClick = SpeedButton3Click
+        ExplicitLeft = 156
+        ExplicitHeight = 27
       end
       object SpeedButton4: TSpeedButton
+        AlignWithMargins = True
         Left = 215
-        Top = 17
-        Width = 70
-        Height = 33
+        Top = 20
+        Width = 65
+        Height = 20
         Align = alRight
         Caption = #9654' '
-        ExplicitLeft = 221
-        ExplicitTop = 16
-        ExplicitHeight = 31
+        OnClick = SpeedButton4Click
+        ExplicitLeft = 222
+        ExplicitHeight = 27
       end
     end
   end
   object Panel5: TPanel
     Left = 0
-    Top = 52
-    Width = 289
-    Height = 572
+    Top = 45
+    Width = 217
+    Height = 535
     Align = alLeft
     BevelOuter = bvNone
     Caption = 'Panel5'
@@ -165,8 +172,8 @@ object Form1: TForm1
     object Panel1: TPanel
       Left = 0
       Top = 0
-      Width = 289
-      Height = 445
+      Width = 217
+      Height = 408
       Align = alClient
       BevelOuter = bvNone
       Caption = 'Panel1'
@@ -176,203 +183,75 @@ object Form1: TForm1
       object GroupBox7: TGroupBox
         Left = 0
         Top = 0
-        Width = 289
-        Height = 55
+        Width = 217
+        Height = 45
         Align = alTop
         Caption = '#'
         TabOrder = 0
-        object LabelID: TLabel
+        object DBLabeledEditId: TDBLabeledEdit
           AlignWithMargins = True
           Left = 5
           Top = 20
-          Width = 279
-          Height = 30
+          Width = 207
+          Height = 20
           Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          ExplicitLeft = 4
-          ExplicitTop = 24
-          ExplicitHeight = 25
+          DataField = 'id'
+          DataSource = DataSourceConsumables
+          Enabled = False
+          TabOrder = 0
+          EditLabel.Width = 10
+          EditLabel.Height = 15
+          LabelPosition = lpBelow
+          ExplicitHeight = 23
         end
       end
       object GroupBox5: TGroupBox
         Left = 0
-        Top = 55
-        Width = 289
-        Height = 55
+        Top = 45
+        Width = 217
+        Height = 45
         Align = alTop
-        Caption = #1048#1084#1103
+        Caption = #1054#1087#1080#1089#1072#1085#1080#1077
         TabOrder = 1
-        object EditName: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
+        object DBEdit1: TDBEdit
+          AlignWithMargins = True
+          Left = 5
+          Top = 20
+          Width = 207
+          Height = 20
           Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
+          DataField = 'name'
+          DataSource = DataSourceConsumables
           TabOrder = 0
+          ExplicitHeight = 23
         end
       end
       object GroupBox4: TGroupBox
         Left = 0
-        Top = 110
-        Width = 289
-        Height = 55
+        Top = 90
+        Width = 217
+        Height = 45
         Align = alTop
-        Caption = #1060#1072#1084#1080#1083#1080#1103
+        Caption = #1062#1077#1085#1072
         TabOrder = 2
-        object EditSurname: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
+        object DBEditPrice: TDBEdit
+          AlignWithMargins = True
+          Left = 5
+          Top = 20
+          Width = 207
+          Height = 20
           Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
+          DataField = 'price'
+          DataSource = DataSourceConsumables
           TabOrder = 0
-        end
-      end
-      object GroupBox6: TGroupBox
-        Left = 0
-        Top = 165
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1054#1090#1095#1077#1089#1090#1074#1086
-        TabOrder = 3
-        object EditPatronymic: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox8: TGroupBox
-        Left = 0
-        Top = 220
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1053#1086#1084#1077#1088' '#1090#1077#1083#1077#1092#1086#1085#1072
-        TabOrder = 4
-        object EditPhone: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox9: TGroupBox
-        Left = 0
-        Top = 275
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1040#1076#1088#1077#1089
-        TabOrder = 5
-        object EditAddress: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox10: TGroupBox
-        Left = 0
-        Top = 330
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1057#1077#1088#1080#1103' '#1087#1072#1089#1087#1086#1088#1090#1072
-        TabOrder = 6
-        object EditSeries: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-        end
-      end
-      object GroupBox11: TGroupBox
-        Left = 0
-        Top = 385
-        Width = 289
-        Height = 55
-        Align = alTop
-        Caption = #1053#1086#1084#1077#1088' '#1087#1072#1089#1087#1086#1088#1090#1072
-        TabOrder = 7
-        object EditNumber: TEdit
-          Left = 2
-          Top = 17
-          Width = 285
-          Height = 36
-          Align = alClient
-          AutoSize = False
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
+          ExplicitHeight = 23
         end
       end
     end
     object GroupBox3: TGroupBox
       Left = 0
-      Top = 445
-      Width = 289
+      Top = 408
+      Width = 217
       Height = 127
       Align = alBottom
       Caption = #1052#1086#1076#1080#1092#1080#1082#1072#1094#1080#1103
@@ -381,16 +260,17 @@ object Form1: TForm1
         AlignWithMargins = True
         Left = 5
         Top = 56
-        Width = 279
+        Width = 207
         Height = 30
         Align = alBottom
         Caption = #1044#1086#1073#1072#1074#1080#1090#1100
         TabOrder = 0
+        OnClick = Button3Click
       end
       object GridPanel1: TGridPanel
         Left = 2
         Top = 17
-        Width = 285
+        Width = 213
         Height = 36
         Align = alTop
         BevelOuter = bvNone
@@ -423,44 +303,48 @@ object Form1: TForm1
           AlignWithMargins = True
           Left = 3
           Top = 3
-          Width = 136
+          Width = 100
           Height = 30
           Align = alClient
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
           TabOrder = 0
+          OnClick = Button2Click
         end
         object Button4: TButton
           AlignWithMargins = True
-          Left = 145
+          Left = 109
           Top = 3
-          Width = 137
+          Width = 101
           Height = 30
           Align = alClient
           Caption = #1059#1076#1072#1083#1080#1090#1100
           TabOrder = 1
+          OnClick = Button4Click
         end
       end
       object Button5: TButton
         AlignWithMargins = True
         Left = 5
         Top = 92
-        Width = 279
+        Width = 207
         Height = 30
         Align = alBottom
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
         Enabled = False
         TabOrder = 2
+        OnClick = Button5Click
       end
     end
   end
   object DBGrid1: TDBGrid
     AlignWithMargins = True
-    Left = 295
-    Top = 55
-    Width = 621
-    Height = 566
+    Left = 223
+    Top = 48
+    Width = 628
+    Height = 529
     Align = alClient
     BorderStyle = bsNone
+    DataSource = DataSourceConsumables
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
@@ -468,5 +352,69 @@ object Form1: TForm1
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'id'
+        Title.Caption = '#'
+        Width = 46
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'name'
+        Title.Caption = #1053#1072#1079#1074#1072#1085#1080#1077
+        Width = 431
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'price'
+        Title.Caption = #1062#1077#1085#1072
+        Width = 115
+        Visible = True
+      end>
+  end
+  object FDTableServices: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = FDConnectionMain
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = '`car-workshop`.services'
+    Left = 112
+    Top = 332
+    object FDTableServicesid: TLargeintField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDTableServicesname: TWideStringField
+      FieldName = 'name'
+      Origin = '`name`'
+      Required = True
+      Size = 255
+    end
+    object FDTableServicesprice: TFloatField
+      FieldName = 'price'
+      Origin = 'price'
+      Required = True
+      currency = True
+    end
+  end
+  object DataSourceConsumables: TDataSource
+    DataSet = FDTableServices
+    Left = 112
+    Top = 272
+  end
+  object FDConnectionMain: TFDConnection
+    Params.Strings = (
+      'CharacterSet=utf8'
+      'ConnectionDef=CarWorkshop')
+    ConnectedStoredUsage = [auDesignTime]
+    Connected = True
+    LoginPrompt = False
+    Left = 112
+    Top = 392
   end
 end

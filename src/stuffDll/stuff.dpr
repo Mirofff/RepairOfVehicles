@@ -1,18 +1,19 @@
-library clients;
+library stuff;
 
 uses
   System.SysUtils,
   System.Classes,
   Vcl.ComCtrls,
-  FormModels in 'forms\FormModels.pas' {Form1};
+  FormStuff in 'FormStuff.pas' {Form1},
+  DBManagement in '..\common\DBManagement.pas',
+  DotEnv4Delphi in '..\common\DotEnv4Delphi.pas';
 
 {$R *.res}
 
 var
   tabSheet: TTabSheet;
 
-procedure createClientsForm(tabShee: TTabSheet;
-  connectionDefName: PWideChar);
+procedure createServicesForm(tabShee: TTabSheet);
 begin
   tabSheet := tabShee;
   form1 := TForm1.createparented(tabShee.handle);
@@ -23,15 +24,16 @@ begin
   form1.width := tabShee.width;
 end;
 
-procedure resizeClientsForm;
+procedure resizeServicesForm;
 begin
   form1.height := tabSheet.height;
   form1.width := tabSheet.width;
 end;
 
 exports
-  createClientsForm,
-  resizeClientsForm;
+  createServicesForm,
+  resizeServicesForm;
 
 begin
+
 end.
